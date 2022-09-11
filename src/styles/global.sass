@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap")
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap")
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap")
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&amp;display=swap")
+*
+     margin: 0
+     padding: 0
+     box-sizing: border-box
+     font-family: "Poppins", sans-serif
+     list-style-type: none
+     user-select: none
+     -webkit-user-select: none
+     -moz-user-select: none
+     -ms-user-select: none
+
+::-webkit-scrollbar
+     width: 0
+
+[data-theme="blue"]
+     --bg: radial-gradient(circle, #195985, #000fff, #2b35c5, #2e5eb6)
+     --header-icon: #1170dd
+     --header-icon-hover: #07daff
+     --header-icon-before: #39a4fc
+     --tooltip-color: #18d1ff
+     --card-background: linear-gradient(#165a88, #1f28aa, #0a2a5a)
+     --card-box-shadow: #153f999a
+     --card-border: #235188
+     --myname-color: linear-gradient(to right, #42ccd1, #0e4f6d, #1171c0, #00ffea)
+     --typing-color: #11c2c2de
+     --button-background: linear-gradient(to top, #1c4fad, #193388, #1c4fad)
+     --button-color: #40b9f1
+     --avatar-outline: #006eff
+     --avatar-outline-hover: #00b7ff
+     --tab-contact-bg: linear-gradient(60deg, #184774, #224d85)
+     --tab-contact-border: #1880b1
+     --tab-contact-color: #2bb2e7
+     --tab-contact-before: #1f94ca
+     --tab-contact-hover: #215e9b
+     --cube-color: linear-gradient(#338fda, #1422e2)
+     --top-cube-color: #2c94e9
+     --heart-color: #2260d3
+     --heart-color-action: #2192c7
+     --heart-count-color: #2192c7
+     --name-language-color: #00e1ffbf
+     --process-outline: #2288b8b7
+     --percent-color: #4ec6f5
+     --percent-background: linear-gradient(to right, #13568d, #2f69e6, #10a4e9)
+     --meteor-background: linear-gradient(#00b7ff, #14cdee)
+     --meteor-color: #00ffff
+     --loading-color: #3f97df
+     --view-color: #0084ff
+     --header-contact: #00e1ff
+     --box-icon: #123653
+     --box-label: #5bc0cbe5
+     --box-input-border: #2ab8f0
+     --box-input-border-focus: #30c5cf
+     --box-input-color: #19e9de
+     --message-outline: #1eaae27c
+     --message-outline-focus: #3281db
+     --message-color: #a4d0d3
+     --message-placeholder: #cce1e466
+     --submit-background: linear-gradient(to right, #347fe0, #2d3f91, #347fe0)
+     --submit-color: #bedee0
+     --toggle: #425df3
+     --toggle-shadow: #5381bd
+     --toggle-before: #00ffffe7
+     --bubbles: #0099ff5b
+[data-theme="pink"]
+     --bg: radial-gradient(circle, #c056c0, #8712b6, #ad266a, #bb1b58)
+     --header-icon: #d63b90c5
+     --header-icon-hover: #ff20c7
+     --header-icon-before: #ff20da
+     --tooltip-color: #ff20b5
+     --card-background: linear-gradient(#a50675,#9c0d71, #791552)
+     --card-box-shadow: #96146091
+     --card-border: #c029b8
+     --myname-color: linear-gradient(90deg, #c03f99, #bb2db4, #df3bee, #ee71e8)
+     --typing-color: #f264ff
+     --button-background: linear-gradient(to top, #c72c99, transparent, #c72c99)
+     --button-color: #f074b2
+     --avatar-outline: #ff00b3
+     --avatar-outline-hover: #be48e2
+     --tab-contact-bg: linear-gradient(60deg, #941589e3, #630e57e1)
+     --tab-contact-border: #ff00f2d3
+     --tab-contact-color: #e730b9
+     --tab-contact-before: #d74af3e7
+     --tab-contact-hover: #af2686
+     --cube-color: linear-gradient(#8b2499, #e2146a)
+     --top-cube-color: #ff008c
+     --heart-color: #b62890
+     --heart-color-action: #e21fa8
+     --heart-count-color: #d81ea0
+     --name-language-color: #de8ded
+     --process-outline: #ff00ea
+     --percent-color: #d5aeeddb
+     --percent-background: linear-gradient(to right, #bd0c88, #d6108a, #ff00c8)
+     --meteor-background: linear-gradient(to right, #e838ff, #ff00ea)
+     --meteor-color: #ff00ea
+     --loading-color: #e441ae
+     --header-contact: #f552d2
+     --box-icon: #810c57
+     --box-label: #e78cdcbe
+     --box-input-border: #ff1dec
+     --box-input-border-focus: #ff1dec83
+     --box-input-color: #e29aeb
+     --message-outline: #f05ae3bd
+     --message-outline-focus: #dd35c1
+     --message-color: #e29aeb
+     --message-placeholder: #ebd3e766
+     --submit-background: linear-gradient(to right, #ff02a6, #e23586, #ff02a6)
+     --submit-color: #e795da
+     --toggle: #ec299b
+     --toggle-shadow: #ad43bb
+     --toggle-before: #e056ce
+     --bubbles: #ec299b
+a,
+svg,
+button,
+span
+     cursor: url(../images/mouse-f2.png), auto !important
+button, input
+     outline: none
+     border: none
+     user-select: none
+html
+     cursor: url(../images/mouse-f1.png), auto
+     overflow: hidden
+
+body
+     width: 100%
+     min-height: 100vh
+     transition: all 0.5s ease
+     background: var(--bg)
+     background-size: cover
+     background-repeat: repeat
+     background-position: center
+     user-select: none
+     -moz-user-select: none
+     -webkit-user-select: none
+     &::before 
+          content: ""
+          position: absolute
+          min-width: 100%
+          min-height: 100vh
+          background-color: rgba(0, 0, 0, 0.7)
+header
+     position: fixed
+     width: 100%
+     height: auto
+     top: 0
+     left: 0
+     display: flex
+     justify-content: center
+     align-items: center
+     z-index: 2

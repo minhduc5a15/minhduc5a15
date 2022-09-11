@@ -1,0 +1,22 @@
+import { css } from "@emotion/css";
+
+const TypingBox = ({ children }) => {
+     return (
+          <div className={css`
+                    width: 75%;
+                    height: 60%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: var(--typing-color);
+                    font-size: 20px;
+                    letter-spacing: 1px;
+                    @media only screen and (max-width: 450px) {
+                         font-size: 18px;
+                    }
+               `}>
+               {children}
+          </div>
+     );
+};
+export default TypingBox;
