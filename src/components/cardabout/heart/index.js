@@ -39,7 +39,7 @@ const Heart = () => {
           }
           else {
                setValue(0);
-          }
+          };
           return () => ref.current.off();
      }, [data]);
      return (
