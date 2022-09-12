@@ -1,31 +1,15 @@
 import { css } from "@emotion/css";
 import { styles } from "../../../styles";
-const isValidEmail = (str) => {
-     const text = "@gmail.com";
-     if (typeof str === "string") {
-          if (str.indexOf(text) >= 1) {
-               return true;
-          }
-     }
-     return false;
-};
-const isValidName = (str) => {
-     if (typeof str === "string") return str.length > 1;
-};
-const isValidMessage = (str) => {
-     if (typeof str === "string") return str.length > 1;
-};
+const isValidEmail = str => typeof str === "string" && str.indexOf("@gmail.com") >= 1;
 
-const isValid = (email, name, message) => {
-     if (!isValidEmail(email) || !isValidName(name) || !isValidMessage(message)) {
-          return false;
-     }
-     return true;
-};
+const isValidName = str => typeof str === "string" && str.length > 1;
+
+const isValidMessage = str => typeof str === "string" && str.length > 1;
+
+const isValid = (email, name, message) => isValidEmail(email) && isValidName(name) && isValidMessage(message);
+
 const Submit = ({ email, name, message, submit, setOpen }) => {
-     const handleOpen = () => {
-          setOpen(true);
-     };
+     const handleOpen = () => setOpen(true);
      return (
           <div className={styles["submit-container"]}
                data-aos="fade-up"
@@ -43,8 +27,8 @@ const Submit = ({ email, name, message, submit, setOpen }) => {
                                    `}
                               }
                          `}
-                         disabled={!isValid(email, name, message)}
                          type="submit"
+                         disabled={!isValid(email, name, message)}
                          onClick={() => {
                               handleOpen();
                               submit(email, name, message);
