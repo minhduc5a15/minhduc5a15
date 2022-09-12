@@ -9,6 +9,7 @@ import { default as HeartIconOutlined } from "@mui/icons-material/FavoriteOutlin
 const Heart = () => {
      const [data, setData] = useState(0);
      const [count, setCount] = useState(0);
+     const [value, setValue] = useState(0);
      const [heart, setHeart] = useState("");
      const ref = useRef(rootRef["like"]);
      useEffect(() => {
@@ -22,12 +23,23 @@ const Heart = () => {
                window.localStorage.setItem("isHeart", "true");
                await ref.current.set(count + 1);
           }
+          else {
+               window.localStorage.setItem("isHeart", "false");
+               await ref.current.set(count - value);
+          };
      };
      useEffect(() => {
           ref.current.on("value", (snapshot) => {
                setData(snapshot.val());
           });
           setHeart(window.localStorage.getItem("isHeart"));
+          if (heart === "true") {
+               setCount(data);
+               setValue(1);
+          }
+          else {
+               setValue(0);
+          }
           return () => ref.current.off();
      }, [data]);
      return (
@@ -36,7 +48,9 @@ const Heart = () => {
                data-aos-delay="650"
                className={styles["heart-container"]}>
                <div className={styles.heart} tabIndex="1">
-                    {heart !== "true" ? <HeartIcon onClick={Counter} /> : <HeartIconOutlined style={{ color: "var(--heart-color-action)" }} />}
+                    <span onClick={Counter}>
+                         {heart !== "true" ? <HeartIcon /> : <HeartIconOutlined style={{ color: "var(--heart-color-action)" }} />}
+                    </span>
                </div>
                <div className={styles.currentcount} style={{ cursor: data === 0 ? "progress" : "" }}>
                     {data === 0 ? <Loading /> : data}
