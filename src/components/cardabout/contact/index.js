@@ -4,8 +4,7 @@ import { css } from "@emotion/css";
 
 const Box = () => {
      return (
-          <div
-               className={css`
+          <div className={css`
                     position: absolute;
                     width: 65px;
                     height: 120px;
