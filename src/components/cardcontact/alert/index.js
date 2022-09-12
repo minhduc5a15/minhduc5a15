@@ -15,8 +15,7 @@ const Alert = () => {
           });
      };
      return (
-          <main
-               className={styles["alert-wrapper"]}
+          <main className={styles["alert-wrapper"]}
                style={{ display: open ? "flex" : "none" }}>
                <div className={styles["alert-container"]}>
                     <div className={styles["alert-content"]}>
