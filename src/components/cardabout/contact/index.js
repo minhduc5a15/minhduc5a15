@@ -1,5 +1,5 @@
-import Twitter from "./twitter";
 import Tiktok from "./tiktok";
+import Twitter from "./twitter";
 import { css } from "@emotion/css";
 
 const Box = () => {
