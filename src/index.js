@@ -1,7 +1,7 @@
 import App from "./app";
 import React from "react";
-import ReactDOM from "react-dom/client";
 import GlobalStyles from "./styles";
+import ReactDOM from "react-dom/client";
 import Provider from "./provider/provider";
 const app = ReactDOM.createRoot(document.getElementById("app"));
 app.render(
