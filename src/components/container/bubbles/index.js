@@ -3,8 +3,7 @@ import { css } from "@emotion/css";
 import { random, sizeList } from "./random";
 const Bubbles = () => {
      return (
-          <ul
-               className={css`
+          <ul className={css`
                     position: absolute;
                     top: 0;
                     left: 0;
@@ -62,7 +61,7 @@ const Bubbles = () => {
                          filter: blur(9px);
                     }
                `}>
-               {Array.from({ length: 12 }).map((_, i) => {
+               {Array.from({ length: random.length }).map((_, i) => {
                     return <li key={v4()} className={css`
                          &::before {
                               top: ${sizeList[i] / 4}px;
