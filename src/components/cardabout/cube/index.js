@@ -8,9 +8,7 @@ const Cube = () => {
                     <div className={styles.top}></div>
                     <div>
                          {Deg.map((item) => {
-                              return (
-                                   <span style={{ transform: `rotateY(${item}deg) translateZ(10px)` }} key={item}></span>
-                              );
+                              return <span style={{ transform: `rotateY(${item}deg) translateZ(10px)` }} key={item}></span>
                          })}
                     </div>
                </div>
