@@ -88,26 +88,32 @@
      display: flex
      justify-content: center
      align-items: flex-end
-     & > svg
+     & > span 
+          width: auto
+          height: 2rem
+          display: flex
+          @media only screen and (max-width: 450px)
+               height: 1.8rem
+     & > span > svg
           transition: 0.3s ease
           color: var(--heart-color)
           font-size: 2rem
           @media only screen and (max-width: 450px)
                font-size: 1.8rem
-     & > svg:hover, & > svg:focus
+     & > span > svg:hover, & > span > svg:focus
           color: var(--heart-color-action)
 .currentcount
      height: 50%
      width: 100%
      color: var(--heart-count-color)
-     font-size: 27px
+     font-size: 26px
      display: flex
      justify-content: center
      align-items: center
      text-align: center
      font-weight: 590
      @media only screen and (max-width: 450px)
-          font-size: 24px
+          font-size: 23px
 .avatar
      position: relative
      width: 90px
@@ -169,7 +175,7 @@
           transition: 0.3s ease
           text-align: center
           letter-spacing: 2px
-          font-size: 19px
+          font-size: 18px
           font-weight: 550
           font-family: "Acme", sans-serif
      &:hover::before
