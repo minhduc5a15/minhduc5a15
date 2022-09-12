@@ -31,8 +31,7 @@ const Heart = () => {
           return () => ref.current.off();
      }, [data]);
      return (
-          <div
-               data-aos="fade-right"
+          <div data-aos="fade-right"
                data-aos-duration="600"
                data-aos-delay="650"
                className={styles["heart-container"]}>
