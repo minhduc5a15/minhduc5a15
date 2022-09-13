@@ -1,10 +1,10 @@
-import { css } from "@emotion/css";
 import styled from "@emotion/styled";
 import { styles } from "../../../styles";
 import { useState, useEffect } from "react";
 import EmailIcon from "@mui/icons-material/Email";
 import { SET_EMAIL } from "../../../provider/actions";
-const Container = styled.div`
+
+export const Container = styled.div`
      width: 95%;
      height: auto;
      display: flex;
@@ -30,25 +30,8 @@ const Email = ({ email, onChange }) => {
                          <EmailIcon />
                     </div>
                     <div className={styles["box-input"]}>
-                         <input className={styles["box-text"]}
-                              type="text"
-                              autoFocus={innerWidth > 768 ? true : false}
-                              autoComplete="off"
-                              onChange={onChange(SET_EMAIL)}
-                              value={email}
-                         />
-                         <label className={`${styles["box-label"]} ${css`${email && `
-                                                  transform: translateY(-21px) translateX(7px);
-                                                  font-size: 13px;
-                                                  color: var(--box-input-border-focus);
-                                                  @media screen and (max-width: 575px) {
-                                                       transform: translateY(-21px) translateX(7px);
-                                                       font-size: 11px;
-                                                       color: var(--box-input-border-focus);
-                                                  }
-                                             `}
-                                        `}
-                                   `}>
+                         <input className={styles["box-text"]} type="text" autoFocus={innerWidth > 768 ? true : false} autoComplete="off" onChange={onChange(SET_EMAIL)} value={email} />
+                         <label className={`${styles["box-label"]} ${email && styles["box-label-valid"]}`}>
                               Email
                          </label>
                     </div>
