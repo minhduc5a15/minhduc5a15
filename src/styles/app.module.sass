@@ -88,7 +88,7 @@
      display: flex
      justify-content: center
      align-items: flex-end
-     & > span 
+     & > span
           width: auto
           height: 2rem
           display: flex
@@ -440,6 +440,14 @@
                transform: translateY(-21px) translateX(7px)
      @media screen and ( max-width: 575px)
           font-size: 13px
+.box-label-valid
+     transform: translateY(-21px) translateX(7px)
+     font-size: 13px
+     color: var(--box-input-border-focus)
+     @media screen and (max-width: 575px)
+          transform: translateY(-21px) translateX(7px)
+          font-size: 11px
+          color: var(--box-input-border-focus)
 
 .box-input > input
      position: relative
