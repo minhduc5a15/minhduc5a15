@@ -11,6 +11,7 @@ const TypingBox = ({ children }) => {
                     color: var(--typing-color);
                     font-size: 20px;
                     letter-spacing: 1px;
+                    font-weight: 550;
                     @media only screen and (max-width: 450px) {
                          font-size: 18px;
                     }
