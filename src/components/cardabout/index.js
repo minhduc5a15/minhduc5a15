@@ -2,9 +2,8 @@ import Card from "../card";
 import Heart from "./heart";
 import Avatar from "./avatar";
 import Box from "../card/box";
-import Button from "./button";
+import Social from "./social";
 import Wrapper from "./wrapper";
-import Contact  from "./contact";
 import NameContainer from "./name";
 
 const CardAbout = () => {
@@ -13,12 +12,12 @@ const CardAbout = () => {
                <Box>
                     <Heart />
                     <Avatar />
-                    <Contact />
+                    <Social social={true} />
                     <NameContainer />
                </Box>
                <Box>
                     <Wrapper />
-                    <Button />
+                    <Social />
                </Box>
           </Card>
      );
