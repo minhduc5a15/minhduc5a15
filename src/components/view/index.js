@@ -12,8 +12,7 @@ const View = () => {
           fetch(VisitCountDb)
                .then((res) => res.json())
                .then((res) => {
-                    let count = parseInt(res.value);
-                    ref.current.set(count);
+                    ref.current.set(parseInt(res.value));
                });
           return;
      }, []);
