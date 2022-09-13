@@ -10,7 +10,7 @@ const List = () => {
      const ref = useRef(rootRef["list"]);
      useEffect(() => {
           ref.current.on("value", (snapshot) => {
-               setList(snapshot.val());
+               setList(snapshot.val().sort((a, b) => b.percent - a.percent));
           });
           return () => ref.current.off();
      }, []);
