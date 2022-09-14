@@ -14,9 +14,7 @@ const Toggle = () => {
           localStorage.setItem("theme", theme);
      }, [theme]);
      return (
-          <div onClick={toggleTheme} onDoubleClick={() => {
-               setCount(count => count + 1);
-          }} className={styles["toggle-box"]}>
+          <div onClick={toggleTheme} onDoubleClick={() => setCount(count => count + 1)} className={styles["toggle-box"]}>
                <span className={styles.toggle}></span>
           </div>
      );
