@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import useStore from "../../../provider/hooks";
 const Toggle = () => {
      const { setCount } = useStore();
-     const [theme, setTheme] = useState(localStorage.getItem("theme") || "pink");
+     const [theme, setTheme] = useState(localStorage.getItem("theme") || "blue");
      const toggleTheme = () => {
           setTheme(theme === "pink" ? "blue" : "pink");
           document.documentElement.setAttribute("data-theme", theme);
