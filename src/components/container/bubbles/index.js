@@ -32,31 +32,27 @@ const Bubbles = () => {
                          filter: blur(2px);
                     }
                     & > li > span {
+                         inset: 5px;
                          position: absolute;
                          border-radius: 50%;
                     }
                     & > li > span:nth-child(1) {
-                         inset: 5px;
                          border-left: 5px solid #0051ff;
                          filter: blur(3px);
                     }
                     & > li > span:nth-child(2) {
-                         inset: 5px;
                          border-right: 7px solid #ff008c;
                          filter: blur(5px);
                     }
                     & > li > span:nth-child(3) {
-                         inset: 5px;
                          border-bottom: 5px solid #c2c2c2;
                          filter: blur(3px);
                     }
                     & > li > span:nth-child(4) {
-                         inset: 5px;
                          border-top: 9px solid #d0e60d;
                          filter: blur(5px);
                     }
                     & > li > span:nth-child(5) {
-                         inset: 5px;
                          border-left: 11px solid #ff008c;
                          filter: blur(9px);
                     }
