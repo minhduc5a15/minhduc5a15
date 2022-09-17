@@ -1,7 +1,7 @@
 import "firebase/compat/database";
 import "firebase/compat/firestore";
-import firebase from "firebase/compat/app";
 import { firebaseConfig } from "./config";
+import firebase from "firebase/compat/app";
 
 firebase.initializeApp(firebaseConfig);
 const store = firebase.firestore();
@@ -12,5 +12,5 @@ const rootRef = {
      "meteor": db.ref("meteor"),
      "view": db.ref("view"),
 };
-export { rootRef, db, store};
+export { rootRef, db, store };
 export default firebase;
