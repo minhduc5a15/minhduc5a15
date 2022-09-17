@@ -13,8 +13,7 @@ const Meteor = () => {
           return () => ref.current.off();
      }, []);
      return (
-          <div
-               className={css`
+          <div className={css`
                     width: 100%;
                     height: 100vh;
                     position: absolute;
@@ -27,9 +26,7 @@ const Meteor = () => {
                `}>
                {list.map((item) => {
                     return (
-                         <span
-                              className={styles.meteor}
-                              key={v4()}
+                         <span className={styles.meteor} key={v4()}
                               style={{
                                    top: `${item.top}px`,
                                    right: `${item.right}px`,
