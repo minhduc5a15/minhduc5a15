@@ -4,7 +4,7 @@ const isValidEmail = str => typeof str === "string" && str.indexOf("@gmail.com")
 
 const isValidName = str => typeof str === "string" && str.length > 1;
 
-const isValidMessage = str => typeof str === "string" && str.length > 1;
+const isValidMessage = str => isValidName(str);
 
 const isValid = (email, name, message) => isValidEmail(email) && isValidName(name) && isValidMessage(message);
 
