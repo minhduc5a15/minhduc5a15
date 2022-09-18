@@ -71,6 +71,8 @@
           margin-left: 7px
      &:hover
           transform: translateY(-5px)
+     @media only screen and (max-width: 450px)
+          font-size: 23px
 .heart-container
      position: absolute
      height: 100px
@@ -135,11 +137,11 @@
           height: 97px
           outline: 1px solid var(--avatar-outline-hover)
      @media only screen and (max-width: 450px)
-          width: 82px
-          height: 82px
+          width: 75px
+          height: 75px
           &:hover
-               width: 87px
-               height: 87px
+               width: 79px
+               height: 79px
 .social
      position: absolute
      width: 65px
@@ -295,6 +297,9 @@
      height: 20px
      transform-style: preserve-3d
      animation: spin 4s linear infinite
+     @media only screen and (max-width: 450px)
+          width: 15px
+          height: 15px
      & > div
           position: absolute
           top: 0
@@ -320,6 +325,13 @@
      background: var(--top-cube-color)
      transform: rotateX(90deg) translateZ(10px)
      animation: filter 1s linear infinite
+     @media only screen and (max-width: 450px)
+          width: 15px
+          height: 15px
+          transform: rotateX(90deg) translateZ(7.5px)
+          &::before
+               width: 15px
+               height: 15px
      &::before
           content: ""
           position: absolute
@@ -411,8 +423,8 @@
      justify-content: center
      align-items: center
      &-input
-          width: 85%
-          height: 45px
+          width: 88%
+          height: 37px
           display: flex
           justify-content: flex-start
           align-items: center
@@ -420,20 +432,19 @@
           @media screen and ( max-width: 575px )
                height: 35px
                font-size: 14px
+     &-icon > svg
+          font-size: 22px
      &-icon
           width: 10%
-          height: 40px
+          height: 37px
           display: flex
           justify-content: flex-start
           align-items: center
           color: var(--box-icon)
           @media screen and ( max-width: 575px )
-               height: 35px
-               font-size: 10px
-     @media screen and ( max-width: 575px )
-          justify-content: flex-start
-          align-items: center
-
+               height: 34px
+               & > svg
+                    font-size: 18px
 .box-label
      position: absolute
      transform: translateX(10px) translateY(0px)
@@ -451,6 +462,7 @@
                transform: translateY(-21px) translateX(7px)
      @media screen and ( max-width: 575px)
           font-size: 13px
+
 .box-label-valid
      transform: translateY(-21px) translateX(7px)
      font-size: 13px
@@ -462,7 +474,7 @@
 
 .box-input > input
      position: relative
-     width: 95%
+     width: 96%
      height: 100%
      padding: 6px 5px 0px 7px
      background: transparent
@@ -471,9 +483,8 @@
      border-bottom-left-radius: 7px
      color: var(--box-input-color)
      transition: 0.2s ease-in-out
-     font-size: 15px
+     font-size: 13px
      @media screen and ( max-width: 575px )
-          width: 97%
           padding: 6px 5px 4px 7px
 
 .message-container
@@ -489,7 +500,7 @@
      justify-content: center
      align-items: center
      & > textarea
-          width: 95%
+          width: 97%
           height: 100%
           padding-left: 8px
           padding-top: 4px
@@ -504,7 +515,7 @@
      & > textarea:focus, & > textarea:hover
           outline: 3px solid var(--message-outline-focus)
      & > textarea::placeholder
-          color: #e4cce166
+          color: var(--message-placeholder)
 .submit-container
      width: 100%
      height: 15%
@@ -546,45 +557,45 @@
      @media only screen and (max-width: 575px)
           display: none
      & > li
-               position: absolute
-               list-style: none
-               display: block
-               background-color: var(--bubbles)
-               bottom: -20px
-               opacity: 0
-               border-radius: 50%
+          position: absolute
+          list-style: none
+          display: block
+          background-color: var(--bubbles)
+          bottom: -20px
+          opacity: 0
+          border-radius: 50%
      & > li::before
-               content: ""
-               position: absolute
-               width: 10px
-               height: 10px
-               background: #fff
-               border-radius: 50%
-               filter: blur(2px)
+          content: ""
+          position: absolute
+          width: 10px
+          height: 10px
+          background: #fff
+          border-radius: 50%
+          filter: blur(2px)
      & > li > span
-               inset: 5px
-               position: absolute
-               border-radius: 50%
+          inset: 5px
+          position: absolute
+          border-radius: 50%
 
      & > li > span:nth-child(1)
-               border-left: 5px solid #0051ff
-               filter: blur(3px)
+          border-left: 5px solid #0051ff
+          filter: blur(3px)
 
      & > li > span:nth-child(2)
-               border-right: 7px solid #ff008c
-               filter: blur(5px)
+          border-right: 7px solid #ff008c
+          filter: blur(5px)
 
      & > li > span:nth-child(3)
-               border-bottom: 5px solid #c2c2c2
-               filter: blur(3px)
+          border-bottom: 5px solid #c2c2c2
+          filter: blur(3px)
 
      & > li > span:nth-child(4)
-               border-top: 9px solid #d0e60d
-               filter: blur(5px)
+          border-top: 9px solid #d0e60d
+          filter: blur(5px)
 
      & > li > span:nth-child(5)
-               border-left: 11px solid #ff008c
-               filter: blur(9px)
+          border-left: 11px solid #ff008c
+          filter: blur(9px)
 
 .toggle-box
      position: fixed
