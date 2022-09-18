@@ -1,12 +1,11 @@
 import { css } from "@emotion/css";
-import Typography from "@mui/material/Typography";
 
 const Name = ({ name }) => {
      return (
-          <Typography className={css`
-                         width: "100%";
-                         height: "50%";
-                         text-align: "flex-start";
+          <span className={css`
+                         width: 100%;
+                         height: 50%;
+                         text-align: flex-start;
                          padding-left: 20px;
                          & > span {
                               color: var(--name-language-color);
@@ -18,15 +17,15 @@ const Name = ({ name }) => {
                          & > span:hover {
                               letter-spacing: 4px;
                          }
-                         @media (max-width: 400px) {
+                         @media (max-width: 450px) {
                               & > span {
                                    font-size: 13px;
-                                   letter-spacing: 1px;
+                                   letter-spacing: 1.5px;
                               }
                          }
                     `}>
                <span>{name}</span>
-          </Typography>
+          </span>
      );
 };
 export default Name;
