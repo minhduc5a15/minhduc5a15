@@ -13,7 +13,7 @@ const TypingBox = ({ children }) => {
                     letter-spacing: 1px;
                     font-weight: 550;
                     @media only screen and (max-width: 450px) {
-                         font-size: 18px;
+                         font-size: 17px;
                     }
                `}>
                {children}
