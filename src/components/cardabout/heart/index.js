@@ -4,24 +4,24 @@ import { rootRef } from "../../../firebase";
 import { useState, useEffect, useRef } from "react";
 import { default as HeartIcon } from "@mui/icons-material/FavoriteBorderOutlined";
 import { default as HeartIconOutlined } from "@mui/icons-material/FavoriteOutlined";
-const getIsHeart = () => {
-     return window.localStorage.getItem("heart") || "false";
-};
+
+const getIsHeart = () => window.localStorage.getItem("heart") || "false";
+const setIsHeart = str => window.localStorage.setItem("heart", str); 
 const Heart = () => {
      const [data, setData] = useState(0);
-     const [heart, setHeart] = useState(getIsHeart("heart"));
+     const [heart, setHeart] = useState(getIsHeart());
      const [value, setValue] = useState(heart === "true" ? 1 : 0);
      const ref = useRef(rootRef["like"]);
      var heartCount = data;
      const Counter = async () => {
           if (heart !== "true") {
-               window.localStorage.setItem("heart", "true");
-               setHeart(getIsHeart("heart"));
+               setIsHeart("true");
+               setHeart(getIsHeart());
                await ref.current.set(heartCount + 1);
           }
           else {
-               window.localStorage.setItem("heart", "false");
-               setHeart(getIsHeart("heart"));
+               setIsHeart("false");
+               setHeart(getIsHeart());
                await ref.current.set(heartCount - value);
           };
      };
