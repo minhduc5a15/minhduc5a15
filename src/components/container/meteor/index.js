@@ -24,13 +24,13 @@ const Meteor = () => {
                          display: none;
                     }
                `}>
-               {list.map((item) => {
+               {list.map(({ top, right, time }) => {
                     return (
                          <span className={styles.meteor} key={v4()}
                               style={{
-                                   top: `${item.top}px`,
-                                   right: `${item.right}px`,
-                                   animation: `${styles.meteorAnimate} ${item.time * 1.5}s ease-in-out infinite`,
+                                   top: `${top}px`,
+                                   right: `${right}px`,
+                                   animation: `${styles.meteorAnimate} ${time * 1.5}s ease-in-out infinite`,
                               }}></span>
                     );
                })}
