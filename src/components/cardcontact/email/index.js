@@ -18,7 +18,7 @@ const Email = ({ email, onChange }) => {
      };
      useEffect(() => {
           window.addEventListener("resize", getWidth);
-          return () => window.removeEventListener("resize", () => { });
+          return () => window.removeEventListener("resize", getWidth);
      }, [window.innerWidth]);
      return (
           <div className={styles["box"]}
