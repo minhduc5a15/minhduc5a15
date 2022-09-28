@@ -1,5 +1,5 @@
 import Aos from "aos";
-import "./global.sass";
+import "./global.scss";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
@@ -12,5 +12,5 @@ const GlobalStyles = ({ children }) => {
      }, []);
      return children;
 };
-export { default as styles } from "./app.module.sass" ;
+export { default as styles } from "./app.module.scss" ;
 export default GlobalStyles;
