@@ -1,0 +1,850 @@
+@mixin display-flex-center() {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+@mixin display-flex($display: flex, $justifyContent: center, $alignItems: center, $flexDirection: row) {
+     display: $display;
+     justify-content: $justifyContent;
+     align-items: $alignItems;
+     flex-direction: $flexDirection;
+}
+@mixin set-size($width, $height) {
+     width: $width;
+     height: $height;
+}
+.header-icon {
+     @include set-size(80px, 60px);
+     @include display-flex-center;
+     color: var(--header-icon);
+}
+
+.icon {
+     @include set-size(50px, 40px);
+     @include display-flex-center;
+     transition: 0.2s ease-in-out;
+     cursor: url(../images/mouse-f2.png), auto;
+     & > svg {
+          font-size: 28px;
+     }
+     &::before {
+          @include set-size(50px, 8px);
+          content: "";
+          position: absolute;
+          top: 45px;
+          border-radius: 10px;
+          background: var(--header-icon-before);
+          box-shadow: 0 0 15px var(--header-icon-before), 0 0 30px var(--header-icon-before), 0 0 45px var(--header-icon-before), 0 0 60px var(--header-icon-before);
+          transition: 0.2s ease-in-out;
+          filter: blur(2px);
+          z-index: 10;
+          opacity: 0;
+     }
+     &:hover {
+          color: var(--header-icon-hover);
+     }
+     &:hover:before {
+          opacity: 1;
+     }
+}
+
+.card {
+     @include set-size(330px, 445px);
+     @include display-flex(flex, flex-start, center, column);
+     transition: 0.2s ease-in-out;
+     background: var(--card-background);
+     box-shadow: 5px 10px 20px 40px var(--card-box-shadow);
+     border-radius: 17px;
+     border: 1px solid var(--card-border);
+     z-index: 9;
+     @media only screen and (max-width: 450px) {
+          width: 275px;
+          height: 380px;
+     }
+}
+
+.name {
+     @include set-size(auto, 35px);
+     position: relative;
+     background: var(--myname-color);
+     background-clip: text;
+     transition: 0.5s;
+     font-size: 25px;
+     font-style: oblique;
+     font-weight: bold;
+     letter-spacing: 2px;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     & > span {
+          transition: 0.2s cubic-bezier(0.075, 0.82, 0.865, 1);
+     }
+     &:hover span:nth-child(1) {
+          margin-right: 3px;
+     }
+     &:hover span:nth-child(2) {
+          margin-top: 3px;
+     }
+     &:hover span:nth-child(3) {
+          margin-left: 7px;
+     }
+     &:hover {
+          transform: translateY(-5px);
+     }
+     @media only screen and (max-width: 450px) {
+          font-size: 23px;
+     }
+}
+
+.heart-container {
+     @include set-size(50px, 100px);
+     @include display-flex-center;
+     position: absolute;
+     right: 0;
+     font-size: 30px;
+     flex-direction: column;
+     z-index: 1;
+}
+
+.heart {
+     @include set-size(100%, 50%);
+     @include display-flex(flex, center, flex-end);
+     & > span {
+          @include set-size(auto, 2rem);
+          display: flex;
+          @media only screen and (max-width: 450px) {
+               height: 1.8rem;
+          }
+     }
+     & > span > svg {
+          transition: 0.3s ease;
+          color: var(--heart-color);
+          font-size: 2rem;
+          @media only screen and (max-width: 450px) {
+               font-size: 1.8rem;
+          }
+     }
+     & > span > svg:hover,
+     & > span > svg:focus {
+          color: var(--heart-color-action);
+     }
+}
+
+.currentcount {
+     @include set-size(100%, 50%);
+     @include display-flex-center;
+     color: var(--heart-count-color);
+     font-size: 26px;
+     text-align: center;
+     font-weight: 590;
+     @media only screen and (max-width: 450px) {
+          font-size: 23px;
+     }
+}
+
+.avatar {
+     @include set-size(90px, 90px);
+     position: relative;
+     background-color: transparent;
+     background-image: url(../images/spaceship.png);
+     background-repeat: no-repeat;
+     background-size: cover;
+     border-radius: 50%;
+     border: 6px solid transparent;
+     transition: 0.2s ease-in-out;
+     transform: tranSlateY(-15px);
+     overflow: hidden;
+     outline: 3px solid var(--avatar-outline);
+     animation: move 2.2s infinite ease-in-out;
+     cursor: url(../images/mouse-f2.png), auto;
+     &:hover {
+          @include set-size(97px, 97px);
+          outline: 1px solid var(--avatar-outline-hover);
+     }
+     @media only screen and (max-width: 450px) {
+          @include set-size(75px, 75px);
+          &:hover {
+               @include set-size(79px, 79px);
+          }
+     }
+}
+
+.social {
+     @include set-size(65px, 120px);
+     @include display-flex(flex, space-around, center, column);
+     position: absolute;
+     text-align: center;
+     @media only screen and (max-width: 450px) {
+          @include set-size(60px, 100px);
+     }
+}
+
+.twitter,
+.tiktok {
+     @include set-size(40px, 40px);
+     @include display-flex-center;
+     position: relative;
+     background: var(--tab-contact-bg);
+     border-radius: 9px;
+     color: var(--tab-contact-color);
+     outline: 2px solid var(--tab-contact-border);
+     transition: 0.7s ease-in-out;
+     cursor: url(../images/mouse-f2.png), auto;
+     & > svg {
+          font-size: 20px;
+     }
+     &:hover {
+          background: var(--tab-contact-hover);
+     }
+     &::before {
+          @include set-size(108px, 50px);
+          @include display-flex-center;
+          content: "Twitter";
+          position: absolute;
+          background: rgba(0, 0, 0, 0.1);
+          color: var(--tab-contact-before);
+          border-radius: 7px;
+          font-size: 18px;
+          font-weight: 550;
+          font-family: "Acme", sans-serif;
+          transform: translateX(-100%);
+          transition: 0.3s ease;
+          opacity: 0;
+          pointer-events: none;
+          text-align: center;
+          letter-spacing: 2px;
+     }
+     &:hover::before {
+          opacity: 1;
+     }
+     @media only screen and (max-width: 450px) {
+          @include set-size(33px, 33px);
+          border-radius: 9px;
+          & > svg {
+               font-size: 17px;
+          }
+     }
+     @media only screen and (max-width: 575px) {
+          &::before,
+          &:hover:before {
+               display: none;
+          }
+     }
+}
+
+.tiktok::before {
+     content: "Tiktok";
+     font-size: 16px;
+}
+
+.wrapper-container {
+     @include set-size(100%, 25%);
+     @include display-flex-center;
+}
+
+.button {
+     @include set-size(50%, 100%);
+     @include display-flex-center;
+     & > button {
+          @include set-size(90px, 50px);
+          background: var(--button-background);
+          border: 1px solid var(--button-outline);
+          border-radius: 9px;
+          font-size: 14px;
+          font-weight: 595;
+          transition: 0.2s ease-in-out;
+     }
+     & > button:hover {
+          @include set-size(97px, 55px);
+          border-radius: 4px;
+          font-size: 19px;
+          z-index: 2;
+     }
+     & > button > a {
+          @include set-size(100%, 100%);
+          @include display-flex-center;
+          background: transparent;
+          color: var(--button-color);
+          text-decoration: none;
+          z-index: -1;
+     }
+     @media only screen and (max-width: 450px) {
+          & > button {
+               @include set-size(82px, 45px);
+               font-size: 12px;
+               border-radius: 8px;
+          }
+          & > button:hover {
+               @include set-size(88px, 50px);
+               font-size: 17px;
+          }
+     }
+}
+
+.lds-ring {
+     @include set-size(40px, 40px);
+     position: relative;
+     display: block;
+     & div {
+          @include set-size(32px, 32px);
+          position: absolute;
+          display: block;
+          margin: 4px;
+          border: 4px solid var(--loading-color);
+          border-radius: 50%;
+          animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          border-color: var(--loading-color) transparent transparent transparent;
+     }
+     & div:nth-child(1) {
+          animation-delay: -0.45s;
+     }
+     & div:nth-child(2) {
+          animation-delay: -0.3s;
+     }
+     & div:nth-child(3) {
+          animation-delay: -0.15s;
+     }
+     @media only screen and (max-width: 575px) {
+          & {
+               @include set-size(30px, 30px);
+               position: relative;
+               display: inline-block;
+          }
+          & > div {
+               @include set-size(24px, 24px);
+               position: absolute;
+               display: block;
+               margin: 4px;
+               border-radius: 50%;
+               animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          }
+     }
+}
+
+.cube {
+     @include set-size(20px, 20px);
+     position: relative;
+     transform-style: preserve-3d;
+     animation: spin 4s linear infinite;
+     @media only screen and (max-width: 450px) {
+          @include set-size(15px, 15px);
+     }
+     & > div {
+          @include set-size(100%, 100%);
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform-style: preserve-3d;
+          cursor: url(../images/mouse-f2.png), auto !important;
+     }
+     & > div > span {
+          @include set-size(100%, 100%);
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: var(--cube-color);
+     }
+}
+
+.top {
+     @include set-size(20px, 20px);
+     position: absolute;
+     top: 0;
+     left: 0;
+     background: var(--top-cube-color);
+     transform: rotateX(90deg) translateZ(10px);
+     animation: filter 1s linear infinite;
+     @media only screen and (max-width: 450px) {
+          @include set-size(15px, 15px);
+          transform: rotateX(90deg) translateZ(7.5px);
+          &::before {
+               @include set-size(15px, 15px);
+          }
+     }
+     &::before {
+          @include set-size(20px, 20px);
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translateZ(-25px);
+     }
+}
+
+.list {
+     @include set-size(100%, 100%);
+     display: grid;
+     grid-template-columns: auto;
+}
+
+.process-bar {
+     @include set-size(95%, 50%);
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     padding-left: 12px;
+     transition: 0.7s ease-in-out;
+     &-percent {
+          @include set-size(100%, 80%);
+          display: flex;
+          outline: 1px solid var(--process-outline);
+          border-radius: 14px;
+          text-align: center;
+          transition: 0.2s ease-in-out;
+          cursor: url(../images/mouse-f2.png), auto;
+     }
+     &-percent > span {
+          @include display-flex-center;
+          height: 100%;
+          background: var(--percent-background);
+          color: var(--percent-color);
+          font-size: 14px;
+          font-weight: 500;
+          font-family: "Acme", sans-serif;
+          border-radius: 14px;
+          letter-spacing: 2px;
+     }
+     &-percent:hover {
+          transform: scale(1.05);
+     }
+     @media only screen and (max-width: 450px) {
+          &-percent {
+               height: 70%;
+          }
+          &-percent > span {
+               font-size: 12px;
+               font-weight: 400;
+          }
+     }
+}
+
+.header-container {
+     @include set-size(100%, 10%);
+     @include display-flex-center;
+     position: relative;
+     color: var(--header-contact);
+     letter-spacing: 1.5px;
+     font-size: 21px;
+     font-weight: 570;
+     & > span {
+          @include set-size(auto, 100%);
+          @include display-flex-center;
+          transition: 0.3s ease-in-out;
+     }
+     & > span:hover {
+          letter-spacing: 4px;
+          transform: translateY(-3px);
+     }
+     @media screen and (max-width: 575px) {
+          font-size: 16px;
+          & > span:hover {
+               letter-spacing: 3px;
+               transform: translateY(-2px);
+          }
+     }
+}
+
+.container {
+     @include set-size(100%, 90%);
+     display: flex;
+     flex-direction: column;
+     border-radius: 10px;
+     transition: 0.5s ease-in-out;
+}
+
+.box {
+     @include set-size(100%, 20%);
+     @include display-flex-center;
+     &-input {
+          @include display-flex(flex, flex-start, center);
+          @include set-size(88%, 37%);
+          transition: 0.5s ease-in-out;
+          @media screen and (max-width: 575px) {
+               height: 35px;
+               font-size: 14px;
+          }
+     }
+     &-icon > svg {
+          font-size: 22px;
+     }
+     &-icon {
+          @include set-size(10%, 37px);
+          @include display-flex(flex, flex-start, center);
+          color: var(--box-icon);
+          @media screen and (max-width: 575px) {
+               height: 34px;
+               & > svg {
+                    font-size: 18px;
+               }
+          }
+     }
+}
+
+.box-label {
+     position: absolute;
+     color: var(--box-label);
+     font-size: 15px;
+     transition: 0.2s ease-in-out;
+     transform: translateX(10px) translateY(0px);
+     z-index: -1;
+     .box-input > input:focus ~ & {
+          color: var(--box-input-border-focus);
+          font-size: 13px;
+          transform: translateY(-21px) translateX(7px);
+          @media screen and (max-width: 575px) {
+               color: var(--box-input-border-focus);
+               font-size: 11px;
+               transform: translateY(-21px) translateX(7px);
+          }
+     }
+     @media screen and (max-width: 575px) {
+          font-size: 13px;
+     }
+}
+
+.box-label-valid {
+     color: var(--box-input-border-focus);
+     font-size: 13px;
+     transform: translateY(-21px) translateX(7px);
+     @media screen and (max-width: 575px) {
+          color: var(--box-input-border-focus);
+          font-size: 11px;
+          transform: translateY(-21px) translateX(7px);
+     }
+}
+
+.box-input > input {
+     @include set-size(96%, 100%);
+     position: relative;
+     padding: 6px 5px 0px 7px;
+     background: transparent;
+     border-bottom: 2px solid var(--box-input-border);
+     border-left: 2px solid var(--box-input-border);
+     border-bottom-left-radius: 7px;
+     color: var(--box-input-color);
+     transition: 0.2s ease-in-out;
+     font-size: 13px;
+     @media screen and (max-width: 575px) {
+          padding: 6px 5px 4px 7px;
+     }
+}
+
+.message-container {
+     @include set-size(100%, 45%);
+     @include display-flex-center;
+}
+
+.message-textarea {
+     @include set-size(90%, 85%);
+     @include display-flex-center;
+     & > textarea {
+          @include set-size(97%, 100%);
+          background: transparent;
+          color: var(--box-input-color);
+          font-size: 15px;
+          border: none;
+          border-radius: 7px;
+          outline: 1px solid var(--message-outline);
+          padding-top: 4px;
+          padding-left: 8px;
+          transition: 0.1s ease-in-out;
+          resize: none;
+     }
+     & > textarea:focus,
+     & > textarea:hover {
+          outline: 3px solid var(--message-outline-focus);
+     }
+     & > textarea::placeholder {
+          color: var(--message-placeholder);
+     }
+}
+
+.submit-container {
+     @include set-size(100%, 15%);
+     @include display-flex(flex, center, flex-start);
+}
+
+.submit-box {
+     @include set-size(94%, 45%);
+     @include display-flex-center;
+     & > button {
+          @include set-size(95%, 40px);
+          border-radius: 5px;
+          border: none;
+          background: var(--submit-background);
+          color: var(--submit-color);
+          font-size: 16px;
+          font-weight: 575;
+          letter-spacing: 1px;
+          transition: 0.2s ease-in-out;
+     }
+     & > button:disabled {
+          background: rgba(0, 0, 0, 0.1);
+          color: rgba(0, 0, 0, 0.2);
+          cursor: not-allowed !important;
+     }
+     @media screen and (max-width: 575px) {
+          & > button {
+               height: 35px;
+          }
+     }
+}
+
+.bubble-list {
+     @include set-size(100%, 100%);
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: -1;
+     @media only screen and (max-width: 575px) {
+          display: none;
+     }
+     & > li {
+          position: absolute;
+          display: block;
+          background-color: var(--bubbles);
+          border-radius: 50%;
+          bottom: -20px;
+          list-style: none;
+          opacity: 0;
+     }
+     & > li::before {
+          @include set-size(10px, 10px);
+          content: "";
+          position: absolute;
+          background: #fff;
+          border-radius: 50%;
+          filter: blur(2px);
+     }
+     & > li > span {
+          inset: 5px;
+          position: absolute;
+          border-radius: 50%;
+     }
+     & > li > span:nth-child(1) {
+          border-left: 5px solid #0051ff;
+          filter: blur(3px);
+     }
+     & > li > span:nth-child(2) {
+          border-right: 7px solid #ff008c;
+          filter: blur(5px);
+     }
+     & > li > span:nth-child(3) {
+          border-bottom: 5px solid #c2c2c2;
+          filter: blur(3px);
+     }
+
+     & > li > span:nth-child(4) {
+          border-top: 9px solid #d0e60d;
+          filter: blur(5px);
+     }
+     & > li > span:nth-child(5) {
+          border-left: 11px solid #ff008c;
+          filter: blur(9px);
+     }
+}
+.toggle-box {
+     @include set-size(65px, 65px);
+     @include display-flex-center;
+     position: fixed;
+     left: 20px;
+     bottom: 15px;
+     cursor: url(../images/mouse-f2.png), auto;
+     &::after {
+          @include set-size(50px, 4px);
+          content: "";
+          position: absolute;
+          top: 100%;
+          background: var(--toggle-shadow);
+          border-radius: 50%;
+          filter: blur(5px);
+     }
+     &:hover .toggle {
+          transform: translateY(-10px);
+     }
+}
+
+.toggle {
+     @include set-size(50px, 50px);
+     position: relative;
+     display: block;
+     border-radius: 50%;
+     box-shadow: inset 0 0 15px var(--toggle);
+     transition: 0.4s cubic-bezier(0.2, 0.4, 0.8, 1);
+     z-index: -1;
+     &::before {
+          content: "";
+          position: relative;
+          border-left: 20px solid var(--toggle-before);
+          border-radius: 50%;
+          inset: 10px;
+          filter: blur(7px);
+     }
+}
+
+.view-box {
+     @include display-flex(flex, space-between, center);
+     position: absolute;
+     min-width: 63px;
+     height: auto;
+     right: 25px;
+     z-index: 1000;
+     & > span {
+          @include set-size(50%, 100%);
+          @include display-flex-center;
+          color: var(--loading-color);
+     }
+     & > span:nth-child(2) {
+          min-width: 50%;
+          justify-content: flex-start;
+          letter-spacing: 1px;
+          font-size: 14px;
+          font-weight: 550;
+     }
+     & > span > svg {
+          font-size: 1.15rem;
+     }
+     @media screen and (max-width: 575px) {
+          & > span {
+               font-size: 15px;
+          }
+          & > span > svg {
+               font-size: 1.1rem;
+          }
+     }
+}
+
+.meteor {
+     @include set-size(300px, 2px);
+     @include display-flex(flex, flex-start, center);
+     position: absolute;
+     transform: rotate(-45deg);
+     background: var(--meteor-background);
+     opacity: 0;
+     &:before {
+          @include set-size(15px, 15px);
+          content: "";
+          background: var(--meteor-color);
+          border-radius: 50%;
+          margin-top: -2px;
+          filter: blur(3px);
+          transform: translateX(-5px);
+     }
+}
+
+.alert-wrapper {
+     position: absolute;
+     width: 100%;
+     min-height: 100vh;
+     background: rgba(0, 0, 0, 0.7);
+     justify-content: center;
+     align-items: center;
+     z-index: 100000000;
+}
+
+.alert-container {
+     @include set-size(25em, 60px);
+     max-width: 95%;
+     display: flex;
+     background: #dbffdb;
+     border-radius: 6px;
+}
+
+.alert-content {
+     @include set-size(80%, 100%);
+     display: flex;
+     & > span {
+          @include set-size(25%, 100%);
+          @include display-flex-center;
+          color: #4caf50;
+          & > svg {
+               font-size: 38px;
+          }
+     }
+     & > p {
+          @include set-size(75%, 100%);
+          @include display-flex-center;
+          color: #1e4620;
+          font-size: 20px;
+          font-weight: 550;
+     }
+}
+
+.alert-button {
+     @include set-size(20%, 100%);
+     @include display-flex(flex, flex-end, center);
+     color: #1e4620;
+}
+
+@keyframes circle {
+     0% {
+          transform: translateY(0);
+          opacity: 1;
+     }
+
+     100% {
+          transform: translateY(-300px);
+          opacity: 0;
+     }
+}
+
+@keyframes lds-ring {
+     0% {
+          transform: rotate(0deg);
+     }
+
+     100% {
+          transform: rotate(360deg);
+     }
+}
+
+@keyframes spin {
+     0% {
+          transform: rotateX(-30deg) rotateY(0deg);
+     }
+
+     100% {
+          transform: rotateX(-30deg) rotateY(360deg);
+     }
+}
+
+@keyframes move {
+     0% {
+          top: 0px;
+     }
+
+     25% {
+          top: 10px;
+     }
+
+     50% {
+          top: 0px;
+     }
+
+     75% {
+          top: 10px;
+     }
+
+     100% {
+          top: 0px;
+     }
+}
+
+@keyframes meteorAnimate {
+     0% {
+          opacity: 1;
+          transform: rotate(-45deg);
+     }
+
+     12% {
+          opacity: 0;
+     }
+
+     15% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 0;
+          transform: rotate(-45deg) translateZ(-1000px);
+     }
+}
