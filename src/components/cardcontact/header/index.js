@@ -6,7 +6,7 @@ const Header = () => {
                data-aos="fade-right"
                data-aos-duration="600"
                data-aos-delay="200">
-               <span>Contact Me</span>
+               <span>Get in touch</span>
           </header>
      );
 };
