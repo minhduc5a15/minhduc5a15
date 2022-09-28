@@ -5,16 +5,16 @@ const CustomWidthTooltip = styled(({ className, ...props }) => (
      <Tooltip {...props} classes={{ popper: className }} />
 ))({
      [`& .${tooltipClasses.tooltip}`]: {
-          minWwidth: 95,
-          minHeight: 40,
+          minWidth: "100px",
+          minHeight: "40px",
           color: "var(--loading-color)",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           fontSize: "16px",
-          background: "rgba(34, 34, 34, 0.3)",
+          background: "rgba(0, 0, 0, 0.2)",
           letterSpacing: "1.5px",
-          fontWeight: "bold",
+          cursor: "url(https://i.im.ge/2022/09/28/1EUadf.mouse-f2.png), auto",
           transform: "translateY(-10px)",
      },
 });
