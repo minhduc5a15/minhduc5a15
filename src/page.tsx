@@ -5,39 +5,35 @@ import CardAbout from "./components/cardabout";
 import HomeIcon from "@mui/icons-material/Home";
 import CardContact from "./components/cardcontact";
 import Article from "@mui/icons-material/ArticleOutlined";
-interface Obj {
+interface Props {
      title: string;
      icon: JSX.Element;
      card: JSX.Element;
 };
-const Page = (mod : number) => {
-     var result: Obj = {
-          title: "",
-          icon: <></>,
-          card: <></>,
-     };
-     switch (mod) {
+const Page = (value : number) => {
+     var props: Props;
+     switch (value) {
           case 0:
-               result = {
+               props = {
                     title: "About",
                     icon: <HomeIcon />,
                     card: <CardAbout />,
                };
-               return result;
+               return props;
           case 1:
-               result = {
+               props = {
                     title: "My skill",
                     icon: <Article />,
                     card: <Cardlist />,
                };
-               return result;
+               return props;
           case 2:
-               result = {
+               props = {
                     title: "Contact",
                     icon: <Phone />,
                     card: <CardContact />,
                };
-               return result;
+               return props;
           default:
                return {};
      };
