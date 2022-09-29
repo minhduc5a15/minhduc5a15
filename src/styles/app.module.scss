@@ -1,9 +1,9 @@
-@mixin display-flex-center() {
+@mixin flex-center() {
      display: flex;
      justify-content: center;
      align-items: center;
 }
-@mixin display-flex($display: flex, $justifyContent: center, $alignItems: center, $flexDirection: row) {
+@mixin flex($display: flex, $justifyContent: center, $alignItems: center, $flexDirection: row) {
      display: $display;
      justify-content: $justifyContent;
      align-items: $alignItems;
@@ -15,13 +15,13 @@
 }
 .header-icon {
      @include set-size(80px, 60px);
-     @include display-flex-center;
+     @include flex-center;
      color: var(--header-icon);
 }
 
 .icon {
      @include set-size(50px, 40px);
-     @include display-flex-center;
+     @include flex-center;
      transition: 0.2s ease-in-out;
      cursor: url(../images/mouse-f2.png), auto;
      & > svg {
@@ -50,7 +50,7 @@
 
 .card {
      @include set-size(330px, 445px);
-     @include display-flex(flex, flex-start, center, column);
+     @include flex(flex, flex-start, center, column);
      transition: 0.2s ease-in-out;
      background: var(--card-background);
      box-shadow: 5px 10px 20px 40px var(--card-box-shadow);
@@ -58,8 +58,8 @@
      border: 1px solid var(--card-border);
      z-index: 9;
      @media only screen and (max-width: 450px) {
-          width: 275px;
-          height: 380px;
+          @include set-size(275px, 380px);
+          border-radius: 14px;
      }
 }
 
@@ -97,7 +97,7 @@
 
 .heart-container {
      @include set-size(50px, 100px);
-     @include display-flex-center;
+     @include flex-center;
      position: absolute;
      right: 0;
      font-size: 30px;
@@ -107,7 +107,7 @@
 
 .heart {
      @include set-size(100%, 50%);
-     @include display-flex(flex, center, flex-end);
+     @include flex(flex, center, flex-end);
      & > span {
           @include set-size(auto, 2rem);
           display: flex;
@@ -116,7 +116,7 @@
           }
      }
      & > span > svg {
-          transition: 0.3s ease;
+          transition: 0.2s ease-in-out;
           color: var(--heart-color);
           font-size: 2rem;
           @media only screen and (max-width: 450px) {
@@ -131,10 +131,10 @@
 
 .currentcount {
      @include set-size(100%, 50%);
-     @include display-flex-center;
+     @include flex-center;
      color: var(--heart-count-color);
-     font-size: 26px;
      text-align: center;
+     font-size: 26px;
      font-weight: 590;
      @media only screen and (max-width: 450px) {
           font-size: 23px;
@@ -170,7 +170,7 @@
 
 .social {
      @include set-size(65px, 120px);
-     @include display-flex(flex, space-around, center, column);
+     @include flex(flex, space-around, center, column);
      position: absolute;
      text-align: center;
      @media only screen and (max-width: 450px) {
@@ -181,11 +181,11 @@
 .twitter,
 .tiktok {
      @include set-size(40px, 40px);
-     @include display-flex-center;
+     @include flex-center;
      position: relative;
      background: var(--tab-contact-bg);
-     border-radius: 9px;
      color: var(--tab-contact-color);
+     border-radius: 9px;
      outline: 2px solid var(--tab-contact-border);
      transition: 0.7s ease-in-out;
      cursor: url(../images/mouse-f2.png), auto;
@@ -197,21 +197,21 @@
      }
      &::before {
           @include set-size(108px, 50px);
-          @include display-flex-center;
+          @include flex-center;
           content: "Twitter";
           position: absolute;
           background: rgba(0, 0, 0, 0.1);
           color: var(--tab-contact-before);
-          border-radius: 7px;
           font-size: 18px;
           font-weight: 550;
           font-family: "Acme", sans-serif;
+          letter-spacing: 2px;
+          border-radius: 7px;
           transform: translateX(-100%);
-          transition: 0.3s ease;
+          transition: 0.2s ease-in-out;
           opacity: 0;
           pointer-events: none;
           text-align: center;
-          letter-spacing: 2px;
      }
      &:hover::before {
           opacity: 1;
@@ -238,12 +238,12 @@
 
 .wrapper-container {
      @include set-size(100%, 25%);
-     @include display-flex-center;
+     @include flex-center;
 }
 
 .button {
      @include set-size(50%, 100%);
-     @include display-flex-center;
+     @include flex-center;
      & > button {
           @include set-size(90px, 50px);
           background: var(--button-background);
@@ -261,7 +261,7 @@
      }
      & > button > a {
           @include set-size(100%, 100%);
-          @include display-flex-center;
+          @include flex-center;
           background: transparent;
           color: var(--button-color);
           text-decoration: none;
@@ -393,7 +393,7 @@
           cursor: url(../images/mouse-f2.png), auto;
      }
      &-percent > span {
-          @include display-flex-center;
+          @include flex-center;
           height: 100%;
           background: var(--percent-background);
           color: var(--percent-color);
@@ -419,7 +419,7 @@
 
 .header-container {
      @include set-size(100%, 10%);
-     @include display-flex-center;
+     @include flex-center;
      position: relative;
      color: var(--header-contact);
      letter-spacing: 1.5px;
@@ -427,7 +427,7 @@
      font-weight: 570;
      & > span {
           @include set-size(auto, 100%);
-          @include display-flex-center;
+          @include flex-center;
           transition: 0.3s ease-in-out;
      }
      & > span:hover {
@@ -453,9 +453,9 @@
 
 .box {
      @include set-size(100%, 20%);
-     @include display-flex-center;
+     @include flex-center;
      &-input {
-          @include display-flex(flex, flex-start, center);
+          @include flex(flex, flex-start, center);
           @include set-size(88%, 37%);
           transition: 0.5s ease-in-out;
           @media screen and (max-width: 575px) {
@@ -468,7 +468,7 @@
      }
      &-icon {
           @include set-size(10%, 37px);
-          @include display-flex(flex, flex-start, center);
+          @include flex(flex, flex-start, center);
           color: var(--box-icon);
           @media screen and (max-width: 575px) {
                height: 34px;
@@ -482,13 +482,13 @@
 .box-label {
      position: absolute;
      color: var(--box-label);
-     font-size: 15px;
+     font-size: 13px;
      transition: 0.2s ease-in-out;
      transform: translateX(10px) translateY(0px);
      z-index: -1;
      .box-input > input:focus ~ & {
           color: var(--box-input-border-focus);
-          font-size: 13px;
+          font-size: 11px;
           transform: translateY(-21px) translateX(7px);
           @media screen and (max-width: 575px) {
                color: var(--box-input-border-focus);
@@ -503,11 +503,11 @@
 
 .box-label-valid {
      color: var(--box-input-border-focus);
-     font-size: 13px;
+     font-size: 11px;
      transform: translateY(-21px) translateX(7px);
      @media screen and (max-width: 575px) {
           color: var(--box-input-border-focus);
-          font-size: 11px;
+          font-size: 13px;
           transform: translateY(-21px) translateX(7px);
      }
 }
@@ -515,14 +515,14 @@
 .box-input > input {
      @include set-size(96%, 100%);
      position: relative;
-     padding: 6px 5px 0px 7px;
      background: transparent;
      border-bottom: 2px solid var(--box-input-border);
      border-left: 2px solid var(--box-input-border);
      border-bottom-left-radius: 7px;
      color: var(--box-input-color);
-     transition: 0.2s ease-in-out;
      font-size: 13px;
+     padding: 8px 5px 4px 7px;
+     transition: 0.2s ease-in-out;
      @media screen and (max-width: 575px) {
           padding: 6px 5px 4px 7px;
      }
@@ -530,22 +530,22 @@
 
 .message-container {
      @include set-size(100%, 45%);
-     @include display-flex-center;
+     @include flex-center;
 }
 
 .message-textarea {
      @include set-size(90%, 85%);
-     @include display-flex-center;
+     @include flex-center;
      & > textarea {
           @include set-size(97%, 100%);
           background: transparent;
           color: var(--box-input-color);
-          font-size: 15px;
-          border: none;
           border-radius: 7px;
+          border: none;
           outline: 1px solid var(--message-outline);
           padding-top: 4px;
           padding-left: 8px;
+          font-size: 15px;
           transition: 0.1s ease-in-out;
           resize: none;
      }
@@ -560,12 +560,12 @@
 
 .submit-container {
      @include set-size(100%, 15%);
-     @include display-flex(flex, center, flex-start);
+     @include flex(flex, center, flex-start);
 }
 
 .submit-box {
      @include set-size(94%, 45%);
-     @include display-flex-center;
+     @include flex-center;
      & > button {
           @include set-size(95%, 40px);
           border-radius: 5px;
@@ -644,7 +644,7 @@
 }
 .toggle-box {
      @include set-size(65px, 65px);
-     @include display-flex-center;
+     @include flex-center;
      position: fixed;
      left: 20px;
      bottom: 15px;
@@ -661,6 +661,11 @@
      &:hover .toggle {
           transform: translateY(-10px);
      }
+     @media only screen and (max-width: 450px) {
+          &:hover .toggle {
+               transform: translateY(0px);
+          }
+     }
 }
 
 .toggle {
@@ -669,7 +674,7 @@
      display: block;
      border-radius: 50%;
      box-shadow: inset 0 0 15px var(--toggle);
-     transition: 0.4s cubic-bezier(0.2, 0.4, 0.8, 1);
+     transition: 0.3s cubic-bezier(0.2, 0.4, 0.8, 1);
      z-index: -1;
      &::before {
           content: "";
@@ -682,7 +687,7 @@
 }
 
 .view-box {
-     @include display-flex(flex, space-between, center);
+     @include flex(flex, space-between, center);
      position: absolute;
      min-width: 63px;
      height: auto;
@@ -690,7 +695,7 @@
      z-index: 1000;
      & > span {
           @include set-size(50%, 100%);
-          @include display-flex-center;
+          @include flex-center;
           color: var(--loading-color);
      }
      & > span:nth-child(2) {
@@ -715,7 +720,7 @@
 
 .meteor {
      @include set-size(300px, 2px);
-     @include display-flex(flex, flex-start, center);
+     @include flex(flex, flex-start, center);
      position: absolute;
      transform: rotate(-45deg);
      background: var(--meteor-background);
@@ -754,7 +759,7 @@
      display: flex;
      & > span {
           @include set-size(25%, 100%);
-          @include display-flex-center;
+          @include flex-center;
           color: #4caf50;
           & > svg {
                font-size: 38px;
@@ -762,7 +767,7 @@
      }
      & > p {
           @include set-size(75%, 100%);
-          @include display-flex-center;
+          @include flex-center;
           color: #1e4620;
           font-size: 20px;
           font-weight: 550;
@@ -771,7 +776,7 @@
 
 .alert-button {
      @include set-size(20%, 100%);
-     @include display-flex(flex, flex-end, center);
+     @include flex(flex, flex-end, center);
      color: #1e4620;
 }
 
