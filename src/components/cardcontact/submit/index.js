@@ -19,10 +19,11 @@ const Submit = ({ email, name, message, submit, setOpen }) => {
                     <button className={css`
                               &:hover {
                                    ${isValid(email, name, message) && `
-                                        height: 100%;
+                                        height: 32px;
                                         width: 100%;
-                                        font-size: 17px;
-                                        border-radius: 2px;
+                                        font-size: 14px;
+                                        border-radius: 5px;
+                                        font-weight: 500;
                                         letter-spacing: 2px;
                                    `}
                               }
