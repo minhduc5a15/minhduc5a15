@@ -7,12 +7,12 @@
 ### Socials
 
 <div>
-  <a><img href="https://www.facebook.com/PMjnhDuck" target="_blank" src="https://raw.githubusercontent.com/minhduc5a15/svgrepo/main/svgs/facebook-full.svg" /></a>
+  <a href="https://www.facebook.com/PMjnhDuck"><img target="_blank" src="https://raw.githubusercontent.com/minhduc5a15/svgrepo/main/svgs/facebook-full.svg" /></a>
 </div>
 
 ### Languages
 
-<div align="center">
+<div>
   <a><img src="https://raw.githubusercontent.com/minhduc5a15/svgrepo/main/svgs/python.svg" width="40" height="40"/></a>
   <a><img src="https://raw.githubusercontent.com/minhduc5a15/svgrepo/main/svgs/cpp.svg" width="40" height="40"/></a>
   <a><img src="https://raw.githubusercontent.com/minhduc5a15/svgrepo/main/svgs/csharp.svg" width="40" height="40"/></a>
@@ -30,7 +30,7 @@
 
 ### Tech Stack and Tools
 
-<div align="center">
+<div>
   <a href="https://www.jetbrains.com/clion" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/minhduc5a15/svgrepo/main/svgs/clion.svg" width="40" height="40"/></a>
   <a href="https://www.jetbrains.com/pycharm" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/minhduc5a15/svgrepo/main/svgs/pycharm.svg" width="40" height="40"/></a>
   <a href="https://www.jetbrains.com/webstorm" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/minhduc5a15/svgrepo/main/svgs/webstorm.svg" width="40" height="40"/></a>
