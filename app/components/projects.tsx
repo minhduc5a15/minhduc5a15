@@ -26,8 +26,8 @@ export default function Projects() {
     const projects = [
         {
             title: 'Project 1',
-            description: 'A full-stack application built with Next.js and PostgreSQL',
-            technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
+            description: 'Who is millionaire game',
+            technologies: ['C', 'Raylib'],
             link: '#',
         },
         {
@@ -57,7 +57,7 @@ export default function Projects() {
                     <Card className="h-full flex flex-col overflow-hidden group">
                         <CardHeader className="relative overflow-hidden">
                             <motion.div
-                                className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-50"
+                                className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-50"
                                 initial={{ scale: 0, opacity: 0 }}
                                 whileInView={{ scale: 1, opacity: 0.5 }}
                                 transition={{ duration: 0.5 }}

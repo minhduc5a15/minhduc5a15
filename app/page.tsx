@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Github, Mail, MapPin, Code, Cpu, Palette} from 'lucide-react';
+import { Github, Mail, MapPin, Code, Cpu, Palette } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useMemo } from 'react';
 

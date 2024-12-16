@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/mongodb';
 
+const DB_NAME = process.env.DB_NAME;
+
 export async function POST(req: Request) {
     try {
         const { name, email, message } = await req.json();
@@ -10,7 +12,7 @@ export async function POST(req: Request) {
         }
 
         const client = await clientPromise;
-        const db = client.db('minhduc5a15');
+        const db = client.db(DB_NAME);
 
         const result = await db.collection('messages').insertOne({
             name,
