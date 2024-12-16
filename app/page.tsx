@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Github, Mail, MapPin, Code, Cpu, Palette} from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -11,6 +11,7 @@ import { Badge } from '@/components/ui/badge';
 import Projects from './components/projects';
 import AnimatedText from './components/animated-text';
 import InteractiveBackground from './components/interactive-background';
+import LikeButton from './components/like-button';
 import ContactForm from './components/contact-form';
 
 export default function Home() {
@@ -24,11 +25,16 @@ export default function Home() {
     const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
 
     return (
-        <div className="min-h-screen bg-background text-foreground" ref={targetRef}>
-            <InteractiveBackground />
+        <div className="min-h-screen bg-background text-foreground overflow-x-hidden" ref={targetRef}>
+            {useMemo(
+                () => (
+                    <InteractiveBackground />
+                ),
+                [],
+            )}
 
             {/* Hero Section */}
-            <motion.section className="relative container px-4 py-24 mx-auto" style={{ opacity, scale }}>
+            <motion.section className="relative container px-4 py-24 mx-auto max-w-full" style={{ opacity, scale }}>
                 <div className="grid gap-8 md:grid-cols-2 items-center">
                     <div className="space-y-4">
                         <AnimatedText text="Hi 👋, I'm Duck" />
@@ -87,7 +93,7 @@ export default function Home() {
             </motion.section>
 
             {/* About Me Section */}
-            <section className="container px-4 py-16 mx-auto">
+            <section className="container px-4 py-16 mx-auto max-w-full">
                 <AnimatedText text="About Me" className="mb-8" />
                 <div className="grid gap-8 md:grid-cols-2">
                     <motion.div
@@ -97,8 +103,8 @@ export default function Home() {
                     >
                         <h3 className="text-2xl font-semibold mb-4">My Journey</h3>
                         <p className="text-muted-foreground">
-                            As a passionate software developer with a focus on security, I&apos;ve dedicated my career to
-                            creating robust and secure applications. My journey in the world of coding began with a
+                            As a passionate software developer with a focus on security, I&apos;ve dedicated my career
+                            to creating robust and secure applications. My journey in the world of coding began with a
                             fascination for problem-solving and has evolved into a deep expertise in cybersecurity and
                             efficient software development.
                         </p>
@@ -120,9 +126,9 @@ export default function Home() {
             </section>
 
             {/* Skills Section */}
-            <section className="container px-4 py-16 mx-auto">
+            <section className="container px-4 py-16 mx-auto max-w-full">
                 <AnimatedText text="Skills & Technologies" className="mb-8" />
-                <div className="grid gap-8">
+                <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     <CreativeSkillCard
                         icon={<Code className="w-8 h-8" />}
                         title="Languages"
@@ -157,29 +163,15 @@ export default function Home() {
             </section>
 
             {/* Projects Section */}
-            <section className="container px-4 py-16 mx-auto">
+            <section className="container px-4 py-16 mx-auto max-w-full">
                 <AnimatedText text="Featured Projects" className="mb-8" />
                 <Projects />
             </section>
 
-            {/* Certifications Section */}
-            <section className="container px-4 py-16 mx-auto">
-                <AnimatedText text="Certifications" className="mb-8" />
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    <CertificationCard title="Certified Ethical Hacker (CEH)" issuer="EC-Council" date="2023" />
-                    <CertificationCard title="CompTIA Security+" issuer="CompTIA" date="2022" />
-                    <CertificationCard
-                        title="AWS Certified Security - Specialty"
-                        issuer="Amazon Web Services"
-                        date="2023"
-                    />
-                </div>
-            </section>
-
             {/* GitHub Stats */}
-            <section className="container px-4 py-16 mx-auto">
+            <section className="container px-4 py-16 mx-auto max-w-full">
                 <AnimatedText text="GitHub Activity" className="mb-8" />
-                <div className="grid gap-4 md:grid-cols-3">
+                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                     <GitHubStat title="Total Commits (2024)" value={257} />
                     <GitHubStat title="Total Stars Earned" value={6} />
                     <GitHubStat title="Repositories" value={37} />
@@ -187,10 +179,17 @@ export default function Home() {
             </section>
 
             {/* Contact Form */}
-            <section className="container px-4 py-16 mx-auto">
+            <section className="container px-4 py-16 mx-auto max-w-full">
                 <AnimatedText text="Get in Touch" className="mb-8" />
                 <ContactForm />
             </section>
+
+            {useMemo(
+                () => (
+                    <LikeButton />
+                ),
+                [],
+            )}
         </div>
     );
 }
@@ -271,25 +270,6 @@ function GitHubStat({ title, value }: { title: string; value: number }) {
                         </motion.h3>
                         <p className="text-muted-foreground mt-2">{title}</p>
                     </div>
-                </CardContent>
-            </Card>
-        </motion.div>
-    );
-}
-
-function CertificationCard({ title, issuer, date }: { title: string; issuer: string; date: string }) {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-        >
-            <Card>
-                <CardContent className="p-6">
-                    <h3 className="text-lg font-semibold mb-2">{title}</h3>
-                    <p className="text-muted-foreground">{issuer}</p>
-                    <p className="text-sm text-muted-foreground mt-2">{date}</p>
                 </CardContent>
             </Card>
         </motion.div>

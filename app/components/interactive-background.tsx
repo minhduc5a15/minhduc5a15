@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, memo } from 'react';
 import { motion } from 'framer-motion';
 
-export default function InteractiveBackground() {
+const InteractiveBackground = memo(function InteractiveBackground() {
     const backgroundRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -28,15 +28,9 @@ export default function InteractiveBackground() {
     }, []);
 
     return (
-        <motion.div
-            ref={backgroundRef}
-            className="fixed inset-0 pointer-events-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-        >
+        <div ref={backgroundRef} className="fixed inset-0 pointer-events-none">
             <div
-                className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"
+                className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 transition-transform duration-300 ease-out"
                 style={{
                     transform: 'translate(calc(var(--mouse-x, 0) * 20px), calc(var(--mouse-y, 0) * 20px))',
                 }}
@@ -62,6 +56,8 @@ export default function InteractiveBackground() {
                     }}
                 />
             ))}
-        </motion.div>
+        </div>
     );
-}
+});
+
+export default InteractiveBackground;
