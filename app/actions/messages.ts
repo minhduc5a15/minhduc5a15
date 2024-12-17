@@ -10,7 +10,7 @@ function generateSessionKey(): string {
 }
 
 export async function getMessages(privateKeyOrSession: string) {
-    const cookieStore = cookies();
+    const cookieStore = await cookies();
     const sessionKey = cookieStore.get('message_session')?.value;
 
     let isAuthorized = false;
