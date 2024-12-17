@@ -27,12 +27,12 @@ export default function Home() {
 
     return (
         <div className="min-h-screen bg-background text-foreground overflow-x-hidden" ref={targetRef}>
-            {/* {useMemo(
+            {useMemo(
                 () => (
                     <InteractiveBackground />
                 ),
                 [],
-            )} */}
+            )}
             {useMemo(
                 () => (
                     <ViewCounter />
