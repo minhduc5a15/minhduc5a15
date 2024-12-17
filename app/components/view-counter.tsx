@@ -29,7 +29,7 @@ export default function ViewCounter() {
             transition={{ duration: 0.5 }}
         >
             <Eye className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium">{views >> 1}</span>
+            <span className="text-sm font-medium">{views}</span>
         </motion.div>
     );
 }
