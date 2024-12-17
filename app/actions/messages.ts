@@ -42,7 +42,7 @@ async function fetchMessages() {
     const db = client.db(process.env.DB_NAME);
     const messagesCollection = db.collection('messages');
 
-    return await messagesCollection.find({}).sort({ timestamp: -1 }).toArray();
+    return await messagesCollection.find({}).sort({ createdAt: -1 }).toArray();
 }
 
 export async function addMessage(name: string, email: string, message: string) {
