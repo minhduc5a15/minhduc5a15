@@ -13,6 +13,7 @@ import AnimatedText from './components/animated-text';
 import InteractiveBackground from './components/interactive-background';
 import LikeButton from './components/like-button';
 import ContactForm from './components/contact-form';
+import ViewCounter from './components/view-counter';
 
 export default function Home() {
     const targetRef = useRef<HTMLDivElement>(null);
@@ -26,9 +27,15 @@ export default function Home() {
 
     return (
         <div className="min-h-screen bg-background text-foreground overflow-x-hidden" ref={targetRef}>
-            {useMemo(
+            {/* {useMemo(
                 () => (
                     <InteractiveBackground />
+                ),
+                [],
+            )} */}
+            {useMemo(
+                () => (
+                    <ViewCounter />
                 ),
                 [],
             )}
@@ -129,12 +136,12 @@ export default function Home() {
             <section className="container px-4 py-16 mx-auto max-w-full">
                 <AnimatedText text="Skills & Technologies" className="mb-8" />
                 <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    <CreativeSkillCard
+                    <SkillCard
                         icon={<Code className="w-8 h-8" />}
                         title="Languages"
-                        skills={['C++', 'TypeScript', 'Python', 'JavaScript', 'Go', 'Rust', 'C', 'Java']}
+                        skills={['C++', 'C#', 'TypeScript', 'Python', 'JavaScript', 'Go', 'Rust', 'C', 'Java']}
                     />
-                    <CreativeSkillCard
+                    <SkillCard
                         icon={<Cpu className="w-8 h-8" />}
                         title="Technologies"
                         skills={[
@@ -154,7 +161,7 @@ export default function Home() {
                             'Cryptography',
                         ]}
                     />
-                    <CreativeSkillCard
+                    <SkillCard
                         icon={<Palette className="w-8 h-8" />}
                         title="Design"
                         skills={['Adobe Photoshop', 'Adobe Premiere Pro', 'Adobe After Effects']}
@@ -194,7 +201,7 @@ export default function Home() {
     );
 }
 
-function CreativeSkillCard({ icon, title, skills }: { icon: React.ReactNode; title: string; skills: string[] }) {
+function SkillCard({ icon, title, skills }: { icon: React.ReactNode; title: string; skills: string[] }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}

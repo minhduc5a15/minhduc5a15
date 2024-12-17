@@ -26,8 +26,8 @@ export default function Projects() {
     const projects = [
         {
             title: 'Project 1',
-            description: 'Who is millionaire game',
-            technologies: ['C', 'Raylib'],
+            description: 'Password manager application',
+            technologies: ['Tauri', 'Nextjs', 'MongoDB'],
             link: '#',
         },
         {
