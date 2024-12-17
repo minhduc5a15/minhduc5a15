@@ -94,7 +94,7 @@ export default function MessagesPage() {
                                     <p className="text-sm text-muted-foreground mb-2">{message.email}</p>
                                     <p>{message.message}</p>
                                     <p className="text-xs text-muted-foreground mt-2">
-                                        {new Date(message.timestamp).toLocaleString()}
+                                        {new Date(message.createdAt).toLocaleString()}
                                     </p>
                                 </CardContent>
                             </Card>
