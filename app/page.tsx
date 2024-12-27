@@ -14,6 +14,7 @@ import InteractiveBackground from './components/interactive-background';
 import LikeButton from './components/like-button';
 import ContactForm from './components/contact-form';
 import ViewCounter from './components/view-counter';
+import Clock from './components/clock';
 
 export default function Home() {
     const targetRef = useRef<HTMLDivElement>(null);
@@ -27,6 +28,8 @@ export default function Home() {
 
     return (
         <div className="min-h-screen bg-background text-foreground overflow-x-hidden px-12 mx-auto" ref={targetRef}>
+            <Clock />
+
             {useMemo(
                 () => (
                     <InteractiveBackground />
@@ -236,7 +239,7 @@ function SkillCard({ icon, title, skills }: { icon: React.ReactNode; title: stri
                         whileInView="show"
                         viewport={{ once: true }}
                     >
-                        {skills.map((skill, index) => (
+                        {skills.map((skill) => (
                             <motion.div
                                 key={skill}
                                 variants={{

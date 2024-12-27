@@ -6,7 +6,7 @@ import axios from 'axios';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 
 export default function ContactForm() {
     const [formState, setFormState] = useState({
@@ -33,10 +33,10 @@ export default function ContactForm() {
             } else {
                 throw new Error('Failed to send message');
             }
-        } catch (error) {
+        } catch (_) {
             toast({
                 title: 'Error',
-                description: 'Failed to send message. Please try again later.',
+                description: `Failed to send message. Please try again later.`,
                 variant: 'destructive',
             });
         } finally {
