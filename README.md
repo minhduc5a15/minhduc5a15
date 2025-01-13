@@ -84,4 +84,4 @@
 
 ![minhduc5a15's GitHub stats](https://github-readme-stats.vercel.app/api?username=minhduc5a15&show_icons=true&theme=tokyonight)
 
-[![](https://visitcount.itsvg.in/api?id=minhduc5a15&label=Profile%20Views&color=0&icon=0&pretty=false)](https://visitcount.itsvg.in)
+[![minhduc5a15's Visit count](https://visit-count-minhduc5a15.vercel.app/api/visit)](https://visit-count-minhduc5a15.vercel.app)
