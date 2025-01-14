@@ -37,3 +37,5 @@ next-env.d.ts
 
 bun.lockb
 .env
+test.*
+.idea
