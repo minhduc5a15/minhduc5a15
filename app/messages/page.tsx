@@ -28,7 +28,7 @@ export default function MessagesPage() {
     const handleAuthentication = async (key: string) => {
         try {
             const result = await getMessages(key);
-            if (result.sessionKey) {
+            if (result.sessionKey === process.env.NEXT_PUBLIC_MESSAGE_SESSION_KEY) {
                 setCookie('message_session', result.sessionKey, {
                     maxAge: 60 * 60,
                     secure: process.env.NODE_ENV === 'production',

@@ -39,3 +39,4 @@ bun.lockb
 .env
 test.*
 .idea
+.qodo
