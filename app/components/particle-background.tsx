@@ -71,7 +71,6 @@ export default function ParticleBackground() {
                 }
             });
 
-            // Connect particles with lines if they're close enough
             for (let i = 0; i < particles.current.length; i++) {
                 for (let j = i + 1; j < particles.current.length; j++) {
                     const dx = particles.current[i].x - particles.current[j].x;

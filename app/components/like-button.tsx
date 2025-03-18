@@ -19,7 +19,6 @@ const LikeButton = memo(function LikeButton() {
     const handleLike = async () => {
         setIsLiking(true);
 
-        // Cycle through colors
         const colors = ['text-red-500', 'text-pink-500', 'text-purple-500', 'text-blue-500', 'text-emerald-500'];
         let colorIndex = 0;
 
