@@ -9,12 +9,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Projects from './components/projects';
 import AnimatedText from './components/animated-text';
-import InteractiveBackground from './components/interactive-background';
 import LikeButton from './components/like-button';
 import ContactForm from './components/contact-form';
 import ViewCounter from './components/view-counter';
 import Clock from './components/clock';
 import SkillCard from './components/skill-card';
+import ParticleBackground from './components/particle-background';
+import ScrollProgress from './components/scroll-progress';
 
 export default function Home() {
     const targetRef = useRef<HTMLDivElement>(null);
@@ -28,14 +29,16 @@ export default function Home() {
 
     return (
         <div className="min-h-screen bg-background text-foreground overflow-x-hidden px-12 mx-auto" ref={targetRef}>
+            <ScrollProgress />
             <Clock />
 
             {useMemo(
                 () => (
-                    <InteractiveBackground />
+                    <ParticleBackground />
                 ),
                 [],
             )}
+
             {useMemo(
                 () => (
                     <ViewCounter />

@@ -92,9 +92,4 @@ body {
     @apply bg-background text-foreground;
   }
 }
-@layer components {
-  .gradient-text {
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
+

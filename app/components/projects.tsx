@@ -57,7 +57,7 @@ export default function Projects() {
         >
             {projects.map((project, index) => (
                 <motion.div key={index} variants={itemVariants}>
-                    <Card className="h-full flex flex-col overflow-hidden group border-2 border-transparent hover:border-primary/50 transition-all duration-300">
+                    <Card className="h-full flex flex-col overflow-hidden group border-2 hover:border-primary/50 transition-all duration-300">
                         <CardHeader className="relative overflow-hidden">
                             <motion.div
                                 className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-80`}
