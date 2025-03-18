@@ -44,7 +44,7 @@ const Clock: React.FC = () => {
 
     return (
         <div className="bg-transparent absolute rounded-xl shadow-lg p-4 font-mono hidden md:flex flex-col items-center">
-            <div className="text-3xl font-bold flex items-center">
+            <div className="text-3xl font-bold flex items-center bg-gradient-to-r">
                 <AnimatedNumber value={Math.floor(hours / 10)} />
                 <AnimatedNumber value={hours % 10} />
                 <Separator />

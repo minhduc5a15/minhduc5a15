@@ -30,7 +30,7 @@ const InteractiveBackground = memo(function InteractiveBackground() {
     return (
         <div ref={backgroundRef} className="fixed inset-0 pointer-events-none">
             <div
-                className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 transition-transform duration-300 ease-out"
+                className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 transition-transform duration-300 ease-out"
                 style={{
                     transform: 'translate(calc(var(--mouse-x, 0) * 20px), calc(var(--mouse-y, 0) * 20px))',
                 }}
@@ -38,7 +38,17 @@ const InteractiveBackground = memo(function InteractiveBackground() {
             {[...Array(20)].map((_, i) => (
                 <motion.div
                     key={i}
-                    className="absolute rounded-full bg-primary/10 mix-blend-screen"
+                    className={`absolute rounded-full mix-blend-screen ${
+                        i % 5 === 0
+                            ? 'bg-primary/20'
+                            : i % 5 === 1
+                            ? 'bg-secondary/20'
+                            : i % 5 === 2
+                            ? 'bg-accent/20'
+                            : i % 5 === 3
+                            ? 'bg-pink-500/20'
+                            : 'bg-amber-500/20'
+                    }`}
                     style={{
                         width: Math.random() * 300 + 50,
                         height: Math.random() * 300 + 50,
@@ -51,7 +61,7 @@ const InteractiveBackground = memo(function InteractiveBackground() {
                     }}
                     transition={{
                         duration: Math.random() * 10 + 10,
-                        repeat: Infinity,
+                        repeat: Number.POSITIVE_INFINITY,
                         repeatType: 'reverse',
                     }}
                 />

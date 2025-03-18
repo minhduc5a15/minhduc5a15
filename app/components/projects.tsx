@@ -29,18 +29,21 @@ export default function Projects() {
             description: 'Password manager application',
             technologies: ['Tauri', 'Nextjs', 'MongoDB'],
             link: '#',
+            gradient: 'from-blue-500 to-purple-600',
         },
         {
             title: 'Project 2',
             description: 'Real-time chat application using WebSocket',
             technologies: ['React', 'Node.js', 'Socket.io', 'Redis'],
             link: '#',
+            gradient: 'from-emerald-500 to-teal-600',
         },
         {
             title: 'Project 3',
             description: 'Cross-platform desktop application',
             technologies: ['Electron', 'Vue.js', 'SQLite'],
             link: '#',
+            gradient: 'from-pink-500 to-rose-600',
         },
     ];
 
@@ -54,16 +57,18 @@ export default function Projects() {
         >
             {projects.map((project, index) => (
                 <motion.div key={index} variants={itemVariants}>
-                    <Card className="h-full flex flex-col overflow-hidden group">
+                    <Card className="h-full flex flex-col overflow-hidden group border-2 border-transparent hover:border-primary/50 transition-all duration-300">
                         <CardHeader className="relative overflow-hidden">
                             <motion.div
-                                className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-50"
+                                className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-80`}
                                 initial={{ scale: 0, opacity: 0 }}
-                                whileInView={{ scale: 1, opacity: 0.5 }}
+                                whileInView={{ scale: 1, opacity: 0.8 }}
                                 transition={{ duration: 0.5 }}
                             />
-                            <CardTitle className="relative z-10">{project.title}</CardTitle>
-                            <CardDescription className="relative z-10">{project.description}</CardDescription>
+                            <CardTitle className="relative z-10 text-white drop-shadow-md">{project.title}</CardTitle>
+                            <CardDescription className="relative z-10 text-white/90">
+                                {project.description}
+                            </CardDescription>
                         </CardHeader>
                         <CardContent className="flex-grow">
                             <div className="flex flex-wrap gap-2">

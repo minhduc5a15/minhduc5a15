@@ -10,6 +10,7 @@ const LikeButton = memo(function LikeButton() {
     const [likes, setLikes] = useState(0);
     const [isLiking, setIsLiking] = useState(false);
     const [showThankYou, setShowThankYou] = useState(false);
+    const [heartColor, setHeartColor] = useState('text-red-500');
 
     useEffect(() => {
         getLikes().then(setLikes);
@@ -17,11 +18,25 @@ const LikeButton = memo(function LikeButton() {
 
     const handleLike = async () => {
         setIsLiking(true);
+
+        // Cycle through colors
+        const colors = ['text-red-500', 'text-pink-500', 'text-purple-500', 'text-blue-500', 'text-emerald-500'];
+        let colorIndex = 0;
+
+        const interval = setInterval(() => {
+            setHeartColor(colors[colorIndex % colors.length]);
+            colorIndex++;
+        }, 100);
+
         const newLikes = await incrementLikes();
         setLikes(newLikes);
-        setIsLiking(false);
-        setShowThankYou(true);
-        setTimeout(() => setShowThankYou(false), 2000);
+
+        setTimeout(() => {
+            clearInterval(interval);
+            setIsLiking(false);
+            setShowThankYou(true);
+            setTimeout(() => setShowThankYou(false), 2000);
+        }, 500);
     };
 
     return (
@@ -37,7 +52,7 @@ const LikeButton = memo(function LikeButton() {
                         initial={{ opacity: 0, scale: 0.8, x: -20 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
                         exit={{ opacity: 0, scale: 0.8, x: -20 }}
-                        className="absolute right-full mr-2 bg-primary text-primary-foreground px-2 py-1 rounded-md text-sm whitespace-nowrap"
+                        className="absolute right-full mr-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-3 py-1 rounded-md text-sm whitespace-nowrap"
                     >
                         Thank you! 🎉
                     </motion.div>
@@ -48,7 +63,7 @@ const LikeButton = memo(function LikeButton() {
                 size="icon"
                 onClick={handleLike}
                 disabled={isLiking}
-                className="text-primary hover:text-primary/80 relative"
+                className={`${heartColor} hover:text-primary/80 relative`}
             >
                 <AnimatePresence>
                     {isLiking && (
@@ -64,7 +79,7 @@ const LikeButton = memo(function LikeButton() {
                 <motion.div whileTap={{ scale: 0.9 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }}>
                     <Heart
                         className={`w-6 h-6 transition-all duration-300 ease-in-out ${
-                            isLiking ? 'fill-primary scale-110' : ''
+                            isLiking ? 'fill-current scale-110' : ''
                         }`}
                     />
                 </motion.div>
@@ -90,8 +105,8 @@ const LikeButton = memo(function LikeButton() {
                         exit={{ scale: 0 }}
                     >
                         <span className="flex h-3 w-3">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-500 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
                         </span>
                     </motion.div>
                 )}

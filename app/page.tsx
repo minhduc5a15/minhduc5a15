@@ -7,7 +7,6 @@ import { useRef, useMemo } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import Projects from './components/projects';
 import AnimatedText from './components/animated-text';
 import InteractiveBackground from './components/interactive-background';
@@ -15,6 +14,7 @@ import LikeButton from './components/like-button';
 import ContactForm from './components/contact-form';
 import ViewCounter from './components/view-counter';
 import Clock from './components/clock';
+import SkillCard from './components/skill-card';
 
 export default function Home() {
     const targetRef = useRef<HTMLDivElement>(null);
@@ -143,6 +143,7 @@ export default function Home() {
                         icon={<Code className="w-8 h-8" />}
                         title="Languages"
                         skills={['C++', 'C#', 'TypeScript', 'Python', 'JavaScript', 'Go', 'Rust', 'C', 'Java']}
+                        gradientColors="from-blue-500 to-purple-600"
                     />
                     <SkillCard
                         icon={<Cpu className="w-8 h-8" />}
@@ -163,11 +164,13 @@ export default function Home() {
                             'Penetration Testing',
                             'Cryptography',
                         ]}
+                        gradientColors="from-emerald-500 to-teal-600"
                     />
                     <SkillCard
                         icon={<Palette className="w-8 h-8" />}
                         title="Design"
                         skills={['Adobe Photoshop', 'Adobe Premiere Pro', 'Adobe After Effects']}
+                        gradientColors="from-pink-500 to-rose-600"
                     />
                 </div>
             </section>
@@ -182,9 +185,9 @@ export default function Home() {
             <section className="container px-4 py-16 mx-auto max-w-full">
                 <AnimatedText text="GitHub Activity" className="mb-8" />
                 <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-                    <GitHubStat title="Total Commits (2024)" value={257} />
-                    <GitHubStat title="Total Stars Earned" value={6} />
-                    <GitHubStat title="Repositories" value={37} />
+                    <GitHubStat title="Total Commits (2024)" value={257} color="from-blue-500 to-indigo-600" />
+                    <GitHubStat title="Total Stars Earned" value={6} color="from-amber-500 to-orange-600" />
+                    <GitHubStat title="Repositories" value={37} color="from-emerald-500 to-teal-600" />
                 </div>
             </section>
 
@@ -204,74 +207,21 @@ export default function Home() {
     );
 }
 
-function SkillCard({ icon, title, skills }: { icon: React.ReactNode; title: string; skills: string[] }) {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-        >
-            <Card className="overflow-hidden">
-                <CardContent className="p-6">
-                    <motion.div
-                        className="flex items-center gap-4 mb-4"
-                        initial={{ x: -20, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                        viewport={{ once: true }}
-                    >
-                        {icon}
-                        <h3 className="text-xl font-semibold">{title}</h3>
-                    </motion.div>
-                    <motion.div
-                        className="flex flex-wrap gap-2"
-                        variants={{
-                            hidden: { opacity: 0 },
-                            show: {
-                                opacity: 1,
-                                transition: {
-                                    staggerChildren: 0.1,
-                                },
-                            },
-                        }}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{ once: true }}
-                    >
-                        {skills.map((skill) => (
-                            <motion.div
-                                key={skill}
-                                variants={{
-                                    hidden: { opacity: 0, scale: 0.8 },
-                                    show: { opacity: 1, scale: 1 },
-                                }}
-                            >
-                                <Badge variant="secondary" className="text-sm">
-                                    {skill}
-                                </Badge>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-                </CardContent>
-            </Card>
-        </motion.div>
-    );
-}
-
-function GitHubStat({ title, value }: { title: string; value: number }) {
+function GitHubStat({ title, value, color }: { title: string; value: number; color: string }) {
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
+            whileHover={{ scale: 1.05 }}
         >
-            <Card>
-                <CardContent className="p-6">
-                    <div className="text-center">
+            <Card className="overflow-hidden border-2 border-transparent hover:border-primary/30 transition-all duration-300">
+                <CardContent className="p-6 relative">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-10`} />
+                    <div className="text-center relative z-10">
                         <motion.h3
-                            className="text-4xl font-bold text-primary"
+                            className={`text-4xl font-bold bg-gradient-to-r ${color} bg-clip-text text-transparent`}
                             initial={{ scale: 0.5, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
