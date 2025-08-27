@@ -80,7 +80,7 @@
   <a><img src="https://raw.githubusercontent.com/minhduc5a15/svgrepo/main/svgs/bun.svg" width="40" height="40"/></a>
 </div>
 
-![minhduc5a15's GitHub stats](https://github-readme-stats-52blue.vercel.app/api/top-langs/?username=minhduc5a15&repo=code&layout=compact&theme=transparent&hide_border=true&hide=css)
+![minhduc5a15's GitHub stats](https://github-readme-stats-52blue.vercel.app/api/top-langs/?username=minhduc5a15&repo=code&layout=compact&theme=transparent&hide_border=true&hide=css&langs_count=10)
 
 ![minhduc5a15's GitHub stats](https://github-readme-stats.vercel.app/api?username=minhduc5a15&show_icons=true&theme=tokyonight)
 
