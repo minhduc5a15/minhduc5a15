@@ -34,7 +34,7 @@ const fetchGithubData = async (repo: string) => {
     const commitsData = await commitsRes.json();
     const contentsData = await contentsRes.json();
 
-    let files = Array.isArray(contentsData) ? contentsData : [];
+    const files = Array.isArray(contentsData) ? contentsData : [];
     files.sort((a, b) => {
       if (a.type === b.type) return a.name.localeCompare(b.name);
       return a.type === 'dir' ? -1 : 1;
@@ -67,7 +67,7 @@ const fetchGithubData = async (repo: string) => {
 };
 
 const main = async () => {
-  const data: Record<string, any> = {};
+  const data: Record<string, unknown> = {};
 
   for (const repo of REPOS) {
     const repoData = await fetchGithubData(repo);

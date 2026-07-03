@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
 
+const bootLogs = [
+  'BIOS Date 07/03/26 15:10:30 Ver 1.00',
+  'CPU: Duck Quantum Processor @ 4.2GHz',
+  'Memory Test: 65536K OK',
+  'Loading Kernel...',
+  '[ OK ] Mounted Root File System',
+  '[ OK ] Started Logging Service',
+  '[ OK ] Started Container Engine',
+  '[ OK ] Reached target Graphical Interface',
+  'Boot sequence complete. Initializing DuckOS...',
+];
+
 const BootSequence = ({ onComplete }: { onComplete: () => void }) => {
   const [lines, setLines] = useState<string[]>([]);
-  const bootLogs = [
-    'BIOS Date 07/03/26 15:10:30 Ver 1.00',
-    'CPU: Duck Quantum Processor @ 4.2GHz',
-    'Memory Test: 65536K OK',
-    'Loading Kernel...',
-    '[ OK ] Mounted Root File System',
-    '[ OK ] Started Logging Service',
-    '[ OK ] Started Container Engine',
-    '[ OK ] Reached target Graphical Interface',
-    'Boot sequence complete. Initializing DuckOS...',
-  ];
 
   useEffect(() => {
     let currentLine = 0;

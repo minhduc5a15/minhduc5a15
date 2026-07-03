@@ -2,8 +2,31 @@ import React, { useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Folder, File, GitBranch, Tag, GitCommit } from 'lucide-react';
 
+interface GithubRepoData {
+  name: string;
+  ownerLogin: string;
+  ownerAvatar: string;
+  description: string;
+  defaultBranch: string;
+  stars: number;
+  forks: number;
+  language: string;
+  latestCommit: {
+    hash: string;
+    message: string;
+    author: string;
+    authorAvatar: string;
+    date: string;
+  };
+  files: Array<{
+    name: string;
+    path: string;
+    type: string;
+  }>;
+}
+
 // Caching to prevent rate limits
-const cache = new Map<string, any>();
+const cache = new Map<string, GithubRepoData>();
 
 interface GithubHoverPreviewProps {
   repo: string;
@@ -30,7 +53,7 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
   children,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<GithubRepoData | null>(null);
   const [coords, setCoords] = useState<{
     top?: number;
     bottom?: number;
@@ -43,7 +66,7 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
 
   const fetchGithubData = async () => {
     if (cache.has(repo)) {
-      setData(cache.get(repo));
+      setData(cache.get(repo)!);
       return;
     }
 
@@ -51,9 +74,9 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
     try {
       const res = await fetch(`${import.meta.env.BASE_URL}github-data.json`);
       if (!res.ok) throw new Error('Failed to fetch github data');
-      
+
       const allData = await res.json();
-      
+
       if (allData[repo]) {
         cache.set(repo, allData[repo]);
         setData(allData[repo]);
@@ -243,7 +266,7 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
 
                     {/* Files */}
                     <div className="max-h-[250px] overflow-y-auto custom-scrollbar">
-                      {data.files.map((file: any) => (
+                      {data.files.map((file) => (
                         <div
                           key={file.name}
                           className="flex items-center justify-between px-4 py-2 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors group"

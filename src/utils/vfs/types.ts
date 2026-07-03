@@ -31,3 +31,10 @@ export interface CommandResponse {
   action?: 'toggle_matrix';
   error?: boolean;
 }
+
+export type HistoryItem = {
+  id: string;
+  type: 'input' | 'output';
+  content: React.ReactNode;
+  cwd?: string;
+};
