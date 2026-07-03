@@ -122,17 +122,25 @@ function App() {
                   <h2 className="text-xl font-bold flex items-center gap-3 text-white uppercase tracking-wider">
                     <span className="text-indigo-500">➜</span> IDENTIFICATION
                   </h2>
-                  <div className="pl-6 space-y-5">
-                    <p className="text-lg md:text-xl leading-relaxed font-medium">
-                      Hello, I am <span className="text-white">minhduc5a15</span> (Duck).
-                    </p>
-                    <ul className="space-y-3 text-slate-400">
-                      <li className="flex items-center gap-3"><ChevronRight size={16} className="text-indigo-500"/> <span>Role: <span className="text-blue-300">AI Engineer | AI System Engineer | System Engineer</span></span></li>
-                      <li className="flex items-center gap-3"><ChevronRight size={16} className="text-indigo-500"/> <span>Location: Vietnam</span></li>
-                      <li className="flex items-center gap-3"><ChevronRight size={16} className="text-indigo-500"/> <span>Mission: Building highly optimized, privacy-first, and deeply integrated AI systems.</span></li>
-                    </ul>
-                    <div className="p-4 rounded-lg bg-white/5 border border-white/5 text-slate-400 italic">
-                      "What I cannot create, I do not understand." - Richard Feynman
+                  <div className="pl-6 flex flex-col md:flex-row gap-8 items-start">
+                    <div className="shrink-0 relative">
+                      <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/10 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
+                        <img src="/user-avatar.jpg" alt="minhduc5a15 avatar" className="w-full h-full object-cover" />
+                      </div>
+                      <div className="absolute bottom-2 right-2 w-6 h-6 bg-green-500 rounded-full border-4 border-[#0d1326] shadow-lg"></div>
+                    </div>
+                    <div className="space-y-5 flex-1">
+                      <p className="text-lg md:text-xl leading-relaxed font-medium">
+                        Hello, I am <span className="text-white">minhduc5a15</span> (Duck).
+                      </p>
+                      <ul className="space-y-3 text-slate-400">
+                        <li className="flex items-center gap-3"><ChevronRight size={16} className="text-indigo-500 shrink-0"/> <span>Role: <span className="text-blue-300">AI Engineer | AI System Engineer | System Engineer</span></span></li>
+                        <li className="flex items-center gap-3"><ChevronRight size={16} className="text-indigo-500 shrink-0"/> <span>Location: Vietnam</span></li>
+                        <li className="flex items-center gap-3"><ChevronRight size={16} className="text-indigo-500 shrink-0"/> <span>Mission: Building highly optimized, privacy-first, and deeply integrated AI systems.</span></li>
+                      </ul>
+                      <div className="p-4 rounded-lg bg-white/5 border border-white/5 text-slate-400 italic">
+                        "What I cannot create, I do not understand." - Richard Feynman
+                      </div>
                     </div>
                   </div>
                 </div>
