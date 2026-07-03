@@ -6,6 +6,9 @@ on:
     branches: ['main']
   # Cho phép chạy thủ công từ tab Actions
   workflow_dispatch:
+  # Tự động fetch data và deploy lúc 00:00 UTC mỗi ngày
+  schedule:
+    - cron: '0 0 * * *'
 
 # Cấp quyền đọc ghi cho GITHUB_TOKEN để deploy lên Pages
 permissions:
@@ -35,6 +38,11 @@ jobs:
 
       - name: Install dependencies
         run: bun install
+
+      - name: Fetch GitHub Data
+        run: bun run fetch-data
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Build project
         run: bun run build

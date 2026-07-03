@@ -49,47 +49,19 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
 
     setLoading(true);
     try {
-      const [repoRes, commitsRes, contentsRes] = await Promise.all([
-        fetch(`https://api.github.com/repos/${repo}`),
-        fetch(`https://api.github.com/repos/${repo}/commits?per_page=1`),
-        fetch(`https://api.github.com/repos/${repo}/contents`),
-      ]);
-
-      const repoData = await repoRes.json();
-      const commitsData = await commitsRes.json();
-      const contentsData = await contentsRes.json();
-
-      let files = Array.isArray(contentsData) ? contentsData : [];
-      files.sort((a, b) => {
-        if (a.type === b.type) return a.name.localeCompare(b.name);
-        return a.type === 'dir' ? -1 : 1;
-      });
-
-      const processedData = {
-        name: repoData.name,
-        ownerAvatar: repoData.owner?.avatar_url || '',
-        ownerLogin: repoData.owner?.login || '',
-        defaultBranch: repoData.default_branch || 'main',
-        latestCommit: {
-          message:
-            commitsData[0]?.commit?.message?.split('\n')[0] || 'Initial commit',
-          hash: commitsData[0]?.sha?.substring(0, 7) || '0000000',
-          date:
-            commitsData[0]?.commit?.committer?.date || new Date().toISOString(),
-          author:
-            commitsData[0]?.author?.login || repoData.owner?.login || 'unknown',
-          authorAvatar:
-            commitsData[0]?.author?.avatar_url ||
-            repoData.owner?.avatar_url ||
-            '',
-        },
-        files: files, // Render all files
-      };
-
-      cache.set(repo, processedData);
-      setData(processedData);
+      const res = await fetch(`${import.meta.env.BASE_URL}github-data.json`);
+      if (!res.ok) throw new Error('Failed to fetch github data');
+      
+      const allData = await res.json();
+      
+      if (allData[repo]) {
+        cache.set(repo, allData[repo]);
+        setData(allData[repo]);
+      } else {
+        throw new Error(`Repo ${repo} not found in pre-fetched data`);
+      }
     } catch (e) {
-      console.error('Failed to fetch Github data', e);
+      console.error('Failed to load Github data', e);
     } finally {
       setLoading(false);
     }
