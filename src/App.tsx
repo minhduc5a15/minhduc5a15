@@ -1,16 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useDragControls } from 'framer-motion';
-import { Terminal as TerminalIcon, Volume2, VolumeX, Maximize2, X, Minus } from 'lucide-react';
+import {
+  Terminal as TerminalIcon,
+  Volume2,
+  VolumeX,
+  Maximize2,
+  X,
+  Minus,
+} from 'lucide-react';
 
 import { audioManager } from './utils/audio';
 import BootSequence from './components/BootSequence';
 import MatrixRain from './components/MatrixRain';
 import { contentBlocks } from './constants/terminalData';
+import { CommandParser } from './utils/vfs/CommandParser';
+import { executeCommandEngine } from './utils/vfs/commands';
+import { rootFS } from './utils/vfs/init';
 
 type HistoryItem = {
   id: string;
   type: 'input' | 'output';
   content: React.ReactNode;
+  cwd?: string;
 };
 
 function App() {
@@ -20,8 +31,9 @@ function App() {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [input, setInput] = useState('');
+  const [cwd, setCwd] = useState('~/portfolio');
   const [isMatrixMode, setIsMatrixMode] = useState(false);
-  
+
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const boundsRef = useRef<HTMLDivElement>(null);
@@ -32,44 +44,60 @@ function App() {
   }, []);
 
   const executeCommand = (cmd: string) => {
-    const trimmed = cmd.trim();
-    if (!trimmed) return;
+    const commands = CommandParser.parse(cmd);
+    if (commands.length === 0) return;
 
-    const pushOutput = (content: React.ReactNode) => {
-      setHistory(prev => [...prev, { id: crypto.randomUUID(), type: 'output', content }]);
-    };
+    let currentCwd = cwd;
+    const newHistoryItems: HistoryItem[] = [];
+    let shouldClear = false;
+    let shouldToggleMatrix = false;
 
-    if (trimmed === 'clear') {
+    for (const args of commands) {
+      if (args.length === 0) continue;
+
+      const response = executeCommandEngine(args, {
+        cwd: currentCwd,
+        fs: rootFS,
+      });
+
+      if (response.clearTerminal) {
+        shouldClear = true;
+      }
+
+      if (response.newCwd) {
+        currentCwd = response.newCwd;
+      }
+
+      if (response.action === 'toggle_matrix') {
+        shouldToggleMatrix = true;
+      }
+
+      if (response.output) {
+        newHistoryItems.push({
+          id: crypto.randomUUID(),
+          type: 'output',
+          content: response.output,
+        });
+      }
+
+      if (response.error) {
+        break; // Short-circuit on error
+      }
+    }
+
+    if (shouldClear) {
       setHistory([]);
-      return;
+    } else if (newHistoryItems.length > 0) {
+      setHistory((prev) => [...prev, ...newHistoryItems]);
     }
 
-    if (trimmed === 'ls') return pushOutput(contentBlocks.ls);
-    if (trimmed === 'help') return pushOutput(contentBlocks.help);
-    if (trimmed === 'whoami') return pushOutput(<span className="text-slate-300">duck (Root Access Granted)</span>);
-    if (trimmed === 'sudo rm -rf /') return pushOutput(<span className="text-red-500 font-bold">Nice try! Permission denied. You don't have enough ducks to do this.</span>);
-    if (trimmed === 'matrix') {
-      setIsMatrixMode(prev => !prev);
-      return pushOutput(<span className="text-green-500">Toggling Matrix Protocol...</span>);
+    if (shouldToggleMatrix) {
+      setIsMatrixMode((prev) => !prev);
     }
 
-    if (trimmed.startsWith('cat ')) {
-      const arg = trimmed.replace('cat ', '').trim();
-      if (arg === 'about.txt') pushOutput(contentBlocks.about);
-      else if (arg === 'skills.txt') pushOutput(contentBlocks.skills);
-      else if (arg === 'contact.txt') pushOutput(contentBlocks.contact);
-      else pushOutput(<span className="text-red-400">cat: {arg}: No such file or directory</span>);
-      return;
+    if (currentCwd !== cwd) {
+      setCwd(currentCwd);
     }
-
-    if (trimmed.startsWith('cd ')) {
-      const arg = trimmed.replace('cd ', '').trim();
-      if (arg === 'projects' || arg === 'projects/') pushOutput(contentBlocks.projects);
-      else pushOutput(<span className="text-red-400">cd: {arg}: Not a directory</span>);
-      return;
-    }
-
-    pushOutput(<span className="text-red-400">zsh: command not found: {trimmed}. Type 'help' for available commands.</span>);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -84,14 +112,39 @@ function App() {
     if (e.key === 'Enter') {
       const cmd = input;
       setInput('');
-      setHistory(prev => [...prev, { id: crypto.randomUUID(), type: 'input', content: cmd }]);
+      setHistory((prev) => [
+        ...prev,
+        { id: crypto.randomUUID(), type: 'input', content: cmd, cwd },
+      ]);
       executeCommand(cmd);
     }
   };
 
-  const handleTabClick = (cmd: string) => {
+  const getTabCommand = (tabName: string, currentCwd: string) => {
+    const isRoot = currentCwd === '~/portfolio';
+    const isProjects = currentCwd === '~/portfolio/projects';
+
+    if (tabName.startsWith('cat ')) {
+      const file = tabName.split(' ')[1];
+      return isRoot ? `cat ${file}` : `cd ~/portfolio && cat ${file}`;
+    }
+    if (tabName.startsWith('cd ')) {
+      const dir = tabName.split(' ')[1];
+      if (dir === 'projects') {
+        return isProjects ? `cat list.txt` : `cd ~/portfolio/projects && cat list.txt`;
+      }
+      return currentCwd === `~/portfolio/${dir}` ? `ls` : `cd ~/portfolio/${dir}`;
+    }
+    return tabName;
+  };
+
+  const handleTabClick = (baseCmd: string) => {
     if (soundEnabled) audioManager.playClick(0.1);
-    setHistory(prev => [...prev, { id: crypto.randomUUID(), type: 'input', content: cmd }]);
+    const cmd = getTabCommand(baseCmd, cwd);
+    setHistory((prev) => [
+      ...prev,
+      { id: crypto.randomUUID(), type: 'input', content: cmd, cwd },
+    ]);
     executeCommand(cmd);
     inputRef.current?.focus();
   };
@@ -99,8 +152,22 @@ function App() {
   useEffect(() => {
     if (!isBooting && history.length === 0) {
       setHistory([
-        { id: crypto.randomUUID(), type: 'output', content: <span className="text-slate-400">Welcome to DuckOS. Type <span className="text-teal-400 font-bold">help</span> to get started.</span> },
-        { id: crypto.randomUUID(), type: 'output', content: contentBlocks.about }
+        {
+          id: crypto.randomUUID(),
+          type: 'output',
+          content: (
+            <span className="text-slate-400">
+              Welcome to DuckOS. Type{' '}
+              <span className="text-teal-400 font-bold">help</span> to get
+              started.
+            </span>
+          ),
+        },
+        {
+          id: crypto.randomUUID(),
+          type: 'output',
+          content: contentBlocks.about,
+        },
       ]);
       inputRef.current?.focus();
     }
@@ -114,24 +181,33 @@ function App() {
         if (history.length > 0) isInitialMount.current = false;
         return;
       }
-      scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
+      scrollContainerRef.current.scrollTo({
+        top: scrollContainerRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
     }
   }, [history, input]);
 
   if (isBooting) {
-    return <BootSequence onComplete={() => {
-      localStorage.setItem('duckos_booted', 'true');
-      setIsBooting(false);
-    }} />;
+    return (
+      <BootSequence
+        onComplete={() => {
+          localStorage.setItem('duckos_booted', 'true');
+          setIsBooting(false);
+        }}
+      />
+    );
   }
 
   return (
-    <div 
+    <div
       ref={boundsRef}
       className="relative w-full min-h-screen p-4 md:p-8 flex items-center justify-center overflow-hidden selection:bg-blue-500/30 selection:text-white font-mono"
       onClick={() => inputRef.current?.focus()}
     >
-      <div className={`absolute inset-0 z-0 ${isMatrixMode ? 'bg-black' : 'bg-[#0a0a0a]'}`}>
+      <div
+        className={`absolute inset-0 z-0 ${isMatrixMode ? 'bg-black' : 'bg-[#0a0a0a]'}`}
+      >
         {!isMatrixMode ? (
           <>
             <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-600/20 blur-[120px] mix-blend-screen"></div>
@@ -143,15 +219,18 @@ function App() {
           <MatrixRain />
         )}
       </div>
-      
-      <button 
-        onClick={(e) => { e.stopPropagation(); setSoundEnabled(!soundEnabled); }}
+
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setSoundEnabled(!soundEnabled);
+        }}
         className="absolute top-6 right-6 z-20 text-slate-400 hover:text-white transition-colors bg-white/5 p-3 rounded-full backdrop-blur-md border border-white/10"
       >
         {soundEnabled ? <Volume2 size={20} /> : <VolumeX size={20} />}
       </button>
 
-      <motion.div 
+      <motion.div
         drag
         dragConstraints={boundsRef}
         dragControls={dragControls}
@@ -162,35 +241,69 @@ function App() {
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         className={`relative z-10 w-full max-w-5xl h-[85vh] border bg-slate-950/70 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col rounded-2xl overflow-hidden ${isMatrixMode ? 'border-green-500/30 ring-1 ring-green-500/20' : 'border-white/10 ring-1 ring-white/5'}`}
       >
-        <div 
+        <div
           className="bg-slate-900/50 border-b border-white/5 p-4 flex items-center justify-between backdrop-blur-md cursor-grab active:cursor-grabbing select-none"
           onPointerDown={(e) => dragControls.start(e)}
         >
           <div className="flex gap-2.5">
-            <div className="w-3.5 h-3.5 rounded-full bg-red-500/90 shadow-[inset_0_1px_4px_rgba(0,0,0,0.4)] flex items-center justify-center group"><X size={8} className="opacity-0 group-hover:opacity-100 text-black"/></div>
-            <div className="w-3.5 h-3.5 rounded-full bg-yellow-500/90 shadow-[inset_0_1px_4px_rgba(0,0,0,0.4)] flex items-center justify-center group"><Minus size={8} className="opacity-0 group-hover:opacity-100 text-black"/></div>
-            <div className="w-3.5 h-3.5 rounded-full bg-green-500/90 shadow-[inset_0_1px_4px_rgba(0,0,0,0.4)] flex items-center justify-center group"><Maximize2 size={8} className="opacity-0 group-hover:opacity-100 text-black"/></div>
+            <div className="w-3.5 h-3.5 rounded-full bg-red-500/90 shadow-[inset_0_1px_4px_rgba(0,0,0,0.4)] flex items-center justify-center group">
+              <X
+                size={8}
+                className="opacity-0 group-hover:opacity-100 text-black"
+              />
+            </div>
+            <div className="w-3.5 h-3.5 rounded-full bg-yellow-500/90 shadow-[inset_0_1px_4px_rgba(0,0,0,0.4)] flex items-center justify-center group">
+              <Minus
+                size={8}
+                className="opacity-0 group-hover:opacity-100 text-black"
+              />
+            </div>
+            <div className="w-3.5 h-3.5 rounded-full bg-green-500/90 shadow-[inset_0_1px_4px_rgba(0,0,0,0.4)] flex items-center justify-center group">
+              <Maximize2
+                size={8}
+                className="opacity-0 group-hover:opacity-100 text-black"
+              />
+            </div>
           </div>
           <div className="flex items-center gap-2 absolute left-1/2 -translate-x-1/2 opacity-70 pointer-events-none">
-            <TerminalIcon size={16} className={isMatrixMode ? 'text-green-500' : 'text-slate-400'} />
-            <span className={`text-sm font-semibold tracking-wide ${isMatrixMode ? 'text-green-400' : 'text-slate-300'}`}>duck@portfolio ~ -zsh</span>
+            <TerminalIcon
+              size={16}
+              className={isMatrixMode ? 'text-green-500' : 'text-slate-400'}
+            />
+            <span
+              className={`text-sm font-semibold tracking-wide ${isMatrixMode ? 'text-green-400' : 'text-slate-300'}`}
+            >
+              duck@portfolio ~ -zsh
+            </span>
           </div>
           <div></div>
         </div>
 
-        <div ref={scrollContainerRef} className="flex-1 overflow-y-auto p-6 md:p-10 custom-scrollbar relative">
-          <div className="flex flex-wrap gap-3 mb-8 border-b border-white/5 pb-6 select-none">
-            {['cat about.txt', 'cat skills.txt', 'cd projects', 'cat contact.txt'].map(tab => (
-              <button
-                key={tab}
-                onClick={(e) => { e.stopPropagation(); handleTabClick(tab); }}
-                className="text-sm px-4 py-2 rounded-lg transition-all duration-300 font-medium text-slate-400 hover:text-slate-200 hover:bg-white/5 bg-white/[0.02] border border-white/5"
-              >
-                <span className="opacity-40 mr-2 text-slate-500">./</span>{tab.split(' ')[1] || tab.split(' ')[0]}
-              </button>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-2 px-6 md:px-10 py-3 border-b border-white/5 bg-[#020617]/40 select-none z-10">
+          {[
+            'cat about.txt',
+            'cat skills.txt',
+            'cd projects',
+            'cat contact.txt',
+          ].map((tab) => (
+            <button
+              key={tab}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleTabClick(tab);
+              }}
+              className="text-sm px-3 py-1.5 rounded-md transition-all duration-300 font-medium text-slate-400 hover:text-slate-200 hover:bg-white/5 bg-white/[0.02] border border-white/5"
+            >
+              <span className="opacity-40 mr-1.5 text-slate-500">./</span>
+              {tab.split(' ')[1] || tab.split(' ')[0]}
+            </button>
+          ))}
+        </div>
 
+        <div
+          ref={scrollContainerRef}
+          className="flex-1 overflow-y-auto p-6 md:p-10 pt-6 custom-scrollbar relative"
+        >
           <div className="max-w-4xl mx-auto pb-20">
             <div className="mb-8 text-slate-500 text-sm opacity-80">
               Last login: {new Date().toDateString()} on ttys000
@@ -203,9 +316,13 @@ function App() {
                     <div className="flex items-center gap-2 font-semibold text-base">
                       <span className="text-indigo-400">duck</span>
                       <span className="text-slate-400">in</span>
-                      <span className="text-teal-400">~/portfolio</span>
+                      <span className="text-teal-400">
+                        {item.cwd || '~/portfolio'}
+                      </span>
                       <span className="text-slate-300 ml-2">λ</span>
-                      <span className="text-slate-100 ml-2">{item.content}</span>
+                      <span className="text-slate-100 ml-2">
+                        {item.content}
+                      </span>
                     </div>
                   ) : (
                     <div className="mt-4">{item.content}</div>
@@ -217,12 +334,12 @@ function App() {
             <div className="flex flex-wrap items-center gap-2 font-semibold text-base mt-6">
               <span className="text-indigo-400">duck</span>
               <span className="text-slate-400">in</span>
-              <span className="text-teal-400">~/portfolio</span>
+              <span className="text-teal-400">{cwd}</span>
               <span className="text-slate-300 ml-2">λ</span>
               <div className="relative flex-1 flex items-center min-w-[200px]">
-                <input 
+                <input
                   ref={inputRef}
-                  type="text" 
+                  type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
@@ -231,7 +348,7 @@ function App() {
                   autoComplete="off"
                   spellCheck="false"
                 />
-                <span 
+                <span
                   className={`absolute w-2.5 h-5 ${isMatrixMode ? 'bg-green-500' : 'bg-indigo-400/80'} animate-pulse rounded-[1px] pointer-events-none`}
                   style={{ left: `calc(0.5rem + ${input.length} * 9.6px)` }}
                 ></span>

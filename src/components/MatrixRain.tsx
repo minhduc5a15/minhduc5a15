@@ -14,11 +14,12 @@ const MatrixRain = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    
+
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレゲゼデベペオォコソトノホモヨョロゴゾドボポヴッン';
+    const katakana =
+      'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレゲゼデベペオォコソトノホモヨョロゴゾドボポヴッン';
     const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const nums = '0123456789';
     const alphabet = katakana + latin + nums;
@@ -29,7 +30,7 @@ const MatrixRain = () => {
 
     // Initialize drops
     for (let x = 0; x < columns; x++) {
-      drops[x] = Math.random() * canvas.height / fontSize; // random start position
+      drops[x] = (Math.random() * canvas.height) / fontSize; // random start position
     }
 
     const draw = () => {
@@ -39,7 +40,7 @@ const MatrixRain = () => {
         columns = currentCols;
         drops = [];
         for (let x = 0; x < columns; x++) {
-          drops[x] = Math.random() * canvas.height / fontSize;
+          drops[x] = (Math.random() * canvas.height) / fontSize;
         }
       }
 
@@ -50,7 +51,9 @@ const MatrixRain = () => {
       ctx.font = fontSize + 'px monospace';
 
       for (let i = 0; i < drops.length; i++) {
-        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+        const text = alphabet.charAt(
+          Math.floor(Math.random() * alphabet.length)
+        );
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
