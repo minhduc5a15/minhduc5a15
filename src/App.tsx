@@ -6,6 +6,13 @@ import BootSequence from './components/BootSequence';
 import MatrixRain from './components/MatrixRain';
 import { useTerminal } from './hooks/useTerminal';
 
+const TABS = [
+  'cat about.txt',
+  'cat skills.txt',
+  'cd projects',
+  'cat contact.txt',
+];
+
 function App() {
   const [isBooting, setIsBooting] = useState(() => {
     return localStorage.getItem('duckos_booted') !== 'true';
@@ -28,6 +35,42 @@ function App() {
   const dragControls = useDragControls();
 
   const isInitialMount = useRef(true);
+
+  const [activeTab, setActiveTab] = useState(TABS[0]);
+  const [targetTab, setTargetTab] = useState(TABS[0]);
+
+  const [isAutoCycling, setIsAutoCycling] = useState(true);
+
+  const handleTabClickRef = useRef(handleTabClick);
+
+  useEffect(() => {
+    handleTabClickRef.current = handleTabClick;
+  }, [handleTabClick]);
+
+  useEffect(() => {
+    if (isBooting || !isAutoCycling) return;
+
+    let step = 1;
+    const maxSteps = TABS.length - 1;
+
+    setTargetTab(TABS[step]);
+
+    const interval = setInterval(() => {
+      const currentTab = TABS[step];
+      setActiveTab(currentTab);
+      handleTabClickRef.current(currentTab, true);
+
+      if (step >= maxSteps) {
+        setIsAutoCycling(false);
+        clearInterval(interval);
+      } else {
+        step++;
+        setTargetTab(TABS[step]);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isBooting, isAutoCycling]);
 
   useEffect(() => {
     if (scrollContainerRef.current) {
@@ -124,25 +167,108 @@ function App() {
           <div></div>
         </div>
 
-        <div className="flex flex-wrap gap-2 px-6 md:px-10 py-3 border-b border-white/5 bg-[#020617]/40 select-none z-10">
-          {[
-            'cat about.txt',
-            'cat skills.txt',
-            'cd projects',
-            'cat contact.txt',
-          ].map((tab) => (
-            <button
-              key={tab}
-              onClick={(e) => {
-                e.stopPropagation();
-                handleTabClick(tab);
-              }}
-              className="text-sm px-3 py-1.5 rounded-md transition-all duration-300 font-medium text-slate-400 hover:text-slate-200 hover:bg-white/5 bg-white/[0.02] border border-white/5"
-            >
-              <span className="opacity-40 mr-1.5 text-slate-500">./</span>
-              {tab.split(' ')[1] || tab.split(' ')[0]}
-            </button>
-          ))}
+        <div className="relative border-b border-white/5 bg-[#020617]/40 select-none z-10">
+          <svg className="absolute w-0 h-0">
+            <defs>
+              <filter id="goo">
+                <feGaussianBlur
+                  in="SourceGraphic"
+                  stdDeviation="5"
+                  result="blur"
+                />
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="
+                  1 0 0 0 0  
+                  0 1 0 0 0  
+                  0 0 1 0 0  
+                  0 0 0 20 -10"
+                  result="goo"
+                />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+              </filter>
+            </defs>
+          </svg>
+
+          {/* Gooey Background Layer */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-40"
+            style={{ filter: 'url(#goo)' }}
+          >
+            <div className="flex flex-wrap gap-2 px-6 md:px-10 py-3 w-full h-full">
+              {TABS.map((tab) => {
+                const isTarget = targetTab === tab;
+                return (
+                  <div
+                    key={`goo-${tab}`}
+                    className="relative px-3 py-1.5 text-sm font-medium"
+                  >
+                    <span className="opacity-0 mr-1.5">./</span>
+                    <span className="opacity-0">
+                      {tab.split(' ')[1] || tab.split(' ')[0]}
+                    </span>
+
+                    {isTarget && (
+                      <motion.div
+                        layoutId="gooIndicator"
+                        className="absolute inset-0 bg-indigo-500 rounded-md"
+                        animate={
+                          isAutoCycling
+                            ? {
+                                scaleX: [1, 1.05, 1.1, 1.5, 1],
+                                scaleY: [1, 0.95, 0.9, 0.5, 1],
+                              }
+                            : { scaleX: 1, scaleY: 1 }
+                        }
+                        transition={
+                          isAutoCycling
+                            ? {
+                                duration: 3,
+                                ease: [0.9, 0, 1, 1],
+                              }
+                            : { type: 'spring', stiffness: 120, damping: 14 }
+                        }
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Foreground Buttons Layer */}
+          <div className="relative flex flex-wrap gap-2 px-6 md:px-10 py-3 w-full h-full">
+            {TABS.map((tab) => {
+              const isActive = activeTab === tab;
+              return (
+                <button
+                  key={tab}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsAutoCycling(false);
+                    setActiveTab(tab);
+                    setTargetTab(tab);
+                    handleTabClick(tab, true);
+                  }}
+                  className={`relative text-sm px-3 py-1.5 rounded-md transition-colors duration-300 font-medium ${
+                    isActive
+                      ? 'text-indigo-300'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                  }`}
+                >
+                  <span
+                    className={`relative z-10 opacity-40 mr-1.5 ${isActive ? 'text-indigo-400' : 'text-slate-500'}`}
+                  >
+                    ./
+                  </span>
+                  <span className="relative z-10">
+                    {tab.split(' ')[1] || tab.split(' ')[0]}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         <div
@@ -154,51 +280,58 @@ function App() {
               Last login: {new Date().toDateString()} on ttys000
             </div>
 
-            <div className="space-y-6">
-              {history.map((item) => (
-                <div key={item.id}>
-                  {item.type === 'input' ? (
-                    <div className="flex items-center gap-2 font-semibold text-base">
-                      <span className="text-indigo-400">duck</span>
-                      <span className="text-slate-400">in</span>
-                      <span className="text-teal-400">
-                        {item.cwd || '~/portfolio'}
-                      </span>
-                      <span className="text-slate-300 ml-2">λ</span>
-                      <span className="text-slate-100 ml-2">
-                        {item.content}
-                      </span>
-                    </div>
-                  ) : (
-                    <div className="mt-4">{item.content}</div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2 font-semibold text-base mt-6">
-              <span className="text-indigo-400">duck</span>
-              <span className="text-slate-400">in</span>
-              <span className="text-teal-400">{cwd}</span>
-              <span className="text-slate-300 ml-2">λ</span>
-              <div className="relative flex-1 flex items-center min-w-[200px]">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  className="w-full bg-transparent border-none outline-none text-slate-100 ml-2 caret-transparent"
-                  autoFocus
-                  autoComplete="off"
-                  spellCheck="false"
-                />
-                <span
-                  className={`absolute w-2.5 h-5 ${isMatrixMode ? 'bg-green-500' : 'bg-indigo-400/80'} animate-pulse rounded-[1px] pointer-events-none`}
-                  style={{ left: `calc(0.5rem + ${input.length} * 9.6px)` }}
-                ></span>
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+            >
+              <div className="space-y-6">
+                {history.map((item) => (
+                  <div key={item.id}>
+                    {item.type === 'input' ? (
+                      <div className="flex items-center gap-2 font-semibold text-base">
+                        <span className="text-indigo-400">duck</span>
+                        <span className="text-slate-400">in</span>
+                        <span className="text-teal-400">
+                          {item.cwd || '~/portfolio'}
+                        </span>
+                        <span className="text-slate-300 ml-2">λ</span>
+                        <span className="text-slate-100 ml-2">
+                          {item.content}
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="mt-4">{item.content}</div>
+                    )}
+                  </div>
+                ))}
               </div>
-            </div>
+
+              <div className="flex flex-wrap items-center gap-2 font-semibold text-base mt-6">
+                <span className="text-indigo-400">duck</span>
+                <span className="text-slate-400">in</span>
+                <span className="text-teal-400">{cwd}</span>
+                <span className="text-slate-300 ml-2">λ</span>
+                <div className="relative flex-1 flex items-center min-w-[200px]">
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    className="w-full bg-transparent border-none outline-none text-slate-100 ml-2 caret-transparent"
+                    autoFocus
+                    autoComplete="off"
+                    spellCheck="false"
+                  />
+                  <span
+                    className={`absolute w-2.5 h-5 ${isMatrixMode ? 'bg-green-500' : 'bg-indigo-400/80'} animate-pulse rounded-[1px] pointer-events-none`}
+                    style={{ left: `calc(0.5rem + ${input.length} * 9.6px)` }}
+                  ></span>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </motion.div>

@@ -90,7 +90,7 @@ export const useTerminal = (isBooting: boolean) => {
     }
 
     if (shouldClear) {
-      setHistory([]);
+      setHistory(newHistoryItems);
     } else if (newHistoryItems.length > 0) {
       setHistory((prev) => [...prev, ...newHistoryItems]);
     }
@@ -224,12 +224,21 @@ export const useTerminal = (isBooting: boolean) => {
     return tabName;
   };
 
-  const handleTabClick = (baseCmd: string) => {
+  const handleTabClick = (baseCmd: string, shouldClear: boolean = true) => {
     const cmd = getTabCommand(baseCmd, cwd);
-    setHistory((prev) => [
-      ...prev,
-      { id: crypto.randomUUID(), type: 'input', content: cmd, cwd },
-    ]);
+    const inputItem: HistoryItem = {
+      id: crypto.randomUUID(),
+      type: 'input',
+      content: cmd,
+      cwd,
+    };
+
+    if (shouldClear) {
+      setHistory([inputItem]);
+    } else {
+      setHistory((prev) => [...prev, inputItem]);
+    }
+
     executeCommand(cmd);
     inputRef.current?.focus();
   };
