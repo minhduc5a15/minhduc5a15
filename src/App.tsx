@@ -1,15 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useDragControls } from 'framer-motion';
-import {
-  Terminal as TerminalIcon,
-  Volume2,
-  VolumeX,
-  Maximize2,
-  X,
-  Minus,
-} from 'lucide-react';
+import { Terminal as TerminalIcon, Maximize2, X, Minus } from 'lucide-react';
 
-import { audioManager } from './utils/audio';
 import BootSequence from './components/BootSequence';
 import MatrixRain from './components/MatrixRain';
 import { contentBlocks } from './constants/terminalData';
@@ -29,7 +21,6 @@ function App() {
   const [isBooting, setIsBooting] = useState(() => {
     return localStorage.getItem('duckos_booted') !== 'true';
   });
-  const [soundEnabled, setSoundEnabled] = useState(true);
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [input, setInput] = useState('');
   const [cwd, setCwd] = useState('~/portfolio');
@@ -42,10 +33,6 @@ function App() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const boundsRef = useRef<HTMLDivElement>(null);
   const dragControls = useDragControls();
-
-  useEffect(() => {
-    audioManager.init();
-  }, []);
 
   const executeCommand = (cmd: string) => {
     const commands = CommandParser.parse(cmd);
@@ -117,14 +104,6 @@ function App() {
   ];
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (soundEnabled) {
-      if (e.key.length === 1 || e.key === 'Backspace') {
-        audioManager.playClick(0.05);
-      } else if (e.key === 'Enter') {
-        audioManager.playClick(0.1);
-      }
-    }
-
     if (e.key === 'Tab') {
       e.preventDefault();
       if (!input) return;
@@ -233,7 +212,6 @@ function App() {
   };
 
   const handleTabClick = (baseCmd: string) => {
-    if (soundEnabled) audioManager.playClick(0.1);
     const cmd = getTabCommand(baseCmd, cwd);
     setHistory((prev) => [
       ...prev,
@@ -313,16 +291,6 @@ function App() {
           <MatrixRain />
         )}
       </div>
-
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setSoundEnabled(!soundEnabled);
-        }}
-        className="absolute top-6 right-6 z-20 text-slate-400 hover:text-white transition-colors bg-white/5 p-3 rounded-full backdrop-blur-md border border-white/10"
-      >
-        {soundEnabled ? <Volume2 size={20} /> : <VolumeX size={20} />}
-      </button>
 
       <motion.div
         drag
