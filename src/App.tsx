@@ -125,7 +125,7 @@ function App() {
                   <div className="pl-6 flex flex-col md:flex-row gap-8 items-start">
                     <div className="shrink-0 relative">
                       <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/10 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
-                        <img src="/user-avatar.jpg" alt="minhduc5a15 avatar" className="w-full h-full object-cover" />
+                        <img src={`${import.meta.env.BASE_URL}user-avatar.jpg`} alt="minhduc5a15 avatar" className="w-full h-full object-cover" />
                       </div>
                       <div className="absolute bottom-2 right-2 w-6 h-6 bg-green-500 rounded-full border-4 border-[#0d1326] shadow-lg"></div>
                     </div>
