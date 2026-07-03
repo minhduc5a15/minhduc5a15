@@ -3,7 +3,7 @@ name: Deploy portfolio to GitHub Pages
 on:
   # Chạy khi push lên nhánh main
   push:
-    branches: ["main"]
+    branches: ['main']
   # Cho phép chạy thủ công từ tab Actions
   workflow_dispatch:
 
@@ -15,7 +15,7 @@ permissions:
 
 # Chỉ cho phép một deployment chạy tại một thời điểm
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: true
 
 jobs:

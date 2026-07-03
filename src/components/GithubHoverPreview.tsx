@@ -12,14 +12,17 @@ interface GithubHoverPreviewProps {
 
 const timeAgo = (dateString: string) => {
   const diff = Math.floor((new Date(dateString).getTime() - Date.now()) / 1000);
-  const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
 
-  if (Math.abs(diff) < 60) return rtf.format(diff, "second");
-  if (Math.abs(diff) < 3600) return rtf.format(Math.round(diff / 60), "minute");
-  if (Math.abs(diff) < 86400) return rtf.format(Math.round(diff / 3600), "hour");
-  if (Math.abs(diff) < 2592000) return rtf.format(Math.round(diff / 86400), "day");
-  if (Math.abs(diff) < 31536000) return rtf.format(Math.round(diff / 2592000), "month");
-  return rtf.format(Math.round(diff / 31536000), "year");
+  if (Math.abs(diff) < 60) return rtf.format(diff, 'second');
+  if (Math.abs(diff) < 3600) return rtf.format(Math.round(diff / 60), 'minute');
+  if (Math.abs(diff) < 86400)
+    return rtf.format(Math.round(diff / 3600), 'hour');
+  if (Math.abs(diff) < 2592000)
+    return rtf.format(Math.round(diff / 86400), 'day');
+  if (Math.abs(diff) < 31536000)
+    return rtf.format(Math.round(diff / 2592000), 'month');
+  return rtf.format(Math.round(diff / 31536000), 'year');
 };
 
 export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
@@ -142,7 +145,7 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
       {isHovered &&
         createPortal(
           <div
-            className="fixed z-[9999] bg-[#0d1117] border border-[#30363d] rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.5)] w-[550px] max-w-[95vw] overflow-hidden text-[#c9d1d9] font-sans text-sm animate-in fade-in zoom-in-95 duration-200"
+            className="fixed z-[9999] bg-slate-950/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl w-[550px] max-w-[95vw] overflow-hidden text-slate-300 font-mono text-sm animate-in fade-in zoom-in-95 duration-200"
             style={{
               top: coords.top,
               left: Math.max(
@@ -155,12 +158,12 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
           >
             {loading && !data ? (
               <div className="p-8 flex justify-center items-center">
-                <div className="w-6 h-6 border-2 border-[#1f6feb] border-t-transparent rounded-full animate-spin"></div>
+                <div className="w-6 h-6 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
               </div>
             ) : data ? (
               <div className="flex flex-col text-left">
                 {/* Header */}
-                <div className="bg-[#161b22] px-4 py-3 flex items-center justify-between border-b border-[#30363d]">
+                <div className="bg-slate-900/50 px-4 py-3 flex items-center justify-between border-b border-white/10">
                   <div className="flex items-center gap-2">
                     <img
                       src={data.ownerAvatar}
@@ -171,11 +174,11 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
                       href={`https://github.com/${repo}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-semibold text-white hover:underline cursor-pointer"
+                      className="font-bold text-white hover:text-indigo-400 transition-colors"
                     >
                       {data.name}
                     </a>
-                    <span className="px-2 py-0.5 text-[11px] font-medium rounded-full border border-[#30363d] text-[#8b949e]">
+                    <span className="px-2 py-0.5 text-[11px] font-medium rounded-md border border-white/10 text-slate-400">
                       Public
                     </span>
                   </div>
@@ -185,50 +188,52 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
                 <div className="p-4 space-y-4">
                   {/* Branch / Code Bar */}
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <div className="flex items-center gap-4 text-[#8b949e] text-xs md:text-sm">
+                    <div className="flex items-center gap-4 text-slate-400 text-xs md:text-sm">
                       <a
                         href={`https://github.com/${repo}/tree/${data.defaultBranch}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-1.5 px-3 py-1.5 bg-[#21262d] border border-[#30363d] rounded-md hover:bg-[#30363d] text-[#c9d1d9] font-medium transition-colors"
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-white/[0.02] border border-white/5 rounded-md hover:bg-white/5 text-slate-300 font-medium transition-colors"
                       >
-                        <GitBranch size={14} /> {data.defaultBranch}
+                        <GitBranch size={14} className="text-indigo-400" />{' '}
+                        {data.defaultBranch}
                       </a>
                       <a
                         href={`https://github.com/${repo}/branches`}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-1.5 hover:text-[#58a6ff] cursor-pointer"
+                        className="flex items-center gap-1.5 hover:text-indigo-400 transition-colors"
                       >
-                        <GitBranch size={14} /> 5 Branches
+                        <GitBranch size={14} className="opacity-70" /> 5
+                        Branches
                       </a>
                       <a
                         href={`https://github.com/${repo}/tags`}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-1.5 hover:text-[#58a6ff] cursor-pointer"
+                        className="flex items-center gap-1.5 hover:text-indigo-400 transition-colors"
                       >
-                        <Tag size={14} /> 0 Tags
+                        <Tag size={14} className="opacity-70" /> 0 Tags
                       </a>
                     </div>
                     <div className="flex items-center gap-2 text-xs md:text-sm"></div>
                   </div>
 
                   {/* File List Table */}
-                  <div className="border border-[#30363d] rounded-md overflow-hidden bg-[#0d1117] text-xs md:text-sm">
+                  <div className="border border-white/10 rounded-md overflow-hidden bg-black/20 text-xs md:text-sm">
                     {/* Latest Commit Header */}
-                    <div className="bg-[#161b22] px-4 py-3 flex items-center justify-between border-b border-[#30363d]">
+                    <div className="bg-slate-900/30 px-4 py-3 flex items-center justify-between border-b border-white/5">
                       <div className="flex items-center gap-2 overflow-hidden flex-1">
                         <img
                           src={data.latestCommit.authorAvatar}
                           alt={data.latestCommit.author}
-                          className="w-5 h-5 md:w-6 md:h-6 rounded-full"
+                          className="w-5 h-5 md:w-6 md:h-6 rounded-full border border-white/10"
                         />
                         <a
                           href={`https://github.com/${data.latestCommit.author}`}
                           target="_blank"
                           rel="noreferrer"
-                          className="font-semibold text-white whitespace-nowrap hover:text-[#58a6ff] hover:underline cursor-pointer"
+                          className="font-semibold text-white whitespace-nowrap hover:text-indigo-400 transition-colors"
                         >
                           {data.latestCommit.author}
                         </a>
@@ -236,17 +241,17 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
                           href={`https://github.com/${repo}/commit/${data.latestCommit.hash}`}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-[#c9d1d9] truncate max-w-[150px] md:max-w-[300px] hover:text-[#58a6ff] hover:underline cursor-pointer"
+                          className="text-slate-400 truncate max-w-[150px] md:max-w-[300px] hover:text-teal-400 transition-colors"
                         >
                           {data.latestCommit.message}
                         </a>
                       </div>
-                      <div className="flex items-center gap-3 text-[#8b949e] shrink-0">
+                      <div className="flex items-center gap-3 text-slate-500 shrink-0">
                         <a
                           href={`https://github.com/${repo}/commit/${data.latestCommit.hash}`}
                           target="_blank"
                           rel="noreferrer"
-                          className="hover:text-[#58a6ff] cursor-pointer font-mono hidden sm:block"
+                          className="hover:text-indigo-400 transition-colors font-mono hidden sm:block"
                         >
                           {data.latestCommit.hash}
                         </a>
@@ -257,7 +262,7 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
                           href={`https://github.com/${repo}/commits/${data.defaultBranch}`}
                           target="_blank"
                           rel="noreferrer"
-                          className="font-medium flex items-center gap-1 hover:text-[#58a6ff] cursor-pointer"
+                          className="font-medium flex items-center gap-1 hover:text-indigo-400 transition-colors"
                         >
                           <GitCommit size={14} /> 26 Commits
                         </a>
@@ -269,25 +274,25 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
                       {data.files.map((file: any) => (
                         <div
                           key={file.name}
-                          className="flex items-center justify-between px-4 py-2 border-b border-[#30363d] last:border-0 hover:bg-[#161b22] transition-colors group"
+                          className="flex items-center justify-between px-4 py-2 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors group"
                         >
                           <div className="flex items-center gap-3 w-1/3 min-w-[120px]">
                             {file.type === 'dir' ? (
                               <Folder
                                 size={16}
-                                className="text-[#54aeff] fill-[#54aeff]/20 shrink-0"
+                                className="text-indigo-400 fill-indigo-400/20 shrink-0"
                               />
                             ) : (
                               <File
                                 size={16}
-                                className="text-[#8b949e] shrink-0"
+                                className="text-slate-500 shrink-0"
                               />
                             )}
                             <a
                               href={`https://github.com/${repo}/${file.type === 'dir' ? 'tree' : 'blob'}/${data.defaultBranch}/${file.path}`}
                               target="_blank"
                               rel="noreferrer"
-                              className="text-[#c9d1d9] group-hover:text-[#58a6ff] cursor-pointer truncate hover:underline"
+                              className="text-slate-300 group-hover:text-indigo-400 transition-colors truncate"
                             >
                               {file.name}
                             </a>
@@ -296,11 +301,11 @@ export const GithubHoverPreview: React.FC<GithubHoverPreviewProps> = ({
                             href={`https://github.com/${repo}/commit/${data.latestCommit.hash}`}
                             target="_blank"
                             rel="noreferrer"
-                            className="w-1/2 text-[#8b949e] truncate cursor-pointer hover:text-[#58a6ff] hover:underline px-2 hidden sm:block"
+                            className="w-1/2 text-slate-500 truncate hover:text-teal-400 transition-colors px-2 hidden sm:block"
                           >
                             {data.latestCommit.message}
                           </a>
-                          <div className="w-1/6 text-right text-[#8b949e] whitespace-nowrap shrink-0">
+                          <div className="w-1/6 text-right text-slate-500 whitespace-nowrap shrink-0">
                             {timeAgo(data.latestCommit.date)}
                           </div>
                         </div>
