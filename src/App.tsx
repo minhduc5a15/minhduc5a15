@@ -4,6 +4,10 @@ import { Terminal as TerminalIcon, Maximize2, X, Minus } from 'lucide-react';
 
 import BootSequence from './components/BootSequence';
 import MatrixRain from './components/MatrixRain';
+import TerminalTabs from './components/TerminalTabs';
+import TerminalWindow from './components/TerminalWindow';
+import TerminalOutput from './components/TerminalOutput';
+import TerminalInput from './components/TerminalInput';
 import { useTerminal } from './hooks/useTerminal';
 
 const TABS = [
@@ -129,147 +133,23 @@ function App() {
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         className={`relative z-10 w-full max-w-5xl h-[85vh] border bg-slate-950/70 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col rounded-2xl overflow-hidden ${isMatrixMode ? 'border-green-500/30 ring-1 ring-green-500/20' : 'border-white/10 ring-1 ring-white/5'}`}
       >
-        <div
-          className="bg-slate-900/50 border-b border-white/5 p-4 flex items-center justify-between backdrop-blur-md cursor-grab active:cursor-grabbing select-none"
-          onPointerDown={(e) => dragControls.start(e)}
-        >
-          <div className="flex gap-2.5">
-            <div className="w-3.5 h-3.5 rounded-full bg-red-500/90 shadow-[inset_0_1px_4px_rgba(0,0,0,0.4)] flex items-center justify-center group">
-              <X
-                size={8}
-                className="opacity-0 group-hover:opacity-100 text-black"
-              />
-            </div>
-            <div className="w-3.5 h-3.5 rounded-full bg-yellow-500/90 shadow-[inset_0_1px_4px_rgba(0,0,0,0.4)] flex items-center justify-center group">
-              <Minus
-                size={8}
-                className="opacity-0 group-hover:opacity-100 text-black"
-              />
-            </div>
-            <div className="w-3.5 h-3.5 rounded-full bg-green-500/90 shadow-[inset_0_1px_4px_rgba(0,0,0,0.4)] flex items-center justify-center group">
-              <Maximize2
-                size={8}
-                className="opacity-0 group-hover:opacity-100 text-black"
-              />
-            </div>
-          </div>
-          <div className="flex items-center gap-2 absolute left-1/2 -translate-x-1/2 opacity-70 pointer-events-none">
-            <TerminalIcon
-              size={16}
-              className={isMatrixMode ? 'text-green-500' : 'text-slate-400'}
-            />
-            <span
-              className={`text-sm font-semibold tracking-wide ${isMatrixMode ? 'text-green-400' : 'text-slate-300'}`}
-            >
-              duck@portfolio ~ -zsh
-            </span>
-          </div>
-          <div></div>
-        </div>
+        <TerminalWindow
+          isMatrixMode={isMatrixMode}
+          dragControls={dragControls}
+        />
 
-        <div className="relative border-b border-white/5 bg-[#020617]/40 select-none z-10">
-          <svg className="absolute w-0 h-0">
-            <defs>
-              <filter id="goo">
-                <feGaussianBlur
-                  in="SourceGraphic"
-                  stdDeviation="5"
-                  result="blur"
-                />
-                <feColorMatrix
-                  in="blur"
-                  mode="matrix"
-                  values="
-                  1 0 0 0 0  
-                  0 1 0 0 0  
-                  0 0 1 0 0  
-                  0 0 0 20 -10"
-                  result="goo"
-                />
-                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-              </filter>
-            </defs>
-          </svg>
-
-          {/* Gooey Background Layer */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-40"
-            style={{ filter: 'url(#goo)' }}
-          >
-            <div className="flex flex-wrap gap-2 px-6 md:px-10 py-3 w-full h-full">
-              {TABS.map((tab) => {
-                const isTarget = targetTab === tab;
-                return (
-                  <div
-                    key={`goo-${tab}`}
-                    className="relative px-3 py-1.5 text-sm font-medium"
-                  >
-                    <span className="opacity-0 mr-1.5">./</span>
-                    <span className="opacity-0">
-                      {tab.split(' ')[1] || tab.split(' ')[0]}
-                    </span>
-
-                    {isTarget && (
-                      <motion.div
-                        layoutId="gooIndicator"
-                        className="absolute inset-0 bg-indigo-500 rounded-md"
-                        animate={
-                          isAutoCycling
-                            ? {
-                                scaleX: [1, 1.05, 1.1, 1.5, 1],
-                                scaleY: [1, 0.95, 0.9, 0.5, 1],
-                              }
-                            : { scaleX: 1, scaleY: 1 }
-                        }
-                        transition={
-                          isAutoCycling
-                            ? {
-                                duration: 3,
-                                ease: [0.9, 0, 1, 1],
-                              }
-                            : { type: 'spring', stiffness: 120, damping: 14 }
-                        }
-                      />
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Foreground Buttons Layer */}
-          <div className="relative flex flex-wrap gap-2 px-6 md:px-10 py-3 w-full h-full">
-            {TABS.map((tab) => {
-              const isActive = activeTab === tab;
-              return (
-                <button
-                  key={tab}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsAutoCycling(false);
-                    setActiveTab(tab);
-                    setTargetTab(tab);
-                    handleTabClick(tab, true);
-                  }}
-                  className={`relative text-sm px-3 py-1.5 rounded-md transition-colors duration-300 font-medium ${
-                    isActive
-                      ? 'text-indigo-300'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
-                  }`}
-                >
-                  <span
-                    className={`relative z-10 opacity-40 mr-1.5 ${isActive ? 'text-indigo-400' : 'text-slate-500'}`}
-                  >
-                    ./
-                  </span>
-                  <span className="relative z-10">
-                    {tab.split(' ')[1] || tab.split(' ')[0]}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
+        <TerminalTabs
+          tabs={TABS}
+          activeTab={activeTab}
+          targetTab={targetTab}
+          isAutoCycling={isAutoCycling}
+          onTabClick={(tab) => {
+            setIsAutoCycling(false);
+            setActiveTab(tab);
+            setTargetTab(tab);
+            handleTabClick(tab, true);
+          }}
+        />
 
         <div
           ref={scrollContainerRef}
@@ -286,51 +166,16 @@ function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
             >
-              <div className="space-y-6">
-                {history.map((item) => (
-                  <div key={item.id}>
-                    {item.type === 'input' ? (
-                      <div className="flex items-center gap-2 font-semibold text-base">
-                        <span className="text-indigo-400">duck</span>
-                        <span className="text-slate-400">in</span>
-                        <span className="text-teal-400">
-                          {item.cwd || '~/portfolio'}
-                        </span>
-                        <span className="text-slate-300 ml-2">λ</span>
-                        <span className="text-slate-100 ml-2">
-                          {item.content}
-                        </span>
-                      </div>
-                    ) : (
-                      <div className="mt-4">{item.content}</div>
-                    )}
-                  </div>
-                ))}
-              </div>
+              <TerminalOutput history={history} />
 
-              <div className="flex flex-wrap items-center gap-2 font-semibold text-base mt-6">
-                <span className="text-indigo-400">duck</span>
-                <span className="text-slate-400">in</span>
-                <span className="text-teal-400">{cwd}</span>
-                <span className="text-slate-300 ml-2">λ</span>
-                <div className="relative flex-1 flex items-center min-w-[200px]">
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    className="w-full bg-transparent border-none outline-none text-slate-100 ml-2 caret-transparent"
-                    autoFocus
-                    autoComplete="off"
-                    spellCheck="false"
-                  />
-                  <span
-                    className={`absolute w-2.5 h-5 ${isMatrixMode ? 'bg-green-500' : 'bg-indigo-400/80'} animate-pulse rounded-[1px] pointer-events-none`}
-                    style={{ left: `calc(0.5rem + ${input.length} * 9.6px)` }}
-                  ></span>
-                </div>
-              </div>
+              <TerminalInput
+                cwd={cwd}
+                input={input}
+                setInput={setInput}
+                handleKeyDown={handleKeyDown}
+                inputRef={inputRef}
+                isMatrixMode={isMatrixMode}
+              />
             </motion.div>
           </div>
         </div>
