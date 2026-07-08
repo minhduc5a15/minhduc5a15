@@ -212,9 +212,9 @@
     "ownerLogin": "minhduc5a15",
     "defaultBranch": "main",
     "latestCommit": {
-      "message": "build: add libcurl dependency to Linux CI build",
-      "hash": "997c617",
-      "date": "2026-06-23T06:09:48Z",
+      "message": "feat: Implement In-Memory Encryption and Harden Security Architecture",
+      "hash": "d33f42e",
+      "date": "2026-07-05T17:06:40Z",
       "author": "minhduc5a15",
       "authorAvatar": "https://avatars.githubusercontent.com/u/104719252?v=4"
     },
@@ -254,48 +254,48 @@
       {
         "name": "include",
         "path": "include",
-        "sha": "b3710b230bb7bd9b4308d8bafd9e6d90ba2eb1a4",
+        "sha": "eb607ee6f21e3a7d580b7a4024ff0abb1bccfef9",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/include?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/tree/main/include",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/b3710b230bb7bd9b4308d8bafd9e6d90ba2eb1a4",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/eb607ee6f21e3a7d580b7a4024ff0abb1bccfef9",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/include?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/b3710b230bb7bd9b4308d8bafd9e6d90ba2eb1a4",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/eb607ee6f21e3a7d580b7a4024ff0abb1bccfef9",
           "html": "https://github.com/minhduc5a15/duckpass/tree/main/include"
         }
       },
       {
         "name": "src",
         "path": "src",
-        "sha": "0deb9a29b7a52383a06118ab856a2842ecb213da",
+        "sha": "daf3282b19984b85e68e019d8ad61aa0023d97a2",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/src?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/tree/main/src",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/0deb9a29b7a52383a06118ab856a2842ecb213da",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/daf3282b19984b85e68e019d8ad61aa0023d97a2",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/src?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/0deb9a29b7a52383a06118ab856a2842ecb213da",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/daf3282b19984b85e68e019d8ad61aa0023d97a2",
           "html": "https://github.com/minhduc5a15/duckpass/tree/main/src"
         }
       },
       {
         "name": "tests",
         "path": "tests",
-        "sha": "cdef01c6b1651803371a1a43182529728c58552d",
+        "sha": "b494790af9d8e8c3175591a077d014c67e944648",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/tests?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/tree/main/tests",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/cdef01c6b1651803371a1a43182529728c58552d",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/b494790af9d8e8c3175591a077d014c67e944648",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/tests?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/cdef01c6b1651803371a1a43182529728c58552d",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/b494790af9d8e8c3175591a077d014c67e944648",
           "html": "https://github.com/minhduc5a15/duckpass/tree/main/tests"
         }
       },
@@ -334,32 +334,32 @@
       {
         "name": ".gitignore",
         "path": ".gitignore",
-        "sha": "d3b2a6deb6e1126a9e7a38f44f5bcf815000e3a2",
-        "size": 105,
+        "sha": "3c7c115ddd277c7c6f63eb44f488c01a41d19f18",
+        "size": 110,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/.gitignore?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/blob/main/.gitignore",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/d3b2a6deb6e1126a9e7a38f44f5bcf815000e3a2",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/3c7c115ddd277c7c6f63eb44f488c01a41d19f18",
         "download_url": "https://raw.githubusercontent.com/minhduc5a15/duckpass/main/.gitignore",
         "type": "file",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/.gitignore?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/d3b2a6deb6e1126a9e7a38f44f5bcf815000e3a2",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/3c7c115ddd277c7c6f63eb44f488c01a41d19f18",
           "html": "https://github.com/minhduc5a15/duckpass/blob/main/.gitignore"
         }
       },
       {
         "name": "CMakeLists.txt",
         "path": "CMakeLists.txt",
-        "sha": "82511cd7e68503b81a72c052365e7375c9bb780a",
-        "size": 2606,
+        "sha": "b168c3f42f9f7bb98ef94852ae697c0c3da30f4f",
+        "size": 2672,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/CMakeLists.txt?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/blob/main/CMakeLists.txt",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/82511cd7e68503b81a72c052365e7375c9bb780a",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/b168c3f42f9f7bb98ef94852ae697c0c3da30f4f",
         "download_url": "https://raw.githubusercontent.com/minhduc5a15/duckpass/main/CMakeLists.txt",
         "type": "file",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/CMakeLists.txt?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/82511cd7e68503b81a72c052365e7375c9bb780a",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/b168c3f42f9f7bb98ef94852ae697c0c3da30f4f",
           "html": "https://github.com/minhduc5a15/duckpass/blob/main/CMakeLists.txt"
         }
       },
