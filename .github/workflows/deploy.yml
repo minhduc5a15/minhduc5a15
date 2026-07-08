@@ -8,7 +8,7 @@ on:
     - cron: '0 0 * * *'
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -39,10 +39,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
 
+      - name: Commit updated GitHub data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(cron): auto-update github-data.json"
+          file_pattern: "public/github-data.json"
+
       - name: Build project
         run: bun run build
         env:
-          # Đánh dấu đang chạy trong môi trường CI để Vite nạp đúng base path
           GITHUB_ACTIONS: true
 
       - name: Setup GitHub Pages
