@@ -1,4 +1,3 @@
-import React from 'react';
 import { HistoryItem } from '../utils/vfs/types';
 
 interface TerminalOutputProps {

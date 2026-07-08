@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useDragControls } from 'framer-motion';
-import { Terminal as TerminalIcon, Maximize2, X, Minus } from 'lucide-react';
 
 import BootSequence from './components/BootSequence';
 import MatrixRain from './components/MatrixRain';
@@ -11,10 +10,10 @@ import TerminalInput from './components/TerminalInput';
 import { useTerminal } from './hooks/useTerminal';
 
 const TABS = [
-  'cat about.txt',
-  'cat skills.txt',
+  'cat about.md',
+  'cat skills.md',
   'cd projects',
-  'cat contact.txt',
+  'cat contact.md',
 ];
 
 function App() {
@@ -43,38 +42,11 @@ function App() {
   const [activeTab, setActiveTab] = useState(TABS[0]);
   const [targetTab, setTargetTab] = useState(TABS[0]);
 
-  const [isAutoCycling, setIsAutoCycling] = useState(true);
-
   const handleTabClickRef = useRef(handleTabClick);
 
   useEffect(() => {
     handleTabClickRef.current = handleTabClick;
   }, [handleTabClick]);
-
-  useEffect(() => {
-    if (isBooting || !isAutoCycling) return;
-
-    let step = 1;
-    const maxSteps = TABS.length - 1;
-
-    setTargetTab(TABS[step]);
-
-    const interval = setInterval(() => {
-      const currentTab = TABS[step];
-      setActiveTab(currentTab);
-      handleTabClickRef.current(currentTab, true);
-
-      if (step >= maxSteps) {
-        setIsAutoCycling(false);
-        clearInterval(interval);
-      } else {
-        step++;
-        setTargetTab(TABS[step]);
-      }
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [isBooting, isAutoCycling]);
 
   useEffect(() => {
     if (scrollContainerRef.current) {
@@ -136,15 +108,14 @@ function App() {
         <TerminalWindow
           isMatrixMode={isMatrixMode}
           dragControls={dragControls}
+          cwd={cwd}
         />
 
         <TerminalTabs
           tabs={TABS}
           activeTab={activeTab}
           targetTab={targetTab}
-          isAutoCycling={isAutoCycling}
           onTabClick={(tab) => {
-            setIsAutoCycling(false);
             setActiveTab(tab);
             setTargetTab(tab);
             handleTabClick(tab, true);

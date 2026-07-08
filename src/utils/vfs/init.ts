@@ -9,18 +9,18 @@ export const rootFS: DirectoryNode = {
       name: 'portfolio',
       type: 'directory',
       children: {
-        'about.txt': {
-          name: 'about.txt',
+        'about.md': {
+          name: 'about.md',
           type: 'file',
           content: contentBlocks.about,
         },
-        'skills.txt': {
-          name: 'skills.txt',
+        'skills.md': {
+          name: 'skills.md',
           type: 'file',
           content: contentBlocks.skills,
         },
-        'contact.txt': {
-          name: 'contact.txt',
+        'contact.md': {
+          name: 'contact.md',
           type: 'file',
           content: contentBlocks.contact,
         },
@@ -28,8 +28,8 @@ export const rootFS: DirectoryNode = {
           name: 'projects',
           type: 'directory',
           children: {
-            'list.txt': {
-              name: 'list.txt',
+            'list.md': {
+              name: 'list.md',
               type: 'file',
               content: contentBlocks.projects,
             },

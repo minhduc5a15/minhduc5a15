@@ -4,7 +4,6 @@ interface TerminalTabsProps {
   tabs: string[];
   activeTab: string;
   targetTab: string;
-  isAutoCycling: boolean;
   onTabClick: (tab: string) => void;
 }
 
@@ -12,7 +11,6 @@ export default function TerminalTabs({
   tabs,
   activeTab,
   targetTab,
-  isAutoCycling,
   onTabClick,
 }: TerminalTabsProps) {
   return (
@@ -58,22 +56,7 @@ export default function TerminalTabs({
                   <motion.div
                     layoutId="gooIndicator"
                     className="absolute inset-0 bg-indigo-500 rounded-md"
-                    animate={
-                      isAutoCycling
-                        ? {
-                            scaleX: [1, 1.05, 1.1, 1.5, 1],
-                            scaleY: [1, 0.95, 0.9, 0.5, 1],
-                          }
-                        : { scaleX: 1, scaleY: 1 }
-                    }
-                    transition={
-                      isAutoCycling
-                        ? {
-                            duration: 3,
-                            ease: [0.9, 0, 1, 1],
-                          }
-                        : { type: 'spring', stiffness: 120, damping: 14 }
-                    }
+                    transition={{ type: 'spring', stiffness: 120, damping: 14 }}
                   />
                 )}
               </div>

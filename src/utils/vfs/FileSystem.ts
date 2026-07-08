@@ -3,6 +3,7 @@ import { DirectoryNode, VFSNode } from './types';
 export class FileSystem {
   public static resolvePath(cwd: string, targetPath: string): string {
     if (!targetPath) return cwd;
+    if (targetPath === '~') return '~';
 
     // Handle absolute vs relative
     let parts: string[];

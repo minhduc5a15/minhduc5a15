@@ -220,7 +220,7 @@ export const contentBlocks = {
       </p>
       <p>
         <span className="text-teal-400 font-bold w-20 inline-block">cat</span>:
-        Read a file (e.g., cat about.txt)
+        Read a file (e.g., cat about.md)
       </p>
       <p>
         <span className="text-teal-400 font-bold w-20 inline-block">clear</span>
@@ -242,10 +242,10 @@ export const contentBlocks = {
   ),
   ls: (
     <div className="flex gap-4 text-indigo-300 font-semibold">
-      <span>about.txt</span>
-      <span>skills.txt</span>
+      <span>about.md</span>
+      <span>skills.md</span>
       <span className="text-teal-400">projects/</span>
-      <span>contact.txt</span>
+      <span>contact.md</span>
     </div>
   ),
 };

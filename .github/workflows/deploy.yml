@@ -1,22 +1,17 @@
 name: Deploy portfolio to GitHub Pages
 
 on:
-  # Chạy khi push lên nhánh main
   push:
     branches: ['main']
-  # Cho phép chạy thủ công từ tab Actions
   workflow_dispatch:
-  # Tự động fetch data và deploy lúc 00:00 UTC mỗi ngày
   schedule:
     - cron: '0 0 * * *'
 
-# Cấp quyền đọc ghi cho GITHUB_TOKEN để deploy lên Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Chỉ cho phép một deployment chạy tại một thời điểm
 concurrency:
   group: 'pages'
   cancel-in-progress: true

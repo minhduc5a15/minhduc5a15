@@ -1,14 +1,16 @@
+import { DragControls } from 'framer-motion';
 import { Maximize2, Minus, X, Terminal as TerminalIcon } from 'lucide-react';
-import React from 'react';
 
 interface TerminalWindowProps {
   isMatrixMode: boolean;
-  dragControls: any;
+  dragControls: DragControls;
+  cwd: string;
 }
 
 export default function TerminalWindow({
   isMatrixMode,
   dragControls,
+  cwd,
 }: TerminalWindowProps) {
   return (
     <div
@@ -43,7 +45,7 @@ export default function TerminalWindow({
         <span
           className={`text-sm font-semibold tracking-wide ${isMatrixMode ? 'text-green-400' : 'text-slate-300'}`}
         >
-          duck@portfolio ~ -zsh
+          duck@portfolio {cwd} -zsh
         </span>
       </div>
       <div></div>

@@ -214,8 +214,8 @@ export const useTerminal = (isBooting: boolean) => {
       const dir = tabName.split(' ')[1];
       if (dir === 'projects') {
         return isProjects
-          ? `cat list.txt`
-          : `cd ~/portfolio/projects && cat list.txt`;
+          ? `cat list.md`
+          : `cd ~/portfolio/projects && cat list.md`;
       }
       return currentCwd === `~/portfolio/${dir}`
         ? `ls`
