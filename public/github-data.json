@@ -5,9 +5,9 @@
     "ownerLogin": "minhduc5a15",
     "defaultBranch": "main",
     "latestCommit": {
-      "message": "fix: compile error on macOS without OpenMP due to undeclared avx2_matmul",
-      "hash": "26605a1",
-      "date": "2026-07-09T19:26:57Z",
+      "message": "Fix: Update MemoryPool singleton method calls from global() to get_instance()",
+      "hash": "701b460",
+      "date": "2026-07-27T22:32:24Z",
       "author": "minhduc5a15",
       "authorAvatar": "https://avatars.githubusercontent.com/u/104719252?v=4"
     },
@@ -47,16 +47,16 @@
       {
         "name": "docs",
         "path": "docs",
-        "sha": "c6c5d5454fbaf599c7de9b919ccb4228c78d1045",
+        "sha": "f73bd5b8341a16d1239c665de27d956eddf30970",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/docs?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/docs",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/c6c5d5454fbaf599c7de9b919ccb4228c78d1045",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/f73bd5b8341a16d1239c665de27d956eddf30970",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/docs?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/c6c5d5454fbaf599c7de9b919ccb4228c78d1045",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/f73bd5b8341a16d1239c665de27d956eddf30970",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/docs"
         }
       },
@@ -79,64 +79,64 @@
       {
         "name": "include",
         "path": "include",
-        "sha": "becc2fddccd1603652f728a8829a996fba61e01c",
+        "sha": "f4ca6cd4dfed3c32f9357a3d1edb6c445bcf1ab5",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/include?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/include",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/becc2fddccd1603652f728a8829a996fba61e01c",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/f4ca6cd4dfed3c32f9357a3d1edb6c445bcf1ab5",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/include?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/becc2fddccd1603652f728a8829a996fba61e01c",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/f4ca6cd4dfed3c32f9357a3d1edb6c445bcf1ab5",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/include"
         }
       },
       {
         "name": "src",
         "path": "src",
-        "sha": "2d130032ac38a8d38bf90fecf63fdac35d0476e8",
+        "sha": "e90c9840169862213a1ef1bc98e0ffeccdbf6fbd",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/src?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/src",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/2d130032ac38a8d38bf90fecf63fdac35d0476e8",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/e90c9840169862213a1ef1bc98e0ffeccdbf6fbd",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/src?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/2d130032ac38a8d38bf90fecf63fdac35d0476e8",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/e90c9840169862213a1ef1bc98e0ffeccdbf6fbd",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/src"
         }
       },
       {
         "name": "stress",
         "path": "stress",
-        "sha": "299539134b7b24dd5e572632abbe949f197faacd",
+        "sha": "9a7c59143c929cede4734048f4b990d9c7199040",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/stress?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/stress",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/299539134b7b24dd5e572632abbe949f197faacd",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/9a7c59143c929cede4734048f4b990d9c7199040",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/stress?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/299539134b7b24dd5e572632abbe949f197faacd",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/9a7c59143c929cede4734048f4b990d9c7199040",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/stress"
         }
       },
       {
         "name": "tests",
         "path": "tests",
-        "sha": "e8bb55b445cb9b6a7ac32515194629c4e83eea3b",
+        "sha": "5443cbd181b09d773ad8430034a0b4b3270072ab",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/tests?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/tests",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/e8bb55b445cb9b6a7ac32515194629c4e83eea3b",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/5443cbd181b09d773ad8430034a0b4b3270072ab",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/tests?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/e8bb55b445cb9b6a7ac32515194629c4e83eea3b",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/5443cbd181b09d773ad8430034a0b4b3270072ab",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/tests"
         }
       },
