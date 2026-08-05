@@ -5,9 +5,9 @@
     "ownerLogin": "minhduc5a15",
     "defaultBranch": "main",
     "latestCommit": {
-      "message": "docs: update README and developer_guide for MNIST and loss function refactor",
-      "hash": "710d889",
-      "date": "2026-08-02T20:43:34Z",
+      "message": "fix(core): prevent thread_local destruction crash and use-after-free in MemoryPool",
+      "hash": "79b8db2",
+      "date": "2026-08-05T20:55:58Z",
       "author": "minhduc5a15",
       "authorAvatar": "https://avatars.githubusercontent.com/u/104719252?v=4"
     },
@@ -111,16 +111,16 @@
       {
         "name": "src",
         "path": "src",
-        "sha": "f640b208a9383757e662dffbb58cc3bb256827ca",
+        "sha": "380ca051f2381b020b39344db497774e920778e5",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/src?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/src",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/f640b208a9383757e662dffbb58cc3bb256827ca",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/380ca051f2381b020b39344db497774e920778e5",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/src?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/f640b208a9383757e662dffbb58cc3bb256827ca",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/380ca051f2381b020b39344db497774e920778e5",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/src"
         }
       },
@@ -175,16 +175,16 @@
       {
         "name": ".gitignore",
         "path": ".gitignore",
-        "sha": "1ddd3de9cc70fcd83c11c494020b13835ab4c4bb",
-        "size": 592,
+        "sha": "18cfbf19d97ba4a195131761e5fd1cd4f99c3067",
+        "size": 611,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/.gitignore?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/blob/main/.gitignore",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/1ddd3de9cc70fcd83c11c494020b13835ab4c4bb",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/18cfbf19d97ba4a195131761e5fd1cd4f99c3067",
         "download_url": "https://raw.githubusercontent.com/minhduc5a15/HELIX/main/.gitignore",
         "type": "file",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/.gitignore?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/1ddd3de9cc70fcd83c11c494020b13835ab4c4bb",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/18cfbf19d97ba4a195131761e5fd1cd4f99c3067",
           "html": "https://github.com/minhduc5a15/HELIX/blob/main/.gitignore"
         }
       },
