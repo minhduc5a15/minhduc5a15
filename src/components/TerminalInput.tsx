@@ -1,4 +1,4 @@
-import { KeyboardEvent, RefObject, useState } from 'react';
+import { KeyboardEvent, RefObject, useState, useEffect } from 'react';
 
 interface TerminalInputProps {
   cwd: string;
@@ -18,12 +18,10 @@ export default function TerminalInput({
   isMatrixMode,
 }: TerminalInputProps) {
   const [cursorPos, setCursorPos] = useState(input.length);
-  const [prevInput, setPrevInput] = useState(input);
 
-  if (input !== prevInput) {
-    setPrevInput(input);
+  useEffect(() => {
     setCursorPos(input.length);
-  }
+  }, [input]);
 
   const updateCursor = () => {
     if (inputRef.current) {

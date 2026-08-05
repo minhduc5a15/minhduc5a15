@@ -42,12 +42,6 @@ function App() {
   const [activeTab, setActiveTab] = useState(TABS[0]);
   const [targetTab, setTargetTab] = useState(TABS[0]);
 
-  const handleTabClickRef = useRef(handleTabClick);
-
-  useEffect(() => {
-    handleTabClickRef.current = handleTabClick;
-  }, [handleTabClick]);
-
   useEffect(() => {
     if (scrollContainerRef.current) {
       if (isInitialMount.current && history.length <= 2) {
