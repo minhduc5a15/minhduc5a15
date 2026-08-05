@@ -1,6 +1,6 @@
 import { CommandContext, CommandResponse } from './types';
-import { FileSystem } from './FileSystem';
-import { contentBlocks } from '../../constants/terminalData';
+import { FileSystem } from './file-system';
+import { contentBlocks } from '../../constants/terminal-data';
 
 export const executeCommandEngine = (
   args: string[],

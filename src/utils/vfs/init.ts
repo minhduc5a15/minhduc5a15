@@ -1,5 +1,5 @@
 import { DirectoryNode } from './types';
-import { contentBlocks } from '../../constants/terminalData';
+import { contentBlocks } from '../../constants/terminal-data';
 
 export const rootFS: DirectoryNode = {
   name: '~',

@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useDragControls } from 'framer-motion';
 
-import BootSequence from './components/BootSequence';
-import MatrixRain from './components/MatrixRain';
-import TerminalTabs from './components/TerminalTabs';
-import TerminalWindow from './components/TerminalWindow';
-import TerminalOutput from './components/TerminalOutput';
-import TerminalInput from './components/TerminalInput';
-import { useTerminal } from './hooks/useTerminal';
+import BootSequence from './components/boot-sequence';
+import MatrixRain from './components/matrix-rain';
+import TerminalTabs from './components/terminal-tabs';
+import TerminalWindow from './components/terminal-window';
+import TerminalOutput from './components/terminal-output';
+import TerminalInput from './components/terminal-input';
+import { useTerminal } from './hooks/use-terminal';
 
 const TABS = [
   'cat about.md',

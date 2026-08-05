@@ -1,5 +1,5 @@
 import { Cpu, Code, Database, ChevronRight, Github } from 'lucide-react';
-import { GithubHoverPreview } from '../components/GithubHoverPreview';
+import { GithubHoverPreview } from '../components/github-hover-preview';
 
 export const contentBlocks = {
   about: (

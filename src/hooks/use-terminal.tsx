@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { contentBlocks } from '../constants/terminalData';
-import { CommandParser } from '../utils/vfs/CommandParser';
+import { contentBlocks } from '../constants/terminal-data';
+import { CommandParser } from '../utils/vfs/command-parser';
 import { executeCommandEngine } from '../utils/vfs/commands';
 import { rootFS } from '../utils/vfs/init';
-import { FileSystem } from '../utils/vfs/FileSystem';
+import { FileSystem } from '../utils/vfs/file-system';
 import { HistoryItem } from '../utils/vfs/types';
 
 export const useTerminal = (isBooting: boolean) => {
