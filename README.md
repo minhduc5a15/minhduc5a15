@@ -3,6 +3,7 @@
 ## An AI Engineer | AI System Engineer | System Engineer from Vietnam
 
 - 📫 How to reach me **[minhduc5a15@gmail.com](mailto:minhduc5a15@gmail.com)**
+- 🌐 Check out my interactive terminal portfolio: **[minhduc5a15.github.io](https://minhduc5a15.github.io/minhduc5a15/)**
 
 ### Socials
 
