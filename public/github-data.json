@@ -5,9 +5,9 @@
     "ownerLogin": "minhduc5a15",
     "defaultBranch": "main",
     "latestCommit": {
-      "message": "fix(core): resolve negative stride UB and singleton UAF during teardown",
-      "hash": "8ac2567",
-      "date": "2026-08-18T18:04:14Z",
+      "message": "feat(examples): add logic gates MLP demo and Wasm support",
+      "hash": "dba72a1",
+      "date": "2026-08-19T12:03:59Z",
       "author": "minhduc5a15",
       "authorAvatar": "https://avatars.githubusercontent.com/u/104719252?v=4"
     },
@@ -63,32 +63,32 @@
       {
         "name": "examples",
         "path": "examples",
-        "sha": "5d8f27e5196b670da5eb52c203bd42cc84e281e4",
+        "sha": "1d583395041e205a6c2dbdd2e59daff2f9be988e",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/examples?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/examples",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/5d8f27e5196b670da5eb52c203bd42cc84e281e4",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/1d583395041e205a6c2dbdd2e59daff2f9be988e",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/examples?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/5d8f27e5196b670da5eb52c203bd42cc84e281e4",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/1d583395041e205a6c2dbdd2e59daff2f9be988e",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/examples"
         }
       },
       {
         "name": "include",
         "path": "include",
-        "sha": "96035c3634de1635aeebc2ec0daea1c229de162e",
+        "sha": "4826017130ae0b2e7d29d77dd70a94817ab52c5a",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/include?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/include",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/96035c3634de1635aeebc2ec0daea1c229de162e",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/4826017130ae0b2e7d29d77dd70a94817ab52c5a",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/include?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/96035c3634de1635aeebc2ec0daea1c229de162e",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/4826017130ae0b2e7d29d77dd70a94817ab52c5a",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/include"
         }
       },
@@ -175,16 +175,16 @@
       {
         "name": ".gitignore",
         "path": ".gitignore",
-        "sha": "b44a631ae7ec1e216d786fdd08105948050786df",
-        "size": 659,
+        "sha": "97142749e2afe34f83839e502516bc5e1ed1cc91",
+        "size": 673,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/.gitignore?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/blob/main/.gitignore",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/b44a631ae7ec1e216d786fdd08105948050786df",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/97142749e2afe34f83839e502516bc5e1ed1cc91",
         "download_url": "https://raw.githubusercontent.com/minhduc5a15/HELIX/main/.gitignore",
         "type": "file",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/.gitignore?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/b44a631ae7ec1e216d786fdd08105948050786df",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/97142749e2afe34f83839e502516bc5e1ed1cc91",
           "html": "https://github.com/minhduc5a15/HELIX/blob/main/.gitignore"
         }
       },
