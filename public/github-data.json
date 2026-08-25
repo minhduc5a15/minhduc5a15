@@ -5,9 +5,9 @@
     "ownerLogin": "minhduc5a15",
     "defaultBranch": "main",
     "latestCommit": {
-      "message": "fix(autograd): resolve dtype mismatch crash in ReLU backward",
-      "hash": "82e78fc",
-      "date": "2026-08-23T21:22:47Z",
+      "message": "docs(tensor): add comments explaining internal overlap heuristic",
+      "hash": "8f70222",
+      "date": "2026-08-24T17:43:37Z",
       "author": "minhduc5a15",
       "authorAvatar": "https://avatars.githubusercontent.com/u/104719252?v=4"
     },
@@ -111,32 +111,32 @@
       {
         "name": "src",
         "path": "src",
-        "sha": "aa81402ac90e58640b504e16513073559c70a9d8",
+        "sha": "c4b6292f1887c79ace720811eb4bc51b0fd9e0a4",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/src?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/src",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/aa81402ac90e58640b504e16513073559c70a9d8",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/c4b6292f1887c79ace720811eb4bc51b0fd9e0a4",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/src?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/aa81402ac90e58640b504e16513073559c70a9d8",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/c4b6292f1887c79ace720811eb4bc51b0fd9e0a4",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/src"
         }
       },
       {
         "name": "stress",
         "path": "stress",
-        "sha": "794a1ba9a64227006f2da6ad530f66f9834d2fe8",
+        "sha": "553868fe30645d924163efd86f878ead71a1e8d4",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/stress?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/stress",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/794a1ba9a64227006f2da6ad530f66f9834d2fe8",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/553868fe30645d924163efd86f878ead71a1e8d4",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/stress?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/794a1ba9a64227006f2da6ad530f66f9834d2fe8",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/553868fe30645d924163efd86f878ead71a1e8d4",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/stress"
         }
       },
