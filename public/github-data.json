@@ -5,9 +5,9 @@
     "ownerLogin": "minhduc5a15",
     "defaultBranch": "main",
     "latestCommit": {
-      "message": "feat(core): add optimized TensorIterator traversal",
-      "hash": "681dd76",
-      "date": "2026-09-03T15:31:26Z",
+      "message": "fix: resolve OpenMP signedness error for MSVC",
+      "hash": "b2f9425",
+      "date": "2026-09-04T13:44:09Z",
       "author": "minhduc5a15",
       "authorAvatar": "https://avatars.githubusercontent.com/u/104719252?v=4"
     },
@@ -79,16 +79,16 @@
       {
         "name": "include",
         "path": "include",
-        "sha": "6b1a9ee1497056a8a8bc465176a365bc58d3fcd2",
+        "sha": "52b49734e71e49ad02235fe12b663b42960737c4",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/include?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/include",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/6b1a9ee1497056a8a8bc465176a365bc58d3fcd2",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/52b49734e71e49ad02235fe12b663b42960737c4",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/include?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/6b1a9ee1497056a8a8bc465176a365bc58d3fcd2",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/52b49734e71e49ad02235fe12b663b42960737c4",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/include"
         }
       },
