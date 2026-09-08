@@ -5,9 +5,9 @@
     "ownerLogin": "minhduc5a15",
     "defaultBranch": "main",
     "latestCommit": {
-      "message": "fix: resolve OpenMP signedness error for MSVC",
-      "hash": "b2f9425",
-      "date": "2026-09-04T13:44:09Z",
+      "message": "fix(core): repair TensorIterator rank and broadcast regressions",
+      "hash": "3b17301",
+      "date": "2026-09-07T09:18:55Z",
       "author": "minhduc5a15",
       "authorAvatar": "https://avatars.githubusercontent.com/u/104719252?v=4"
     },
@@ -79,16 +79,16 @@
       {
         "name": "include",
         "path": "include",
-        "sha": "52b49734e71e49ad02235fe12b663b42960737c4",
+        "sha": "8dd05c2c5320759648994af13efc56d57f393270",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/include?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/include",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/52b49734e71e49ad02235fe12b663b42960737c4",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/8dd05c2c5320759648994af13efc56d57f393270",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/include?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/52b49734e71e49ad02235fe12b663b42960737c4",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/8dd05c2c5320759648994af13efc56d57f393270",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/include"
         }
       },
@@ -111,16 +111,16 @@
       {
         "name": "src",
         "path": "src",
-        "sha": "d8611b44f4282f7ea670e839cd590d653cc07594",
+        "sha": "581c8b6927a301fef4c0dc9c83a9255616e50ff2",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/src?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/src",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/d8611b44f4282f7ea670e839cd590d653cc07594",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/581c8b6927a301fef4c0dc9c83a9255616e50ff2",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/src?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/d8611b44f4282f7ea670e839cd590d653cc07594",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/581c8b6927a301fef4c0dc9c83a9255616e50ff2",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/src"
         }
       },
@@ -143,16 +143,16 @@
       {
         "name": "tests",
         "path": "tests",
-        "sha": "4f1b873c35ff8bbba61abdfe4ba4e0acadf46f1e",
+        "sha": "d0b9615c163170998f35d2ad758aec0ca8bceec8",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/tests?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/tests",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/4f1b873c35ff8bbba61abdfe4ba4e0acadf46f1e",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/d0b9615c163170998f35d2ad758aec0ca8bceec8",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/tests?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/4f1b873c35ff8bbba61abdfe4ba4e0acadf46f1e",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/d0b9615c163170998f35d2ad758aec0ca8bceec8",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/tests"
         }
       },
