@@ -5,9 +5,9 @@
     "ownerLogin": "minhduc5a15",
     "defaultBranch": "main",
     "latestCommit": {
-      "message": "fix(core): repair TensorIterator rank and broadcast regressions",
-      "hash": "3b17301",
-      "date": "2026-09-07T09:18:55Z",
+      "message": "docs: synchronize project documentation with implementation",
+      "hash": "780859b",
+      "date": "2026-09-17T18:12:51Z",
       "author": "minhduc5a15",
       "authorAvatar": "https://avatars.githubusercontent.com/u/104719252?v=4"
     },
@@ -47,16 +47,16 @@
       {
         "name": "docs",
         "path": "docs",
-        "sha": "54d4597810eb459ef441dc1fa093a7e0a640e514",
+        "sha": "3780ed01c0c1b67a2389783602ddd0e32939a490",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/docs?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/docs",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/54d4597810eb459ef441dc1fa093a7e0a640e514",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/3780ed01c0c1b67a2389783602ddd0e32939a490",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/docs?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/54d4597810eb459ef441dc1fa093a7e0a640e514",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/3780ed01c0c1b67a2389783602ddd0e32939a490",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/docs"
         }
       },
@@ -223,16 +223,16 @@
       {
         "name": "CHANGELOG.md",
         "path": "CHANGELOG.md",
-        "sha": "dc45868c12ddc96b31f457d160517f28bf3a2c3e",
-        "size": 1920,
+        "sha": "33bff0a4a2510ab38009c550189e6f96feceec2c",
+        "size": 7637,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/CHANGELOG.md?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/blob/main/CHANGELOG.md",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/dc45868c12ddc96b31f457d160517f28bf3a2c3e",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/33bff0a4a2510ab38009c550189e6f96feceec2c",
         "download_url": "https://raw.githubusercontent.com/minhduc5a15/HELIX/main/CHANGELOG.md",
         "type": "file",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/CHANGELOG.md?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/dc45868c12ddc96b31f457d160517f28bf3a2c3e",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/33bff0a4a2510ab38009c550189e6f96feceec2c",
           "html": "https://github.com/minhduc5a15/HELIX/blob/main/CHANGELOG.md"
         }
       },
@@ -271,16 +271,16 @@
       {
         "name": "README.md",
         "path": "README.md",
-        "sha": "de20b33e1e71e53271f8864c9b4d3933e0065c7f",
-        "size": 5950,
+        "sha": "c20e51b35c1f1652f1def0058d5db7ce147d9757",
+        "size": 5324,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/README.md?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/blob/main/README.md",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/de20b33e1e71e53271f8864c9b4d3933e0065c7f",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/c20e51b35c1f1652f1def0058d5db7ce147d9757",
         "download_url": "https://raw.githubusercontent.com/minhduc5a15/HELIX/main/README.md",
         "type": "file",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/README.md?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/de20b33e1e71e53271f8864c9b4d3933e0065c7f",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/c20e51b35c1f1652f1def0058d5db7ce147d9757",
           "html": "https://github.com/minhduc5a15/HELIX/blob/main/README.md"
         }
       },
