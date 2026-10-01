@@ -324,9 +324,9 @@
     "ownerLogin": "minhduc5a15",
     "defaultBranch": "main",
     "latestCommit": {
-      "message": "feat(cli): integrate agent session and multi-process cache synchronization across CLI commands",
-      "hash": "fa6f07d",
-      "date": "2026-09-29T19:53:30Z",
+      "message": "feat(desktop): implement desktop client with tauri v2, binary ipc client, and modern dark ui",
+      "hash": "9c2b946",
+      "date": "2026-09-30T18:54:41Z",
       "author": "minhduc5a15",
       "authorAvatar": "https://avatars.githubusercontent.com/u/104719252?v=4"
     },
@@ -334,17 +334,33 @@
       {
         "name": ".github",
         "path": ".github",
-        "sha": "d414026985bd4754e171c7b211fcbcba02b4c20f",
+        "sha": "2233e7b2c08f164d1b598ebdfec588c353efcb1a",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/.github?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/tree/main/.github",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/d414026985bd4754e171c7b211fcbcba02b4c20f",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/2233e7b2c08f164d1b598ebdfec588c353efcb1a",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/.github?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/d414026985bd4754e171c7b211fcbcba02b4c20f",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/2233e7b2c08f164d1b598ebdfec588c353efcb1a",
           "html": "https://github.com/minhduc5a15/duckpass/tree/main/.github"
+        }
+      },
+      {
+        "name": "apps",
+        "path": "apps",
+        "sha": "f2d8f7e043937aaf9742180fcb472daa11f5c6a5",
+        "size": 0,
+        "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/apps?ref=main",
+        "html_url": "https://github.com/minhduc5a15/duckpass/tree/main/apps",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/f2d8f7e043937aaf9742180fcb472daa11f5c6a5",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/apps?ref=main",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/f2d8f7e043937aaf9742180fcb472daa11f5c6a5",
+          "html": "https://github.com/minhduc5a15/duckpass/tree/main/apps"
         }
       },
       {
@@ -364,50 +380,66 @@
         }
       },
       {
+        "name": "docs",
+        "path": "docs",
+        "sha": "3c3778ae16623c8d69a71556eb1b3de52c2a47bf",
+        "size": 0,
+        "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/docs?ref=main",
+        "html_url": "https://github.com/minhduc5a15/duckpass/tree/main/docs",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/3c3778ae16623c8d69a71556eb1b3de52c2a47bf",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/docs?ref=main",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/3c3778ae16623c8d69a71556eb1b3de52c2a47bf",
+          "html": "https://github.com/minhduc5a15/duckpass/tree/main/docs"
+        }
+      },
+      {
         "name": "include",
         "path": "include",
-        "sha": "8e0cfbceffac7e45e41d5cd46e512e8632e5a435",
+        "sha": "7320c6f746bcdaa75f1fa4d0a85d697000a1e99c",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/include?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/tree/main/include",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/8e0cfbceffac7e45e41d5cd46e512e8632e5a435",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/7320c6f746bcdaa75f1fa4d0a85d697000a1e99c",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/include?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/8e0cfbceffac7e45e41d5cd46e512e8632e5a435",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/7320c6f746bcdaa75f1fa4d0a85d697000a1e99c",
           "html": "https://github.com/minhduc5a15/duckpass/tree/main/include"
         }
       },
       {
         "name": "src",
         "path": "src",
-        "sha": "68ce138001fa6901da36e6ddca8124ef87a822bb",
+        "sha": "bc72f197854834fff6856baf742f5f673912dca7",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/src?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/tree/main/src",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/68ce138001fa6901da36e6ddca8124ef87a822bb",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/bc72f197854834fff6856baf742f5f673912dca7",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/src?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/68ce138001fa6901da36e6ddca8124ef87a822bb",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/bc72f197854834fff6856baf742f5f673912dca7",
           "html": "https://github.com/minhduc5a15/duckpass/tree/main/src"
         }
       },
       {
         "name": "tests",
         "path": "tests",
-        "sha": "2f53a6027ebf8179f8facceb7e6b8374d59e8810",
+        "sha": "754966ea4c5d44283ea9a08d49ff84f96a9b07c4",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/tests?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/tree/main/tests",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/2f53a6027ebf8179f8facceb7e6b8374d59e8810",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/754966ea4c5d44283ea9a08d49ff84f96a9b07c4",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/tests?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/2f53a6027ebf8179f8facceb7e6b8374d59e8810",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/754966ea4c5d44283ea9a08d49ff84f96a9b07c4",
           "html": "https://github.com/minhduc5a15/duckpass/tree/main/tests"
         }
       },
@@ -446,48 +478,64 @@
       {
         "name": ".gitignore",
         "path": ".gitignore",
-        "sha": "ac2a3e0e25174beb85dd827fac21862b0661ea62",
-        "size": 128,
+        "sha": "75ba20232fd19bc540fe186d5e74a2ec73d4d97e",
+        "size": 153,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/.gitignore?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/blob/main/.gitignore",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/ac2a3e0e25174beb85dd827fac21862b0661ea62",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/75ba20232fd19bc540fe186d5e74a2ec73d4d97e",
         "download_url": "https://raw.githubusercontent.com/minhduc5a15/duckpass/main/.gitignore",
         "type": "file",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/.gitignore?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/ac2a3e0e25174beb85dd827fac21862b0661ea62",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/75ba20232fd19bc540fe186d5e74a2ec73d4d97e",
           "html": "https://github.com/minhduc5a15/duckpass/blob/main/.gitignore"
         }
       },
       {
         "name": "CMakeLists.txt",
         "path": "CMakeLists.txt",
-        "sha": "c660ec2b27e5f1ccfa25743f2e85997a1dfd2ecc",
-        "size": 3434,
+        "sha": "48ff04a274381f903b7d6ae49f3d847aff102d48",
+        "size": 3636,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/CMakeLists.txt?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/blob/main/CMakeLists.txt",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/c660ec2b27e5f1ccfa25743f2e85997a1dfd2ecc",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/48ff04a274381f903b7d6ae49f3d847aff102d48",
         "download_url": "https://raw.githubusercontent.com/minhduc5a15/duckpass/main/CMakeLists.txt",
         "type": "file",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/CMakeLists.txt?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/c660ec2b27e5f1ccfa25743f2e85997a1dfd2ecc",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/48ff04a274381f903b7d6ae49f3d847aff102d48",
           "html": "https://github.com/minhduc5a15/duckpass/blob/main/CMakeLists.txt"
+        }
+      },
+      {
+        "name": "LICENSE",
+        "path": "LICENSE",
+        "sha": "64b87f2f30786e961b36fd40fe2f7271605dfdb7",
+        "size": 1069,
+        "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/LICENSE?ref=main",
+        "html_url": "https://github.com/minhduc5a15/duckpass/blob/main/LICENSE",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/64b87f2f30786e961b36fd40fe2f7271605dfdb7",
+        "download_url": "https://raw.githubusercontent.com/minhduc5a15/duckpass/main/LICENSE",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/LICENSE?ref=main",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/64b87f2f30786e961b36fd40fe2f7271605dfdb7",
+          "html": "https://github.com/minhduc5a15/duckpass/blob/main/LICENSE"
         }
       },
       {
         "name": "README.md",
         "path": "README.md",
-        "sha": "ef997ff61982d0f0d9c9610e59b3ed8d58d53690",
-        "size": 1403,
+        "sha": "7aa672837c501595cc71af4ba63f402fe635d918",
+        "size": 12916,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/README.md?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/blob/main/README.md",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/ef997ff61982d0f0d9c9610e59b3ed8d58d53690",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/7aa672837c501595cc71af4ba63f402fe635d918",
         "download_url": "https://raw.githubusercontent.com/minhduc5a15/duckpass/main/README.md",
         "type": "file",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/README.md?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/ef997ff61982d0f0d9c9610e59b3ed8d58d53690",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/blobs/7aa672837c501595cc71af4ba63f402fe635d918",
           "html": "https://github.com/minhduc5a15/duckpass/blob/main/README.md"
         }
       }
