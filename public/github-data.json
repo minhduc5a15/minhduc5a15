@@ -324,9 +324,9 @@
     "ownerLogin": "minhduc5a15",
     "defaultBranch": "main",
     "latestCommit": {
-      "message": "feat(desktop): implement desktop client with tauri v2, binary ipc client, and modern dark ui",
-      "hash": "9c2b946",
-      "date": "2026-09-30T18:54:41Z",
+      "message": "fix(ci): remove format.sh dependency from core c++ workflow",
+      "hash": "5b98acd",
+      "date": "2026-10-01T14:12:59Z",
       "author": "minhduc5a15",
       "authorAvatar": "https://avatars.githubusercontent.com/u/104719252?v=4"
     },
@@ -334,16 +334,16 @@
       {
         "name": ".github",
         "path": ".github",
-        "sha": "2233e7b2c08f164d1b598ebdfec588c353efcb1a",
+        "sha": "9425c8da9fb558fec13ce1fda110ed9d8860c29c",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/duckpass/contents/.github?ref=main",
         "html_url": "https://github.com/minhduc5a15/duckpass/tree/main/.github",
-        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/2233e7b2c08f164d1b598ebdfec588c353efcb1a",
+        "git_url": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/9425c8da9fb558fec13ce1fda110ed9d8860c29c",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/duckpass/contents/.github?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/2233e7b2c08f164d1b598ebdfec588c353efcb1a",
+          "git": "https://api.github.com/repos/minhduc5a15/duckpass/git/trees/9425c8da9fb558fec13ce1fda110ed9d8860c29c",
           "html": "https://github.com/minhduc5a15/duckpass/tree/main/.github"
         }
       },
