@@ -5,9 +5,9 @@
     "ownerLogin": "minhduc5a15",
     "defaultBranch": "main",
     "latestCommit": {
-      "message": "feat(core): implement batched matrix multiplication without broadcasting",
-      "hash": "0d5aadb",
-      "date": "2026-10-06T19:56:02Z",
+      "message": "docs(perf): refine BMM calibration document and regret evidence",
+      "hash": "21bef6a",
+      "date": "2026-10-13T20:52:49Z",
       "author": "minhduc5a15",
       "authorAvatar": "https://avatars.githubusercontent.com/u/104719252?v=4"
     },
@@ -15,48 +15,48 @@
       {
         "name": ".github",
         "path": ".github",
-        "sha": "41fd3e338fdce1518a24ccf1559f4c1b94cfca2b",
+        "sha": "f2c922f514a1ae055e682ceff19526dab57e27a5",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/.github?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/.github",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/41fd3e338fdce1518a24ccf1559f4c1b94cfca2b",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/f2c922f514a1ae055e682ceff19526dab57e27a5",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/.github?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/41fd3e338fdce1518a24ccf1559f4c1b94cfca2b",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/f2c922f514a1ae055e682ceff19526dab57e27a5",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/.github"
         }
       },
       {
         "name": "benchmark",
         "path": "benchmark",
-        "sha": "6d1e902f3b1949d6bac66ce002c63bd593f755f3",
+        "sha": "461fffd195fa1a82cf113a4a5af05d659a5bce07",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/benchmark?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/benchmark",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/6d1e902f3b1949d6bac66ce002c63bd593f755f3",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/461fffd195fa1a82cf113a4a5af05d659a5bce07",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/benchmark?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/6d1e902f3b1949d6bac66ce002c63bd593f755f3",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/461fffd195fa1a82cf113a4a5af05d659a5bce07",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/benchmark"
         }
       },
       {
         "name": "docs",
         "path": "docs",
-        "sha": "7bbe125c6431eba661135dc5d2cba237a1f79155",
+        "sha": "de46e4c0b112cafd8273c6d532f13c2d7976ea08",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/docs?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/docs",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/7bbe125c6431eba661135dc5d2cba237a1f79155",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/de46e4c0b112cafd8273c6d532f13c2d7976ea08",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/docs?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/7bbe125c6431eba661135dc5d2cba237a1f79155",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/de46e4c0b112cafd8273c6d532f13c2d7976ea08",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/docs"
         }
       },
@@ -79,48 +79,48 @@
       {
         "name": "include",
         "path": "include",
-        "sha": "de9b67fb5cad9ff4b55246bca4027bd44ed9b896",
+        "sha": "bb12340ccde31c4c827303858b7849dceb7387d8",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/include?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/include",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/de9b67fb5cad9ff4b55246bca4027bd44ed9b896",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/bb12340ccde31c4c827303858b7849dceb7387d8",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/include?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/de9b67fb5cad9ff4b55246bca4027bd44ed9b896",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/bb12340ccde31c4c827303858b7849dceb7387d8",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/include"
         }
       },
       {
         "name": "scripts",
         "path": "scripts",
-        "sha": "c761dcdf09d1456e26fe3b4bcea68c78b88bd236",
+        "sha": "b8f3d5e2006bd2b3552eb020d05badb6b369702a",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/scripts?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/scripts",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/c761dcdf09d1456e26fe3b4bcea68c78b88bd236",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/b8f3d5e2006bd2b3552eb020d05badb6b369702a",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/scripts?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/c761dcdf09d1456e26fe3b4bcea68c78b88bd236",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/b8f3d5e2006bd2b3552eb020d05badb6b369702a",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/scripts"
         }
       },
       {
         "name": "src",
         "path": "src",
-        "sha": "e2783ac37cd8e0165fffc77dbd00d389f29df2f9",
+        "sha": "8fcc80c9cc70ff2b279bca52ffd5762c636a832f",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/src?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/src",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/e2783ac37cd8e0165fffc77dbd00d389f29df2f9",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/8fcc80c9cc70ff2b279bca52ffd5762c636a832f",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/src?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/e2783ac37cd8e0165fffc77dbd00d389f29df2f9",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/8fcc80c9cc70ff2b279bca52ffd5762c636a832f",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/src"
         }
       },
@@ -143,16 +143,16 @@
       {
         "name": "tests",
         "path": "tests",
-        "sha": "8a6d75b6ca1000d2f1edff24b8899b6fc53798c4",
+        "sha": "4e11cfc10238e0002436ad7810e9c8b409e9fcaf",
         "size": 0,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/tests?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/tree/main/tests",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/8a6d75b6ca1000d2f1edff24b8899b6fc53798c4",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/4e11cfc10238e0002436ad7810e9c8b409e9fcaf",
         "download_url": null,
         "type": "dir",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/tests?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/8a6d75b6ca1000d2f1edff24b8899b6fc53798c4",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/trees/4e11cfc10238e0002436ad7810e9c8b409e9fcaf",
           "html": "https://github.com/minhduc5a15/HELIX/tree/main/tests"
         }
       },
@@ -175,16 +175,16 @@
       {
         "name": ".gitignore",
         "path": ".gitignore",
-        "sha": "97142749e2afe34f83839e502516bc5e1ed1cc91",
-        "size": 673,
+        "sha": "ce997c4b254b05ce47774f599972476490d60219",
+        "size": 692,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/.gitignore?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/blob/main/.gitignore",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/97142749e2afe34f83839e502516bc5e1ed1cc91",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/ce997c4b254b05ce47774f599972476490d60219",
         "download_url": "https://raw.githubusercontent.com/minhduc5a15/HELIX/main/.gitignore",
         "type": "file",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/.gitignore?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/97142749e2afe34f83839e502516bc5e1ed1cc91",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/ce997c4b254b05ce47774f599972476490d60219",
           "html": "https://github.com/minhduc5a15/HELIX/blob/main/.gitignore"
         }
       },
@@ -239,16 +239,16 @@
       {
         "name": "CMakeLists.txt",
         "path": "CMakeLists.txt",
-        "sha": "a5ce0622fb2fedc13da3b2bd5f34a0ba53cad2ea",
-        "size": 3383,
+        "sha": "6846f47f1c42e70f59760743f97ce3a7979f62f4",
+        "size": 3423,
         "url": "https://api.github.com/repos/minhduc5a15/HELIX/contents/CMakeLists.txt?ref=main",
         "html_url": "https://github.com/minhduc5a15/HELIX/blob/main/CMakeLists.txt",
-        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/a5ce0622fb2fedc13da3b2bd5f34a0ba53cad2ea",
+        "git_url": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/6846f47f1c42e70f59760743f97ce3a7979f62f4",
         "download_url": "https://raw.githubusercontent.com/minhduc5a15/HELIX/main/CMakeLists.txt",
         "type": "file",
         "_links": {
           "self": "https://api.github.com/repos/minhduc5a15/HELIX/contents/CMakeLists.txt?ref=main",
-          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/a5ce0622fb2fedc13da3b2bd5f34a0ba53cad2ea",
+          "git": "https://api.github.com/repos/minhduc5a15/HELIX/git/blobs/6846f47f1c42e70f59760743f97ce3a7979f62f4",
           "html": "https://github.com/minhduc5a15/HELIX/blob/main/CMakeLists.txt"
         }
       },
